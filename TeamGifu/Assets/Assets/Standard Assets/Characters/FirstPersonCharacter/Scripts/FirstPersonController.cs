@@ -70,6 +70,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
+            if(Input.GetAxisRaw("Horizontal2")!=0)
+            {
+                float cameraY = Input.GetAxisRaw("Horizontal2");
+                transform.Rotate(0, cameraY, 0);
+            }
+            if (Input.GetAxisRaw("Vertical2") != 0)
+            {
+                float cameraZ = Input.GetAxisRaw("Vertical2");
+                transform.Rotate(cameraZ, 0, 0);
+            }
             transform.position = this.transform.position;
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
