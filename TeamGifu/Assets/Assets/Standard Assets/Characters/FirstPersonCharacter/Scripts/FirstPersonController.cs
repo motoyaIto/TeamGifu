@@ -58,7 +58,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-		//	m_MouseLook.Init(transform , m_Camera.transform);
+	//	m_MouseLook.Init(transform , m_Camera.transform);
         }
 
         private const int ROTATE_BUTTON = 1;
@@ -74,17 +74,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             RotateView();
+            // 十字キーで首を左右に回す
 
-            if(Input.GetAxisRaw("Horizontal2")!=0)
+            if (Input.GetAxisRaw("Horizontal2") != 0)
             {
                 float cameraY = Input.GetAxisRaw("Horizontal2");
-                transform.Rotate(0, cameraY, 0);
+                transform.Rotate(new Vector3(0, cameraY, 0));
+
             }
-            if (Input.GetAxisRaw("Vertical2") != 0)
-            {
-                float cameraZ = Input.GetAxisRaw("Vertical2");
-                transform.Rotate(cameraZ, 0, 0);
-            }
+            //if (Input.GetAxisRaw("Vertical2") != 0)
+            //{
+            //    float cameraZ = Input.GetAxisRaw("Vertical2");
+            //    transform.Rotate(new Vector3(cameraZ, 0, 0));
+            //}
+
             transform.position = this.transform.position;
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -158,7 +161,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
-           // m_MouseLook.UpdateCursorLock();
+       //   m_MouseLook.UpdateCursorLock();
         }
 
 
@@ -264,7 +267,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-           // m_MouseLook.LookRotation (transform, m_Camera.transform);
+        //   m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 
 
