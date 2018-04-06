@@ -65,6 +65,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private const float ANGLE_LIMIT_UP = 60f;
         private const float ANGLE_LIMIT_DOWN = -60f;
 
+        //cameraÇÃÉQÉbÉ^Å[
+        public Camera GetCamera()
+        {
+            return m_Camera;
+        }
         // Update is called once per frame
         private void Update()
         {
