@@ -65,6 +65,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private const float ANGLE_LIMIT_UP = 60f;
         private const float ANGLE_LIMIT_DOWN = -60f;
 
+        //camera‚ÌƒQƒbƒ^[
+        public Camera GetCamera()
+        {
+            return m_Camera;
+        }
         // Update is called once per frame
         private void Update()
         {
@@ -83,10 +88,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 transform.Rotate(new Vector3(cameraZ, 0, 0));
             }
 
-            //if (Input.GetAxis("CameraLeft")>0)
-            //{
-            //    transform.Rotate(new Vector3(0.0f, -1.0f, 0.0f));
-            //}
+            if(Input.GetAxisRaw("Horizontal2")!=0)
+            {
+                float cameraY = Input.GetAxisRaw("Horizontal2");
+                transform.Rotate(0, cameraY, 0);
+            }
+            if (Input.GetAxisRaw("Vertical2") != 0)
+            {
+                float cameraZ = Input.GetAxisRaw("Vertical2");
+                transform.Rotate(cameraZ, 0, 0);
+            }
             transform.position = this.transform.position;
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
