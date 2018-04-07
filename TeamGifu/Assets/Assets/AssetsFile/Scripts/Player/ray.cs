@@ -5,16 +5,22 @@ using UnityEngine;
 public class ray : MonoBehaviour {
     #region variable
     public static bool flag;
+    
 
+    private GameObject HitObj;//ヒットしたオブジェクト
     [SerializeField]
     private Camera camera;
     Ray _ray;
+
+    [SerializeField]
+   private string[] objName; 
     #endregion
 
     #region Event
     // Use this for initialization
     void Start()
     {
+        objName = new string[5];
         flag = false;
     }
 
@@ -34,16 +40,23 @@ public class ray : MonoBehaviour {
         //Rayの可視化    ↓Rayの原点　　　　↓Rayの方向　　　　　　　　　↓Rayの     
         if (Physics.Raycast(_ray, out hit))
         {
+            
             //Rayが当たったオブジェクトのtagがPlayerだったら
             if (hit.collider.tag == "cube")
             {
-                Debug.Log("Rayがcubeに当たった");
-                flag = true;
+                Debug.Log(hit.collider.name);
+                for (int i = 0; i < 4; i ++)
+                {
+                    if(objName[i]==null)
+                    {
+                        if (objName[i] != hit.collider.name)
+                        {
+                            objName[i] = hit.collider.name;
+                            break;
+                        }
+                    }
+                }
             }
-        }
-        else
-        {
-            flag = false;
         }
     }
 
