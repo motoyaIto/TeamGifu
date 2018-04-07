@@ -1,25 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ray : MonoBehaviour {
     #region variable
     public static bool flag;
-    
-
+    [SerializeField]
+    private Image CursorImage;
     private GameObject HitObj;//ヒットしたオブジェクト
     [SerializeField]
-    private Camera camera;
+    private new Camera camera;
     Ray _ray;
+    private bool rayFlag;
 
     [SerializeField]
    private string[] objName; 
     #endregion
 
     #region Event
+
     // Use this for initialization
     void Start()
     {
+        CursorImage.enabled = false;
+        rayFlag = false;
         objName = new string[5];
         flag = false;
     }
@@ -27,36 +31,50 @@ public class ray : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        CursorImage.transform.position = Input.mousePosition;
         if (Input.GetMouseButton(0))
         {
+            CursorImage.enabled = true;
+            rayFlag = true;
+
+        }
+        else
+        {
+            CursorImage.enabled = false;
+            rayFlag = false;
+
+        }
+        if (rayFlag)
+        {
+            Debug.Log("生成");
             _ray = camera.ScreenPointToRay(Input.mousePosition);
         }
         //Rayが当たったオブジェクトの情報を入れる箱
         RaycastHit hit;
-
-        //Rayの飛ばせる距離
-        int distance = 10;
-
-        //Rayの可視化    ↓Rayの原点　　　　↓Rayの方向　　　　　　　　　↓Rayの     
+ 
         if (Physics.Raycast(_ray, out hit))
         {
             
             //Rayが当たったオブジェクトのtagがPlayerだったら
             if (hit.collider.tag == "cube")
             {
-                Debug.Log(hit.collider.name);
+                Debug.Log("Hit");
+
                 for (int i = 0; i < 4; i ++)
                 {
-                    if(objName[i]==null)
-                    {
-                        if (objName[i] != hit.collider.name)
+                   
+                        if (objName[i] == null)
                         {
                             objName[i] = hit.collider.name;
-                            break;
+                        break;
                         }
+                    else
+                    {
+                        break;
                     }
                 }
             }
+   
         }
     }
 
