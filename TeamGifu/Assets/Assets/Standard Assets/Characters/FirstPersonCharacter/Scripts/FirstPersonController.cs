@@ -43,8 +43,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
         private Vector3 lastMousePosition;
         private Vector3 newAngle = new Vector3(0, 0, 0);
-        private float rotX = 0.0f;
-        private float rotY = 0.0f;
+
 
         // Use this for initialization
         private void Start()
