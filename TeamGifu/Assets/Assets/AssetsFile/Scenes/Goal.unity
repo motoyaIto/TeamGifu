@@ -10872,6 +10872,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1da584a57a47a14e9fbfecb44f76919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fireworks1: {fileID: 0}
+  Fireworks2: {fileID: 0}
+  Fireworks3: {fileID: 0}
 --- !u!65 &1105063401
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10879,7 +10882,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105063399}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.14, y: 1, z: 4.84}
@@ -11823,7 +11826,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4146683481574348, guid: b2bebbb56c246cd4ca33af524c995404, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.9525998
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4146683481574348, guid: b2bebbb56c246cd4ca33af524c995404, type: 2}
       propertyPath: m_LocalPosition.z
