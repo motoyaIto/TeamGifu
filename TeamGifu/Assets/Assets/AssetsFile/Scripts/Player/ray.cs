@@ -14,7 +14,7 @@ public class ray : MonoBehaviour {
     private bool rayFlag;
 
     [SerializeField]
-   private string[] objName; 
+   public static string[] objName; 
     #endregion
 
     #region Event
@@ -32,7 +32,7 @@ public class ray : MonoBehaviour {
     void Update()
     {
         CursorImage.transform.position = Input.mousePosition;
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.Q))
         {
             CursorImage.enabled = true;
             rayFlag = true;
@@ -55,13 +55,14 @@ public class ray : MonoBehaviour {
         {
             if (hit.collider.tag == "cube")
             {
-                for (int i = 0; i < 5; i ++)
+                for (int i = 0; i < 4; i ++)
                 {
                     if (objName[i] == null)
                     {
                         if (objName[i]!=hit.collider.name)
                         {
                             objName[i] = hit.collider.gameObject.name;
+
                             break;
                         }
 
