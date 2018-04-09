@@ -14,8 +14,7 @@ public class ray : MonoBehaviour {
     private bool rayFlag;
 
     [SerializeField]
-   public static string[] objName;
-    string[] getaAtemName;
+   private string[] objName; 
     #endregion
 
     #region Event
@@ -23,11 +22,9 @@ public class ray : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
-        getaAtemName = new string[4];
         CursorImage.enabled = false;
         rayFlag = false;
-        objName = new string[4];
+        objName = new string[5];
         flag = false;
     }
 
@@ -35,7 +32,7 @@ public class ray : MonoBehaviour {
     void Update()
     {
         CursorImage.transform.position = Input.mousePosition;
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetMouseButton(0))
         {
             CursorImage.enabled = true;
             rayFlag = true;
@@ -56,9 +53,9 @@ public class ray : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(_ray, out hit))
         {
-            if (hit.collider.tag == "Item")
+            if (hit.collider.tag == "cube")
             {
-                for (int i = 0; i < 3; i ++)
+                for (int i = 0; i < 5; i ++)
                 {
                     if (objName[i] == null)
                     {
@@ -67,6 +64,8 @@ public class ray : MonoBehaviour {
                             objName[i] = hit.collider.gameObject.name;
                             break;
                         }
+
+                      
                     }
                     else if(objName[i] == hit.collider.name) { break; }
                 }
@@ -75,18 +74,6 @@ public class ray : MonoBehaviour {
         }
     }
 
-
-    public string GetButtonName()
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            if (objName[i] != null)
-            {
-                return objName[i];
-            }
-        }
-        return null; 
-    }
 
     #endregion
 
