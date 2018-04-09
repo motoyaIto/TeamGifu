@@ -20,8 +20,12 @@ public class Open_to_the_right : MonoBehaviour {
         if(doorSwitch == true)
         {
 
-            transform.DOLocalMove(new Vector3((this.transform.position.x + this.transform.localScale.x * 1), 0, 0), 0.5f);
+            if (this.transform.position.z <= 5.0f)
+            {
+                Vector3 move = new Vector3(0f, 0f, 0.1f);
 
+                this.transform.position += move;
+            }
 
         }
 	}
