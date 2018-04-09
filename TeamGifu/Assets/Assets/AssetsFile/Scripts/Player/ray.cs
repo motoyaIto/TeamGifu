@@ -51,27 +51,23 @@ public class ray : MonoBehaviour {
         }
         //Rayが当たったオブジェクトの情報を入れる箱
         RaycastHit hit;
- 
         if (Physics.Raycast(_ray, out hit))
         {
-            
-            //Rayが当たったオブジェクトのtagがPlayerだったら
             if (hit.collider.tag == "cube")
             {
-                Debug.Log("Hit");
-
-                for (int i = 0; i < 4; i ++)
+                for (int i = 0; i < 5; i ++)
                 {
-                   
-                        if (objName[i] == null)
-                        {
-                            objName[i] = hit.collider.name;
-                        break;
-                        }
-                    else
+                    if (objName[i] == null)
                     {
-                        break;
+                        if (objName[i]!=hit.collider.name)
+                        {
+                            objName[i] = hit.collider.gameObject.name;
+                            break;
+                        }
+
+                      
                     }
+                    else if(objName[i] == hit.collider.name) { break; }
                 }
             }
    
