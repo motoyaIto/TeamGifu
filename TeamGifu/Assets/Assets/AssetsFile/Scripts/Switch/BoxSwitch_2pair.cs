@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class BoxSwitch_2pair : MonoBehaviour {
 
+    [SerializeField]
     private GameObject obj1;
+    [SerializeField]
     private GameObject obj2;
     private BoxSwitch obj1_script;
     private BoxSwitch obj2_script;
     // Use this for initialization
     void Start () {
-        obj1 = GameObject.Find("swich_1") as GameObject;
-
-        obj2 = GameObject.Find("swich_2") as GameObject;
-
         obj1_script = obj1.GetComponent<BoxSwitch>();
         obj2_script = obj2.GetComponent<BoxSwitch>();
     }
