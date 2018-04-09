@@ -11,17 +11,20 @@ public class ray : MonoBehaviour {
     [SerializeField]
     private new Camera camera;
     Ray _ray;
+    RaycastHit hit;
     private bool rayFlag;
 
     [SerializeField]
-   private string[] objName; 
+   public static string[] objName;
+    private GameObject PrefabItem;
     #endregion
-
+    Vector3 hitPosition;
     #region Event
 
     // Use this for initialization
     void Start()
     {
+        hitPosition = Vector3.zero;
         CursorImage.enabled = false;
         rayFlag = false;
         objName = new string[5];
@@ -31,8 +34,15 @@ public class ray : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(ray.objName!=null)
+        {
+            //アイテム名の取得
+            PrefabItem = (GameObject)Resources.Load("Prefabs/" + objName[0]);
+        }
+
+        //カーソル画像にマウス座標を追加
         CursorImage.transform.position = Input.mousePosition;
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.Q))
         {
             CursorImage.enabled = true;
             rayFlag = true;
@@ -50,30 +60,47 @@ public class ray : MonoBehaviour {
             _ray = camera.ScreenPointToRay(Input.mousePosition);
         }
         //Rayが当たったオブジェクトの情報を入れる箱
-        RaycastHit hit;
+
         if (Physics.Raycast(_ray, out hit))
         {
-            if (hit.collider.tag == "cube")
+            hitPosition = hit.transform.position;
+            if (hit.collider.tag == "Item")
             {
-                for (int i = 0; i < 5; i ++)
+                GetObjectName();
+            }
+            if (hit.collider.tag == "Hit")
+            {
+                Debug.Log("Hit");
+                if(PrefabItem!=null)
                 {
-                    if (objName[i] == null)
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        if (objName[i]!=hit.collider.name)
-                        {
-                            objName[i] = hit.collider.gameObject.name;
-                            break;
-                        }
-
-                      
+                        Debug.Log("生成");
+                        Instantiate(PrefabItem,  new Vector3(hitPosition.x,hitPosition.y+0.5f,hitPosition.z),hit.transform.rotation);
                     }
-                    else if(objName[i] == hit.collider.name) { break; }
                 }
             }
-   
+       
         }
     }
+    private void GetObjectName()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (objName[i] == null)
+            {
+                if (objName[i] != hit.collider.name)
+                {
+                    objName[i] = hit.collider.gameObject.name;
 
+                    break;
+                }
+
+
+            }
+            else if (objName[i] == hit.collider.name) { break; }
+        }
+    }
 
     #endregion
 
