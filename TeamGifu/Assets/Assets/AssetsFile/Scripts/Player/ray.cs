@@ -19,11 +19,17 @@ public class ray : MonoBehaviour {
     private GameObject PrefabItem;
     #endregion
     Vector3 hitPosition;
+    CursorLockMode lockMode = CursorLockMode.None;
     #region Event
 
+    private void Awake()
+    {
+
+    }
     // Use this for initialization
     void Start()
     {
+
         hitPosition = Vector3.zero;
         CursorImage.enabled = false;
         rayFlag = false;
