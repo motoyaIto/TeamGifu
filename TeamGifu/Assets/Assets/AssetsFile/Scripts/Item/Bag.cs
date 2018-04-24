@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Bag : MonoBehaviour {
    
     static Canvas bag;
+
 	// Use this for initialization
 	void Start () {
         bag = GetComponent<Canvas>();

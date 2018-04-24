@@ -21,6 +21,10 @@ public class ray : MonoBehaviour {
     Vector3 hitPosition;
     CursorLockMode lockMode = CursorLockMode.None;
     #region Event
+    [SerializeField]
+    private GameObject ItemList;
+    private ItemListController ItemListScript;
+    private BagController _bag;
 
     private void Awake()
     {
@@ -35,36 +39,46 @@ public class ray : MonoBehaviour {
         rayFlag = false;
         objName = new string[5];
         flag = false;
+
+        ItemListScript = ItemList.GetComponent<ItemListController>();
+        _bag = gameObject.AddComponent<BagController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ray.objName!=null)
+ 
+
+        if (ray.objName!=null)
         {
             //アイテム名の取得
             PrefabItem = (GameObject)Resources.Load("Prefabs/" + objName[0]);
         }
 
-        //カーソル画像にマウス座標を追加
-        CursorImage.transform.position = Input.mousePosition;
-        if (Input.GetKey(KeyCode.Q))
+    
+        if (BagController.LookFlag)
         {
-            CursorImage.enabled = true;
-            rayFlag = true;
+            if (Input.GetKey(KeyCode.Q))
+            {
+                CursorImage.enabled = true;
+                rayFlag = true;
 
-        }
-        else
-        {
-            CursorImage.enabled = false;
-            rayFlag = false;
+            }
+            else
+            {
+                CursorImage.enabled = false;
+                rayFlag = false;
 
+            }
+            if (rayFlag)
+            {
+                Debug.Log("生成");
+                //カーソル画像にマウス座標を追加
+                CursorImage.transform.position = Input.mousePosition;
+                _ray = camera.ScreenPointToRay(Input.mousePosition);
+            }
         }
-        if (rayFlag)
-        {
-            Debug.Log("生成");
-            _ray = camera.ScreenPointToRay(Input.mousePosition);
-        }
+
         //Rayが当たったオブジェクトの情報を入れる箱
 
         if (Physics.Raycast(_ray, out hit))
@@ -72,6 +86,7 @@ public class ray : MonoBehaviour {
             hitPosition = hit.transform.position;
             if (hit.collider.tag == "Item")
             {
+                ItemListScript.SetItemList(hit.collider.name);
                 GetObjectName();
             }
             if (hit.collider.tag == "Hit")
