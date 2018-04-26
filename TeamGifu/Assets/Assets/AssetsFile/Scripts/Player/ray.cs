@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ray : MonoBehaviour {
     #region variable
+
     public static bool flag;
     [SerializeField]
     private Image CursorImage;
@@ -19,7 +20,6 @@ public class ray : MonoBehaviour {
     private GameObject PrefabItem;
     #endregion
     Vector3 hitPosition;
-    CursorLockMode lockMode = CursorLockMode.None;
     #region Event
     [SerializeField]
     private GameObject ItemList;
@@ -28,7 +28,7 @@ public class ray : MonoBehaviour {
 
     private void Awake()
     {
-
+        gameObject.SetActive(true);
     }
     // Use this for initialization
     void Start()
@@ -39,8 +39,9 @@ public class ray : MonoBehaviour {
         rayFlag = false;
         objName = new string[5];
         flag = false;
-
         ItemListScript = ItemList.GetComponent<ItemListController>();
+        //ItemListScript = gameObject.AddComponent<ItemListController>();
+        
         _bag = gameObject.AddComponent<BagController>();
     }
 
