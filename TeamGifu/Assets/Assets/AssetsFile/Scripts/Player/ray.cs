@@ -17,6 +17,8 @@ public class ray : MonoBehaviour {
     [SerializeField]
    public static string[] objName;
     private GameObject PrefabItem;
+
+    private Light_Controller light_obj;
     #endregion
     Vector3 hitPosition;
     CursorLockMode lockMode = CursorLockMode.None;
@@ -24,12 +26,12 @@ public class ray : MonoBehaviour {
 
     private void Awake()
     {
-
+        
     }
     // Use this for initialization
     void Start()
     {
-
+        light_obj = new Light_Controller();
         hitPosition = Vector3.zero;
         CursorImage.enabled = false;
         rayFlag = false;
@@ -73,6 +75,8 @@ public class ray : MonoBehaviour {
             if (hit.collider.tag == "Item")
             {
                 GetObjectName();
+                Light_Controller.name = hit.collider.name;
+
             }
             if (hit.collider.tag == "Hit")
             {
