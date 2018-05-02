@@ -18,6 +18,8 @@ public class ray : MonoBehaviour {
     [SerializeField]
    public static string[] objName;
     private GameObject PrefabItem;
+
+    private Light_Controller light_obj;
     #endregion
     Vector3 hitPosition;
     #region Event
@@ -28,12 +30,14 @@ public class ray : MonoBehaviour {
 
     private void Awake()
     {
+
         gameObject.SetActive(true);
+
     }
     // Use this for initialization
     void Start()
     {
-
+        light_obj = new Light_Controller();
         hitPosition = Vector3.zero;
         CursorImage.enabled = false;
         rayFlag = false;
@@ -89,6 +93,8 @@ public class ray : MonoBehaviour {
             {
                 ItemListScript.SetItemList(hit.collider.name);
                 GetObjectName();
+                Light_Controller.name = hit.collider.name;
+
             }
             if (hit.collider.tag == "Hit")
             {
