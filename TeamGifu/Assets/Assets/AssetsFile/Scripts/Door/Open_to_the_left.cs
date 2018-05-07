@@ -6,6 +6,14 @@ using DG.Tweening;
 public class Open_to_the_left : MonoBehaviour {
 
     private bool doorSwitch = false;
+    private bool CloseSwith = false;
+    public bool CloseSwithState
+    {
+        set
+        {
+            CloseSwith = value;
+        }
+    }
     private float size_X = 0.0f;
 
     [SerializeField]
@@ -17,16 +25,17 @@ public class Open_to_the_left : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+       
         if (doorSwitch == true)
         {
-          if(this.transform.position.z >= Movepos_Z)
-          {
-                Vector3 move = new Vector3(0f, 0f, -0.1f);
-
-                this.transform.position += move;
-          }
-            
+            transform.DOLocalMove(new Vector3(5.0f, 0, -0.55f), 2.0f);
+            CloseSwith = true;
         }
+        if (doorSwitch == false&&CloseSwith==true)
+        {
+            transform.DOLocalMove(new Vector3(3.0564f, 0, -0.55f), 2.0f);
+        }
+
     }
 
     public void SetDoorSwitch(bool state)
