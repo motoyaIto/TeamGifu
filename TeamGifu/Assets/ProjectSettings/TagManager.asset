@@ -7,7 +7,6 @@ TagManager:
   - cube
   - Item
   - Hit
-  - Light_switch
   layers:
   - Default
   - TransparentFX

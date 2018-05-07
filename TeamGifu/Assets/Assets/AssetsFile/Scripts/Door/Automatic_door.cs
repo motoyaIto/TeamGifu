@@ -23,26 +23,13 @@ public class Automatic_door : MonoBehaviour {
 		
 	}
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.tag == "Player")
-    //    {
-            
-    //        LeftScript.SetDoorSwitch(true);
-    //        RightScript.SetDoorSwitch(true);
-    //    }
-    //}
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if(other.tag == "Player")
         {
+            
             LeftScript.SetDoorSwitch(true);
             RightScript.SetDoorSwitch(true);
         }
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        LeftScript.SetDoorSwitch(false);
     }
 }

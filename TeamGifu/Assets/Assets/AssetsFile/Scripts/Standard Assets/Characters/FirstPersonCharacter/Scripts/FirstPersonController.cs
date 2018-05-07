@@ -74,12 +74,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            if (BagController.LookFlag)
-            {
-                RotateView();
-
-
-            }
+            
+            RotateView();
             // 十字キーで首を左右に回す
 
             if (Input.GetAxisRaw("Horizontal2") != 0)
