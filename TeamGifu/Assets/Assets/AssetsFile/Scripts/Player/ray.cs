@@ -43,7 +43,7 @@ public class ray : MonoBehaviour {
         rayFlag = false;
         objName = new string[5];
         flag = false;
-        ItemListScript = ItemList.GetComponent<ItemListController>();
+        //ItemListScript = ItemList.GetComponent<ItemListController>();
         //ItemListScript = gameObject.AddComponent<ItemListController>();
         
         _bag = gameObject.AddComponent<BagController>();
