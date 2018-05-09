@@ -25,6 +25,7 @@ public class ray : MonoBehaviour {
     private GameObject ItemList;
     private ItemListController ItemListScript;
     private BagController _bag;
+    int Number = 0;
 
     private void Awake()
     {
@@ -97,7 +98,10 @@ public class ray : MonoBehaviour {
                     if (Input.GetMouseButtonDown(0))
                     {
                         Debug.Log("生成");
-                        Instantiate(PrefabItem,  new Vector3(hitPosition.x,hitPosition.y+0.5f,hitPosition.z),hit.transform.rotation);
+                        Number++;
+                        GameObject obj= Instantiate(PrefabItem,  new Vector3(hitPosition.x,hitPosition.y+1.0f,hitPosition.z),hit.transform.rotation);
+                        obj.name +=Number ;
+                        obj.GetComponent<Appearance>().StartF = true;
                     }
                 }
             }

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4269016667550310}
   - component: {fileID: 33345518936874982}
   - component: {fileID: 135707409327548158}
+  - component: {fileID: 114994993506563308}
   - component: {fileID: 23678695186477764}
   m_Layer: 0
   m_Name: Sphere
@@ -56,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ea088be1920a5b74c8621dc9eebef6ae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1559434072667028}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114994993506563308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559434072667028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76f715f74563c4ab2864f428b4b8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeMaterial: {fileID: 2100000, guid: 36e6ef0bf90c2cf4f9d7b85b3e579933, type: 2}
 --- !u!135 &135707409327548158
 SphereCollider:
   m_ObjectHideFlags: 1
