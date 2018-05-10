@@ -4773,9 +4773,51 @@ Prefab:
     - target: {fileID: 65089165189845420, guid: bace41124952d7344957ee27c61ca2e7,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65549403153682934, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65980751298211176, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 65549403153682934, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65980751298211176, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 65549403153682934, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 65549403153682934, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 65089165189845420, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 65089165189845420, guid: bace41124952d7344957ee27c61ca2e7,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65980751298211176, guid: bace41124952d7344957ee27c61ca2e7, type: 2}
+    - {fileID: 65918881266593006, guid: bace41124952d7344957ee27c61ca2e7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bace41124952d7344957ee27c61ca2e7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &445935287
