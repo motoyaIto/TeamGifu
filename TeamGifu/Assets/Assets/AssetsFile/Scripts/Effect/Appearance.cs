@@ -21,6 +21,7 @@ public class Appearance : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        matrial.sharedMaterial.SetFloat("_Height", 0.0f);
 
 
     }
@@ -36,12 +37,12 @@ public class Appearance : MonoBehaviour {
             
         }
         
-        if (t>1.7f)
+        if (matrial.sharedMaterial.GetFloat("_Height")>1.7f)
         {
             StartF = false;
             GetComponent<Collider>().enabled = true;
             t = 0;
-            this.matrial.material = ChangeMaterial;
+         //   this.matrial.material = ChangeMaterial;
          //   Debug.Break();
         }
 
