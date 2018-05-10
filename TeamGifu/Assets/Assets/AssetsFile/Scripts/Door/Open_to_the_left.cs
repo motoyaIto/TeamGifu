@@ -9,7 +9,7 @@ public class Open_to_the_left : MonoBehaviour {
     private float size_X = 0.0f;
 
     [SerializeField]
-    private float Movepos_Z = 5.0f;
+    private float Movepos_Z = -5.0f;
     // Use this for initialization
     void Start () {
 
@@ -19,7 +19,7 @@ public class Open_to_the_left : MonoBehaviour {
 	void Update () {
         if (doorSwitch == true)
         {
-          if(this.transform.position.x >= Movepos_Z)
+          if(this.transform.position.z >= Movepos_Z)
           {
                 Vector3 move = new Vector3(0f, 0f, -0.1f);
 

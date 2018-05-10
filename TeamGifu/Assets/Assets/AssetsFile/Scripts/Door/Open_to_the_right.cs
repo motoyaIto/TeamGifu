@@ -25,7 +25,7 @@ public class Open_to_the_right : MonoBehaviour {
 
             if (this.transform.position.z <= Movepos_Z)
             {
-                Vector3 move = new Vector3(0.0f, 0f, 0.1f);
+                Vector3 move = new Vector3(0f, 0f, 0.1f);
 
                 this.transform.position += move;
             }
