@@ -27,7 +27,7 @@ public class Automatic_door : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            
+            Debug.Log("door");
             LeftScript.SetDoorSwitch(true);
             RightScript.SetDoorSwitch(true);
         }
