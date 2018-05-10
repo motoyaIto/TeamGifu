@@ -22,6 +22,7 @@ public class BoxSwitch : MonoBehaviour {
         if (other.tag == "Item")
         {
             OnSwitch = true;
+            GetComponent<Collider>().enabled = false;
         }
     }
 
