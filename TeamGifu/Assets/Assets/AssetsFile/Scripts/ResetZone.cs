@@ -16,7 +16,7 @@ public class ResetZone : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 ResetPos = new Vector3(0f, 1.3f, 0f);
+        Vector3 ResetPos = new Vector3(-8.5f, 35f, 0f);
         other.transform.position = ResetPos;
     }
 }
