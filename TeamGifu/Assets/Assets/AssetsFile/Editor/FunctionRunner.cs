@@ -28,4 +28,9 @@ public class FunctionRunner : MonoBehaviour {
     {
         return EditorApplication.isPlaying;
     }
+    [MenuItem("Tools/CreateEmpty _c")]
+    private static void CreateEmptyGameObject()
+    {
+        GameObject obj = new GameObject("GameObject"); 
+    }
 }
