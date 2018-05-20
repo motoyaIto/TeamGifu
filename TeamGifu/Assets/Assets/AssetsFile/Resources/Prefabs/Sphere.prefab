@@ -95,7 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e76f715f74563c4ab2864f428b4b8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   StartF: 0
+=======
+>>>>>>> Room4&5
   ChangeMaterial: {fileID: 2100000, guid: 36e6ef0bf90c2cf4f9d7b85b3e579933, type: 2}
 --- !u!135 &135707409327548158
 SphereCollider:

@@ -23,7 +23,6 @@ public class Appearance : MonoBehaviour {
     void Start () {
         matrial.sharedMaterial.SetFloat("_Height", 0.0f);
 
-
     }
 
     // Update is called once per frame
@@ -42,7 +41,7 @@ public class Appearance : MonoBehaviour {
             StartF = false;
             GetComponent<Collider>().enabled = true;
             t = 0;
-         //   this.matrial.material = ChangeMaterial;
+            this.matrial.material = ChangeMaterial;
          //   Debug.Break();
         }
 
