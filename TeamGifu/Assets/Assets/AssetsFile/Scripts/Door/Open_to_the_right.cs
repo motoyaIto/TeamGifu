@@ -7,7 +7,8 @@ public class Open_to_the_right : MonoBehaviour {
 
     private bool doorSwitch = false;
     private float size_X = 0.0f;
-
+    public float move_Z;
+    public bool isZ;
 
 	// Use this for initialization
 	void Start () {
@@ -19,14 +20,23 @@ public class Open_to_the_right : MonoBehaviour {
 		
         if(doorSwitch == true)
         {
-
-            if (this.transform.position.z <= 5.0f)
+            if (isZ)
             {
-                Vector3 move = new Vector3(0f, 0f, 0.1f);
-
-                this.transform.position += move;
+                if (this.transform.position.z <= move_Z)
+                {
+                    Vector3 move = new Vector3(0f, 0f, 0.1f);
+                    this.transform.position += move;
+                }
             }
+            else
+            {
+                if (this.transform.position.x >= move_Z)
+                {
+                    Vector3 move = new Vector3(-0.1f, 0f, 0f);
+                    this.transform.position += move;
+                }
 
+            }
         }
 	}
 
