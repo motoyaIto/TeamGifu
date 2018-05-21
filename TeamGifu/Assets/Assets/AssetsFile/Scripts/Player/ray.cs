@@ -12,19 +12,20 @@ public class ray : MonoBehaviour {
     private new Camera camera;
     Ray _ray;
     RaycastHit hit;
-    private bool rayFlag;
+    
 
-    [SerializeField]
-   public static string[] objName;
+    //[SerializeField]
+   //public static string[] objName;
     private GameObject PrefabItem;
     #endregion
     Vector3 hitPosition;
     CursorLockMode lockMode = CursorLockMode.None;
     #region Event
+
     [SerializeField]
-    private GameObject ItemList;
-    private ItemListController ItemListScript;
-    private BagController _bag;
+    private GameObject ItemList;//アイテムリスト
+    private ItemListController ItemListScript;//アイテムリストのスクリプト
+   
     int Number = 0;
 
     private void Awake()
@@ -37,59 +38,54 @@ public class ray : MonoBehaviour {
 
         hitPosition = Vector3.zero;
         CursorImage.enabled = false;
-        rayFlag = false;
-        objName = new string[5];
+        //objName = new string[5];
         flag = false;
 
-        //ItemListScript = ItemList.GetComponent<ItemListController>();
-        _bag = gameObject.AddComponent<BagController>();
+       ItemListScript = ItemList.GetComponent<ItemListController>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+        //if (ItemListScript.GetItemListFlag())
+        //{
+        //    //アイテム名の取得
+        //    PrefabItem = (GameObject)Resources.Load("Prefabs/" /*+ objName[0]*/);
+        //}
 
-        if (ray.objName!=null)
+        //カバンが開いてないとき
+        if (BagController.LockFlag)
         {
-            //アイテム名の取得
-            PrefabItem = (GameObject)Resources.Load("Prefabs/" + objName[0]);
-        }
-
-    
-        if (BagController.LookFlag)
-        {
+            //カーソルを出しているとき
             if (Input.GetKey(KeyCode.Q))
             {
                 CursorImage.enabled = true;
-                rayFlag = true;
 
+                Debug.Log("生成");
+                //カーソル画像にマウス座標を追加
+                CursorImage.transform.position = Input.mousePosition;
+                //マウス座標からrayを飛ばす
+                _ray = camera.ScreenPointToRay(Input.mousePosition);
             }
             else
             {
                 CursorImage.enabled = false;
-                rayFlag = false;
-
-            }
-            if (rayFlag)
-            {
-                Debug.Log("生成");
-                //カーソル画像にマウス座標を追加
-                CursorImage.transform.position = Input.mousePosition;
-                _ray = camera.ScreenPointToRay(Input.mousePosition);
             }
         }
 
         //Rayが当たったオブジェクトの情報を入れる箱
-
         if (Physics.Raycast(_ray, out hit))
         {
             hitPosition = hit.transform.position;
             if (hit.collider.tag == "Item")
             {
+                //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
-                GetObjectName();
+                //GetObjectName();
             }
+
+            //アイテムが出せる場所に当たったら
             if (hit.collider.tag == "Hit")
             {
                 Debug.Log("Hit");
@@ -98,35 +94,20 @@ public class ray : MonoBehaviour {
                     if (Input.GetMouseButtonDown(0))
                     {
                         Debug.Log("生成");
-                        Number++;
+                    
+                        //アイテムの生成
                         GameObject obj= Instantiate(PrefabItem,  new Vector3(hitPosition.x,hitPosition.y+1.0f,hitPosition.z),hit.transform.rotation);
-                        obj.name +=Number ;
+                        //エフェクトの発生
                         obj.GetComponent<Appearance>().StartF = true;
+                        
+          
                     }
                 }
             }
        
         }
     }
-    private void GetObjectName()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            if (objName[i] == null)
-            {
-                if (objName[i] != hit.collider.name)
-                {
-                    objName[i] = hit.collider.gameObject.name;
-
-                    break;
-                }
-
-
-            }
-            else if (objName[i] == hit.collider.name) { break; }
-        }
-    }
-
+   
     #endregion
 
 }

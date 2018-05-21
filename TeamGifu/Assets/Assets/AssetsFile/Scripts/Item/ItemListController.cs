@@ -21,19 +21,23 @@ public class ItemListController : MonoBehaviour {
 
     // スプライトを描画するためのオブジェクト
     public Image[] m_imageList;
+    private bool m_inItem = false;
+
+    //クリックされたイメージ
+    private string m_selectImage;
     
 	void Start () {
         gameObject.SetActive(false);
 
         // あらかじめすべてのアイテムのスプライトを非表示にしておく
-        foreach (var n in m_imageList)
+        foreach (Image n in m_imageList)
         {
             n.gameObject.SetActive(false);
         }
     }
 	
 	void Update () {
-      
+       
 	}
     
     /// <summary>
@@ -76,8 +80,28 @@ public class ItemListController : MonoBehaviour {
                 image.gameObject.SetActive(true);
                 image.sprite = sprite;
 
+                m_inItem = true;
+
                 return;
             }            
         }
+    }
+
+    public void SerectImage(Image image)
+    {
+        m_selectImage = image.sprite.name;
+    }
+
+
+
+
+    public string GetItemName(int i)
+    {
+        return m_imageList[i].sprite.name;
+    }
+
+    public bool GetItemListFlag()
+    {
+        return m_inItem;
     }
 }
