@@ -10,7 +10,7 @@ public class Bag : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         bag = GetComponent<Canvas>();
-		
+       
 	}
 	
 	// Update is called once per frame
