@@ -32,4 +32,12 @@ public class Automatic_door : MonoBehaviour {
             RightScript.SetDoorSwitch(true);
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+     
+
+            LeftScript.SetDoorSwitch(false);
+            RightScript.SetDoorSwitch(false);
+        
+    }
 }
