@@ -49,6 +49,7 @@ public class ray : MonoBehaviour {
             {
                 //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
+                Destroy(hit.collider.gameObject);
             }
 
             //アイテムが選択されていてなおかつアイテムが出せる場所に当たったら
