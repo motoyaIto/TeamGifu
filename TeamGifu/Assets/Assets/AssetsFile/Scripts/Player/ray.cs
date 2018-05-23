@@ -6,127 +6,93 @@ public class ray : MonoBehaviour {
     #region variable
     public static bool flag;
     [SerializeField]
-    private Image CursorImage;
-    private GameObject HitObj;//ヒットしたオブジェクト
-    [SerializeField]
     private new Camera camera;
     Ray _ray;
     RaycastHit hit;
-    private bool rayFlag;
-
-    [SerializeField]
-   public static string[] objName;
-    private GameObject PrefabItem;
+    
     #endregion
     Vector3 hitPosition;
-    CursorLockMode lockMode = CursorLockMode.None;
-    #region Event
     [SerializeField]
-    private GameObject ItemList;
-    private ItemListController ItemListScript;
-    private BagController _bag;
-    int Number = 0;
+    private Image CursorImage;
 
-    private void Awake()
-    {
+    #region Event
 
-    }
+    [SerializeField]
+    private GameObject ItemList;//アイテムリスト
+    private ItemListController ItemListScript;//アイテムリストのスクリプト
+
     // Use this for initialization
     void Start()
     {
-
         hitPosition = Vector3.zero;
-        CursorImage.enabled = false;
-        rayFlag = false;
-        objName = new string[5];
+
         flag = false;
 
-        //ItemListScript = ItemList.GetComponent<ItemListController>();
-        _bag = gameObject.AddComponent<BagController>();
+       ItemListScript = ItemList.GetComponent<ItemListController>();
+        CursorImage.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+        //カーソルのイメージを取得
+        CursorImage.transform.position = Input.mousePosition;
 
-        if (ray.objName!=null)
-        {
-            //アイテム名の取得
-            PrefabItem = (GameObject)Resources.Load("Prefabs/" + objName[0]);
-        }
-
-    
-        if (BagController.LookFlag)
-        {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                CursorImage.enabled = true;
-                rayFlag = true;
-
-            }
-            else
-            {
-                CursorImage.enabled = false;
-                rayFlag = false;
-
-            }
-            if (rayFlag)
-            {
-                Debug.Log("生成");
-                //カーソル画像にマウス座標を追加
-                CursorImage.transform.position = Input.mousePosition;
-                _ray = camera.ScreenPointToRay(Input.mousePosition);
-            }
-        }
-
+        //カーソルを描画
+        DrawCursor();
+       
         //Rayが当たったオブジェクトの情報を入れる箱
-
         if (Physics.Raycast(_ray, out hit))
         {
             hitPosition = hit.transform.position;
             if (hit.collider.tag == "Item")
             {
+                //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
-                GetObjectName();
             }
-            if (hit.collider.tag == "Hit")
+
+            //アイテムが選択されていてなおかつアイテムが出せる場所に当たったら
+            if (ItemListScript.GetSelectImage() != "" && hit.collider.tag == "Hit")
             {
-                Debug.Log("Hit");
-                if(PrefabItem!=null)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("生成");
-                        Number++;
-                        GameObject obj= Instantiate(PrefabItem,  new Vector3(hitPosition.x,hitPosition.y+1.0f,hitPosition.z),hit.transform.rotation);
-                        obj.name +=Number ;
-                        obj.GetComponent<Appearance>().StartF = true;
-                    }
-                }
-            }
-       
-        }
+                TraceOnObject();
+            }           
+        } 
     }
-    private void GetObjectName()
+
+    /// <summary>
+    /// カーソルを描画する
+    /// </summary>
+    private void DrawCursor()
     {
-        for (int i = 0; i < 4; i++)
+        //カーソルを出していてなおかつカバンが開いてないとき
+        if (Input.GetKey(KeyCode.Q) && BagController.LockFlag)
         {
-            if (objName[i] == null)
-            {
-                if (objName[i] != hit.collider.name)
-                {
-                    objName[i] = hit.collider.gameObject.name;
+            CursorImage.enabled = true;
 
-                    break;
-                }
-
-
-            }
-            else if (objName[i] == hit.collider.name) { break; }
+            //マウス座標からrayを飛ばす
+            _ray = camera.ScreenPointToRay(Input.mousePosition);
+        }
+        else
+        {
+            CursorImage.enabled = false;
         }
     }
+   
+    /// <summary>
+    /// トレースオンオブジェクト
+    /// </summary>
+    private void TraceOnObject()
+    {
+        //アイテム名の取得
+        GameObject PrefabItem = (GameObject)Resources.Load("Prefabs/" + ItemListScript.GetSelectImage());
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            //アイテムの生成
+            GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y + 1.0f, hitPosition.z), hit.transform.rotation);
+            //エフェクトの発生
+            obj.GetComponent<Appearance>().StartF = true;
+        }
+    }
     #endregion
-
 }

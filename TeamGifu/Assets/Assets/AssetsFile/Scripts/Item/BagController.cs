@@ -7,18 +7,8 @@ public class BagController : MonoBehaviour {
 
     private bool openBag = false;//開いている(true)いない(false)
     static Canvas bag;
-    public static bool LookFlag=true;
-    public bool LookFlagState
-    {
-        get
-        {
-            return LookFlag;
-        }
-        set
-        {
-            LookFlag = value;
-        }
-    }
+    public static bool LockFlag=true;
+
 
     public void Event()
     {
@@ -27,14 +17,14 @@ public class BagController : MonoBehaviour {
             Bag.SetActive("ItemList", true);
 
             openBag = true;
-            LookFlag = false;
+            LockFlag = false;
         }
         else
         {
             Bag.SetActive("ItemList", false);
 
             openBag = false;
-            LookFlag = true;
+            LockFlag = true;
             
         }
 
