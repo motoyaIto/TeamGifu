@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetZone : MonoBehaviour {
+public class Scr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +13,4 @@ public class ResetZone : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Vector3 ResetPos = new Vector3(-8.5f, 35f, 0f);
-        other.transform.position = ResetPos;
-    }
 }
