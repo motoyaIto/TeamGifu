@@ -49,7 +49,7 @@ public class ray : MonoBehaviour {
             {
                 //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
-                Destroy(hit.collider.gameObject);
+                //Destroy(hit.collider.gameObject);
             }
 
             //アイテムが選択されていてなおかつアイテムが出せる場所に当たったら
@@ -92,7 +92,7 @@ public class ray : MonoBehaviour {
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y + 1.0f, hitPosition.z), hit.transform.rotation);
             //エフェクトの発生
-            obj.GetComponent<Appearance>().StartF = true;
+            //obj.GetComponent<Appearance>().StartF = true;
         }
     }
     #endregion
