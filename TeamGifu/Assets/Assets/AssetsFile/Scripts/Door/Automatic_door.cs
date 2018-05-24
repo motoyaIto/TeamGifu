@@ -12,6 +12,7 @@ public class Automatic_door : MonoBehaviour {
     private Open_to_the_left LeftScript;
     private Open_to_the_right RightScript;
 
+
 	// Use this for initialization
 	void Start () {
         LeftScript = LeftDoor.GetComponent<Open_to_the_left>();
@@ -27,15 +28,16 @@ public class Automatic_door : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
+        
+                LeftScript.SetDoorSwitch(true);
+                RightScript.SetDoorSwitch(true);
             
-            LeftScript.SetDoorSwitch(true);
-            RightScript.SetDoorSwitch(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-     
 
+   
             LeftScript.SetDoorSwitch(false);
             RightScript.SetDoorSwitch(false);
         
