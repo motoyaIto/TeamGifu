@@ -26,6 +26,7 @@ public class WeightGimmick : MonoBehaviour {
     public room3_front front;
     public room3_left left;
     public room3_right right;
+    const string clone = "(Clone)";
     enum WEIGHT
     {
         FIVE,
@@ -84,28 +85,26 @@ public class WeightGimmick : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject!=null)
-        {
-            if (collision.gameObject.name == obj[(int)WEIGHT.FIVE].name)
+ 
+            if (collision.gameObject.name== obj[(int)WEIGHT.FIVE].name+clone)
             {
                 Sum += G_Obj1;
                 // Debug.Log("5");
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
+            if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name + clone)
             {
                 Sum += G_Obj2;
                 // Debug.Log("10");
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name)
+            if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name + clone)
             {
                 Sum += G_Obj3;
                 //Debug.Log("15");
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name)
+            if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name + clone)
             {
                 Sum += G_Obj3;
                 //Debug.Log("20");
             }
-        }
     }
 }

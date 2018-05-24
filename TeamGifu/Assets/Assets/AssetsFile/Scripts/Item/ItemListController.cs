@@ -13,7 +13,10 @@ using UnityEngine.UI;
 public class ItemListController : MonoBehaviour {
 
     const int MAX_HAVE = 12;
-
+    public GameObject player;
+    GameObject PrefabItem;
+    [SerializeField]
+    GameObject child;
     // アイテムで使うスプライト（テクスチャ）
     // これは、Unity エディタ上で事前に設定しておく必要があります
     [SerializeField]
@@ -23,6 +26,8 @@ public class ItemListController : MonoBehaviour {
     [SerializeField]
     private Image[] m_imageList;
     private bool m_inItem = false;
+    [SerializeField]
+    private Vector3 offset = Vector3.zero;
 
     //クリックされたイメージ
     private string m_selectImage;
@@ -38,8 +43,8 @@ public class ItemListController : MonoBehaviour {
     }
 	
 	void Update () {
-       
-	}
+
+    }
     
     /// <summary>
     /// UI用の画像を取得する
@@ -95,8 +100,17 @@ public class ItemListController : MonoBehaviour {
     public void SerectImage(Image image)
     {
         m_selectImage = image.sprite.name;
-    }
+        if(PrefabItem!=null)
+        {
+           Destroy(child);
+        }
+        PrefabItem = (GameObject)Resources.Load("Prefabs/" + m_selectImage);
+        //アイテムの生成
+          child = Instantiate(PrefabItem,new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z)+offset, player.transform.rotation)as GameObject;
+        child.transform.parent = transform.root;
 
+    }
+    
 
 
 
