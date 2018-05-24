@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Door_controller : MonoBehaviour {
     public GameObject[] obj;
-    public GameObject door;
     public Room2_GimicOn room2;
     private void Start()
     {
