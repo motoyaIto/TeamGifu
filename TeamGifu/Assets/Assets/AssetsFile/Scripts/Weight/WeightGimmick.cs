@@ -61,18 +61,16 @@ public class WeightGimmick : MonoBehaviour {
         if(LeftWeight<=Sum)
         {
             left.LockFlagState = true;
-            Debug.Log("left");
+
         }
         else if (lowerWeght <= Sum && Sum <= upperWeight)
         {
             front.LockFlagState = true ;
-            Debug.Log("front");
 
         }
         else if (RightWeight <= Sum )
         {
             right.LockFlagState = true;
-            Debug.Log("right");
 
         }
         else
