@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Door_controller : MonoBehaviour {
     public GameObject[] obj;
-    public GameObject door;
     public Room2_GimicOn room2;
     private void Start()
     {
@@ -18,9 +17,7 @@ public class Door_controller : MonoBehaviour {
             {
                 if (obj[2].GetComponent<Door_Open>().open_Flag)
                 {
-                    Debug.Log("ここでドア開けれるようになるで");
                     room2.LockFlagParm = true;
-                   // door.GetComponent<Automatic_door>().Door_Control();
                 }
             }
         }

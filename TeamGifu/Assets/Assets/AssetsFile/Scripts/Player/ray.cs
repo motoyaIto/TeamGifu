@@ -86,7 +86,10 @@ public class ray : MonoBehaviour {
     {
         //アイテム名の取得
         GameObject PrefabItem = (GameObject)Resources.Load("Prefabs/" + ItemListScript.GetSelectImage());
-
+        if(ItemListScript==null)
+        {
+            Debug.Break();
+        }
         if (Input.GetMouseButtonDown(0))
         {
             //アイテムの生成
