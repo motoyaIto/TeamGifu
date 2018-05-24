@@ -15,12 +15,16 @@ public class Open_to_the_left : MonoBehaviour {
     [SerializeField, Header("扉の移動量")]
     private Vector3 Distance;
 
+    private AudioSource As;
+    [HideInInspector]
+    public AudioClip Ac;
+
     private bool CloseFlag = false;
 
 
     // Use this for initialization
     void Start () {
-       
+        As = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -28,12 +32,13 @@ public class Open_to_the_left : MonoBehaviour {
         if (doorSwitch == true)
         {
             transform.DOLocalMove(new Vector3(Movepos.x , Movepos.y, Movepos.z)+Distance, TitmeNum);
+            As.PlayOneShot(Ac);
             CloseFlag = true;
         }
         else if (!doorSwitch && CloseFlag == true)
         {
             transform.DOLocalMove(new Vector3(Returnpos.x , Movepos.y, Movepos.z)-Distance, 1.5f);
-
+            As.PlayOneShot(Ac);
         }
     }
 
