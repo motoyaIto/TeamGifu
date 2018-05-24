@@ -1,11 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class WeightGimmick : MonoBehaviour {
-
-    [SerializeField]
-    private WeightData data;
     private int Sum = 0;
     private int offset = 10;
     public GameObject[] obj = new GameObject[4];
@@ -36,11 +33,17 @@ public class WeightGimmick : MonoBehaviour {
         FIFTEEN,
         TWENTY
     }
-
+    public int SumState
+    {
+        get
+        {
+            return Sum;
+        }
+    }
 
     // Use this for initialization
     void Start () {
-        
+
         //int count = 0;
         //foreach (Transform child in transform)bj
         //{
@@ -48,7 +51,7 @@ public class WeightGimmick : MonoBehaviour {
 
         //    Debug.Log("Child[" + count + "]:" + child.name);
         //    count++;
-            
+
         //}
     }
 	
@@ -81,26 +84,28 @@ public class WeightGimmick : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name==obj[(int)WEIGHT.FIVE].name)
+        if (collision.gameObject!=null)
         {
-            Sum += G_Obj1;
-           // Debug.Log("5");
+            if (collision.gameObject.name == obj[(int)WEIGHT.FIVE].name)
+            {
+                Sum += G_Obj1;
+                // Debug.Log("5");
+            }
+            if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
+            {
+                Sum += G_Obj2;
+                // Debug.Log("10");
+            }
+            if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name)
+            {
+                Sum += G_Obj3;
+                //Debug.Log("15");
+            }
+            if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name)
+            {
+                Sum += G_Obj3;
+                //Debug.Log("20");
+            }
         }
-        if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
-        {
-            Sum += G_Obj2;
-           // Debug.Log("10");
-        }
-        if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name)
-        {
-            Sum += G_Obj3;
-            //Debug.Log("15");
-        }
-        if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name)
-        {
-            Sum += G_Obj3;
-            //Debug.Log("20");
-        }
-        Debug.Log(Sum);
     }
 }
