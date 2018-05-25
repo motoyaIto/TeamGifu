@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class ItemListController : MonoBehaviour {
 
     const int MAX_HAVE = 12;
+    public GameObject player;
 
     // アイテムで使うスプライト（テクスチャ）
     // これは、Unity エディタ上で事前に設定しておく必要があります
@@ -23,6 +24,20 @@ public class ItemListController : MonoBehaviour {
     [SerializeField]
     private Image[] m_imageList;
     private bool m_inItem = false;
+    [SerializeField]
+    private Vector3 offset = Vector3.zero;
+    private bool CreateAitemFlag=false;
+    public bool CreateAitemState
+    {
+        get
+        {
+            return CreateAitemFlag;
+        }
+        set
+        {
+            CreateAitemFlag = value;
+        }
+    }
 
     //クリックされたイメージ
     private string m_selectImage;
@@ -38,8 +53,8 @@ public class ItemListController : MonoBehaviour {
     }
 	
 	void Update () {
-       
-	}
+
+    }
     
     /// <summary>
     /// UI用の画像を取得する
@@ -95,8 +110,10 @@ public class ItemListController : MonoBehaviour {
     public void SerectImage(Image image)
     {
         m_selectImage = image.sprite.name;
-    }
+        CreateAitemFlag = true;
 
+    }
+    
 
 
 
