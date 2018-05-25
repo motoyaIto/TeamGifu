@@ -16,7 +16,7 @@ public class Open_to_the_left : MonoBehaviour {
     private Vector3 Distance;
 
     private AudioSource As;
-    [HideInInspector]
+    [Header("ドアの開閉音")]
     public AudioClip Ac;
 
     private bool CloseFlag = false;
