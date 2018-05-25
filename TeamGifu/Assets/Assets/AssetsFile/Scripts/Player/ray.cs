@@ -44,7 +44,8 @@ public class ray : MonoBehaviour {
         //Rayが当たったオブジェクトの情報を入れる箱
         if (Physics.Raycast(_ray, out hit))
         {
-            hitPosition = hit.transform.position;
+            //hitPosition = hit.transform.position;
+            hitPosition = hit.point;
             if (hit.collider.tag == "Item")
             {
                 //アイテムリストに入れる
