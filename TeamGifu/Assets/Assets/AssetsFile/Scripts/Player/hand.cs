@@ -32,7 +32,9 @@ public class hand : MonoBehaviour {
             //アイテムの生成
             child = Instantiate(PrefabItem, transform.position+ ItemoffsetPos, player.transform.rotation) as GameObject;
             child.transform.parent = transform.root.Find("FirstPersonCharacter");
+            child.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             item.CreateAitemState = false;
+            Destroy(child.GetComponent<Rigidbody>());
         }
 
 		
