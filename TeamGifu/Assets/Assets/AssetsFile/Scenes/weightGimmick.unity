@@ -51400,7 +51400,7 @@ Transform:
   m_GameObject: {fileID: 1461824699}
   m_LocalRotation: {x: -0.000000006344635, y: -0.000000028871, z: -0.000000010062877,
     w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.847}
+  m_LocalPosition: {x: -0, y: -0, z: 0.632}
   m_LocalScale: {x: 0.010000001, y: 0.010000004, z: 0.009999995}
   m_Children: []
   m_Father: {fileID: 2058151483}
@@ -54111,19 +54111,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 1933014165}
---- !u!136 &1564459501
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1564459495}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.41, z: 0}
 --- !u!114 &1564459502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68513,6 +68500,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Height
+      value: 2.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Radius
+      value: 0.69
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -73797,7 +73792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1564459495}
   offsetPos: {x: -1, y: 0, z: 0.77}
-  ItemoffsetPos: {x: 0.19, y: 0.64, z: -0.01}
+  ItemoffsetPos: {x: -0.24, y: 0.34, z: -0.26}
   item: {fileID: 608939880}
   child: {fileID: 0}
 --- !u!95 &2058151482
@@ -73825,7 +73820,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058151480}
   m_LocalRotation: {x: -0.000000059604645, y: -0, z: -0.9890694, w: 0.14745086}
-  m_LocalPosition: {x: 1.388603, y: -1.1774583, z: 2.2100234}
+  m_LocalPosition: {x: 0.51, y: -0.41, z: 0.54}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1461824700}
@@ -73843,7 +73838,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.14, z: 0.17}
+  m_Size: {x: 0.12, y: 0.35, z: 0.17}
   m_Center: {x: 0.03, y: 0, z: 0.08}
 --- !u!1 &2059654507 stripped
 GameObject:
