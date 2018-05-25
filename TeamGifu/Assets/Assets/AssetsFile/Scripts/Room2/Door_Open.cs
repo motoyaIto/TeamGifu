@@ -20,14 +20,18 @@ public class Door_Open : MonoBehaviour {
     {
         //mtl = GetComponent<Renderer>().material;
         open_Flag = false;
-        Lock_State = true;
+        Lock_State = false;
     }
 
     public void IsTrue()
     {
-        if (Lock_State)
+        if (open_Flag & !Lock_State)
         {
             UnLock();
+        }
+        else
+        {
+            Debug.Log("合ってないよ");
         }
         
     }
@@ -36,7 +40,7 @@ public class Door_Open : MonoBehaviour {
     private void UnLock()
     {
         ReplaceMaterial(mtl);
-        open_Flag = true;
+        Lock_State = true;
     }
 
     // マテリアルの変更

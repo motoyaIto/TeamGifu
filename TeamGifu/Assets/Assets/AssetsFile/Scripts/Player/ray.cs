@@ -20,6 +20,7 @@ public class ray : MonoBehaviour {
     [SerializeField]
     private GameObject ItemList;//アイテムリスト
     private ItemListController ItemListScript;//アイテムリストのスクリプト
+    private Door_Open DoorOpen;// Room2のドアを開けるためのスクリプト
 
     // Use this for initialization
     void Start()
