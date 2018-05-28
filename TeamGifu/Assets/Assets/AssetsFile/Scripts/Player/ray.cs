@@ -88,11 +88,8 @@ public class ray : MonoBehaviour {
     {
         //アイテム名の取得
         GameObject PrefabItem = (GameObject)Resources.Load("Prefabs/" + ItemListScript.GetSelectImage());
-        if(ItemListScript==null)
-        {
-            Debug.Break();
-        }
-        if (Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButtonDown(0) && PrefabItem)
         {
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
