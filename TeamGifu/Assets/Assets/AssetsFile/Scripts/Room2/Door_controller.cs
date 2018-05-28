@@ -11,9 +11,9 @@ public class Door_controller : MonoBehaviour {
     }
     public void Update()
     {
-        if (obj[0].GetComponent<Door_Open>().open_Flag & 
-            obj[1].GetComponent<Door_Open>().open_Flag & 
-            obj[2].GetComponent<Door_Open>().open_Flag)
+        if (obj[0].GetComponent<Door_Open>().Lock_State & 
+            obj[1].GetComponent<Door_Open>().Lock_State & 
+            obj[2].GetComponent<Door_Open>().Lock_State)
         {
             room2.LockFlagParm = true;
         }
