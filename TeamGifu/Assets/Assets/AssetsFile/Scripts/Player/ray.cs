@@ -30,7 +30,7 @@ public class ray : MonoBehaviour {
 
     //ハノイの塔制
     [SerializeField]
-    //private Camera HanoicCamera;//ハノイカメラ
+   // private Camera HanoicCamera;//ハノイカメラ
     // Use this for initialization
     void Start()
     {
@@ -88,7 +88,7 @@ public class ray : MonoBehaviour {
             }
 
             //アイテムと当たったら
-            if (hit.collider.tag == "Item")
+            if (hit.collider.tag == "Item" && ClickKey_Q)
             {
                 //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
@@ -108,13 +108,12 @@ public class ray : MonoBehaviour {
     /// </summary>
     private void DrawCursor()
     {
+        //マウス座標からrayを飛ばす
+        _ray = camera.ScreenPointToRay(Input.mousePosition);
         //カーソルを出していてなおかつカバンが開いてないとき
         if (ClickKey_Q && BagController.LockFlag)
         {
             CursorImage.enabled = true;
-
-            //マウス座標からrayを飛ばす
-            _ray = camera.ScreenPointToRay(Input.mousePosition);
         }
         else
         {
