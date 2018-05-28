@@ -17,6 +17,11 @@ public class ray : MonoBehaviour {
 
     #region Event
 
+    //キー・ボタンフラグ
+    private bool ClickMouse_LeftButton = false;
+    private bool ClickKey_Q = false;
+
+    //アイテムリスト
     [SerializeField]
     private GameObject ItemList;//アイテムリスト
     private ItemListController ItemListScript;//アイテムリストのスクリプト
@@ -40,6 +45,24 @@ public class ray : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.Q))
+        {
+            ClickKey_Q = true;
+        }
+        else
+        {
+            ClickKey_Q = false;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            ClickMouse_LeftButton = true;
+        }
+        else
+        {
+            ClickMouse_LeftButton = false;
+        }
+
         //カーソルのイメージを取得
         CursorImage.transform.position = Input.mousePosition;
 
@@ -86,7 +109,7 @@ public class ray : MonoBehaviour {
     private void DrawCursor()
     {
         //カーソルを出していてなおかつカバンが開いてないとき
-        if (Input.GetKey(KeyCode.Q) && BagController.LockFlag)
+        if (ClickKey_Q && BagController.LockFlag)
         {
             CursorImage.enabled = true;
 
@@ -107,7 +130,7 @@ public class ray : MonoBehaviour {
         //アイテム名の取得
         GameObject PrefabItem = (GameObject)Resources.Load("Prefabs/" + ItemListScript.GetSelectImage());
         
-        if (Input.GetMouseButtonDown(0) && PrefabItem)
+        if (ClickKey_Q && ClickMouse_LeftButton && PrefabItem)
         {
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
