@@ -22,6 +22,10 @@ public class ray : MonoBehaviour {
     private ItemListController ItemListScript;//アイテムリストのスクリプト
     private Door_Open DoorOpen;// Room2のドアを開けるためのスクリプト
 
+
+    //ハノイの塔制
+    [SerializeField]
+    //private Camera HanoicCamera;//ハノイカメラ
     // Use this for initialization
     void Start()
     {
@@ -47,6 +51,20 @@ public class ray : MonoBehaviour {
         {
             //hitPosition = hit.transform.position;
             hitPosition = hit.point;
+
+            //カメラ操作を奪う物をクリックしたら
+            if(hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("hit");
+
+                //ハノイの塔用のカメラに切り替え
+                camera.enabled = false;
+                //HanoicCamera.enabled = true;
+                //PlayerCamera.SetActive(!PlayerCamera.activeInHierarchy);
+                //HanoicCamera.SetActive(!HanoicCamera.activeInHierarchy);
+            }
+
+            //アイテムと当たったら
             if (hit.collider.tag == "Item")
             {
                 //アイテムリストに入れる
@@ -93,6 +111,8 @@ public class ray : MonoBehaviour {
         {
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
+            
+            obj.name = PrefabItem.name;
             //エフェクトの発生
             //obj.GetComponent<Appearance>().StartF = true;
         }
