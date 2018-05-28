@@ -95,7 +95,7 @@ public class ray : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             //アイテムの生成
-            GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y + 1.0f, hitPosition.z), hit.transform.rotation);
+            GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
             //エフェクトの発生
             //obj.GetComponent<Appearance>().StartF = true;
         }
