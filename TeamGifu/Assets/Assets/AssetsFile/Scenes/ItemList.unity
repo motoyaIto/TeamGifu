@@ -10479,7 +10479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &980520185
 Transform:
   m_ObjectHideFlags: 0
@@ -10695,7 +10695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1770425486475888, guid: aaacc248f825ad2419f3c8dabff9dd66, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aaacc248f825ad2419f3c8dabff9dd66, type: 2}
@@ -15679,7 +15679,7 @@ MonoBehaviour:
   camera: {fileID: 1132182040}
   CursorImage: {fileID: 668848187}
   ItemList: {fileID: 1453739889}
-  HanoicCamera: {fileID: 2094387670}
+  HanoicCamera: {fileID: 2094387674}
 --- !u!1 &1579412197
 GameObject:
   m_ObjectHideFlags: 0
@@ -17011,7 +17011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1676450809
 Transform:
   m_ObjectHideFlags: 0
@@ -19847,7 +19847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
