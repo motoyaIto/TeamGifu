@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door_Open : MonoBehaviour {
-    #region    
+    #region  
+    [SerializeField]  
     private bool open_Flag;  // ドアを開けるためのフラグ
 
     private Material mtl;   // 変更するマテリアル
@@ -20,7 +21,7 @@ public class Door_Open : MonoBehaviour {
         Lock_State = false;
     }
 
-    public void IsTrue()
+    public void Check()
     {
         if (open_Flag & !Lock_State)
         {
