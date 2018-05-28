@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class hand : MonoBehaviour {
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private Vector3 offsetPos = Vector3.zero;
-    [SerializeField]
     private Vector3 ItemoffsetPos = Vector3.zero;
     [SerializeField]
     private ItemListController item;
@@ -21,19 +17,23 @@ public class hand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       // transform.position = player.transform.position+offsetPos;
-        if(item.CreateAitemState)
+        if (item.CreateAitemState)
         {
+            //既に生成されていれば
             if (PrefabItem != null)
             {
-                Destroy(child);
+                Destroy(child);//破棄
             }
+            //生成するオブジェクトを取得
             PrefabItem = (GameObject)Resources.Load("Prefabs/" + item.GetSelectImage());
             //アイテムの生成
-            child = Instantiate(PrefabItem, transform.position+ ItemoffsetPos, player.transform.rotation) as GameObject;
+            child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, transform.rotation) as GameObject;
+            //手のオブジェクトの子にする
             child.transform.parent = transform.root.Find("FirstPersonCharacter");
+            //スケールの縮小
             child.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             item.CreateAitemState = false;
+            //コンポーネントを破棄
             Destroy(child.GetComponent<Rigidbody>());
         }
 
