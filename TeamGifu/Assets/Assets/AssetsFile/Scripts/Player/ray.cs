@@ -59,7 +59,7 @@ public class ray : MonoBehaviour {
 
                 //ハノイの塔用のカメラに切り替え
                 camera.enabled = false;
-                HanoicCamera.enabled = true;
+                //HanoicCamera.enabled = true;
                 //PlayerCamera.SetActive(!PlayerCamera.activeInHierarchy);
                 //HanoicCamera.SetActive(!HanoicCamera.activeInHierarchy);
             }
