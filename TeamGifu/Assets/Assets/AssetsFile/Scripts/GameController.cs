@@ -18,10 +18,8 @@ public class GameController : MonoBehaviour {
 	}
 
     public void ChangeHanoinotou(GameObject HanoicCamera)
-    {
+    {;
+
         Debug.Log("in");
-        //ハノイの塔用のカメラに切り替え
-        PlayerCamera.SetActive(!PlayerCamera.activeInHierarchy);
-        HanoicCamera.SetActive(!HanoicCamera.activeInHierarchy);
     }
 }
