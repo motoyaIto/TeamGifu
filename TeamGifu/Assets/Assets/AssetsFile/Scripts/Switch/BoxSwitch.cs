@@ -24,6 +24,10 @@ public class BoxSwitch : MonoBehaviour {
             OnSwitch = true;
             GetComponent<Collider>().enabled = false;
         }
+        if(other.tag=="Player")
+        {
+            Debug.Log("PLayer");
+        }
     }
 
 
