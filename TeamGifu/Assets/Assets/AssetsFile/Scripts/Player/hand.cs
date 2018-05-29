@@ -30,11 +30,12 @@ public class hand : MonoBehaviour {
             child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, transform.rotation) as GameObject;
             //スケールの縮小
             child.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-            item.CreateAitemState = false;
+            
             //コンポーネントを破棄
             Destroy(child.GetComponent<Rigidbody>());
             //手のオブジェクトの子にする
             child.transform.parent = GameObject.Find("Hand").transform;
+            item.CreateAitemState = false;
 
         }
 

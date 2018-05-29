@@ -5,18 +5,31 @@ using UnityEngine.UI;
 public class ray : MonoBehaviour {
     #region variable
     public static bool flag;
+
     [SerializeField]
     private new Camera camera;
+    //Ray
     Ray _ray;
     RaycastHit hit;
-    
-    #endregion
     Vector3 hitPosition;
     [SerializeField]
     private Image CursorImage;
+    //固定objをクリックしたらアイテム生成するフラグ
+    private bool LockObjFlag=false;
+    public bool LockObjFlagState
+    {
+        get
+        {
+            return LockObjFlag;
+        }
+        set
+        {
+            LockObjFlag = value;
+        }
+    }
+    #endregion
 
     #region Event
-
     //キー・ボタンフラグ
     private bool ClickMouse_LeftButton = false;
     private bool ClickKey_Q = false;
@@ -26,7 +39,19 @@ public class ray : MonoBehaviour {
     private GameObject ItemList;//アイテムリスト
     private ItemListController ItemListScript;//アイテムリストのスクリプト
     private Door_Open DoorOpen;// Room2のドアを開けるためのスクリプト
+    private string RayName;
+    public string RayHitNameState
+    {
+        get
+        {
+            return RayName;
+        }
+        set
+        {
+            RayName = value;
+        }
 
+    }
 
     //ハノイの塔制
     [SerializeField]
@@ -72,8 +97,8 @@ public class ray : MonoBehaviour {
         //Rayが当たったオブジェクトの情報を入れる箱
         if (Physics.Raycast(_ray, out hit))
         {
-            //hitPosition = hit.transform.position;
             hitPosition = hit.point;
+            RayName = hit.collider.name;
 
             //カメラ操作を奪う物をクリックしたら
             if(hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
@@ -99,7 +124,15 @@ public class ray : MonoBehaviour {
             if (ItemListScript.GetSelectImage() != "" && hit.collider.tag == "Hit")
             {
                 TraceOnObject();
-            }           
+            }      
+            if(hit.collider.tag=="LockHit"&&ClickKey_Q && ClickMouse_LeftButton)
+            {
+                LockObjFlag = true;
+            }
+            else
+            {
+                LockObjFlag = false;
+            }
         } 
     }
 
@@ -136,7 +169,7 @@ public class ray : MonoBehaviour {
             
             obj.name = PrefabItem.name;
             //エフェクトの発生
-            //obj.GetComponent<Appearance>().StartF = true;
+           // obj.GetComponent<Appearance>().StartF = true;
         }
     }
     #endregion

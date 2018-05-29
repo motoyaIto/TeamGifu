@@ -84,22 +84,22 @@ public class WeightGimmick : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
  
-            if (collision.gameObject.name== obj[(int)WEIGHT.FIVE].name+clone)
+            if (collision.gameObject.name== obj[(int)WEIGHT.FIVE].name)
             {
                 Sum += G_Obj1;
                 // Debug.Log("5");
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name + clone)
+            if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
             {
                 Sum += G_Obj2;
                 // Debug.Log("10");
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name + clone)
+            if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name )
             {
                 Sum += G_Obj3;
                 //Debug.Log("15");
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name + clone)
+            if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name )
             {
                 Sum += G_Obj3;
                 //Debug.Log("20");
