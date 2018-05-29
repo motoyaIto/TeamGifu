@@ -9,6 +9,7 @@ TagManager:
   - Hit
   - Light
   - Camerarock
+  - LockHit
   layers:
   - Default
   - TransparentFX

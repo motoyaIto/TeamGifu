@@ -38,12 +38,12 @@ GameObject:
   - component: {fileID: 33967534665228106}
   - component: {fileID: 65089165189845420}
   - component: {fileID: 23549161652308020}
-  - component: {fileID: 65918881266593006}
   - component: {fileID: 114430941078730622}
   - component: {fileID: 54838855404133982}
+  - component: {fileID: 114036593891898794}
   m_Layer: 0
   m_Name: swich_1
-  m_TagString: Untagged
+  m_TagString: LockHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,12 +59,11 @@ GameObject:
   - component: {fileID: 33514537613021940}
   - component: {fileID: 65549403153682934}
   - component: {fileID: 23663022621021230}
-  - component: {fileID: 65980751298211176}
   - component: {fileID: 114255825267279910}
   - component: {fileID: 54482477815318276}
   m_Layer: 0
   m_Name: swich_2
-  m_TagString: Untagged
+  m_TagString: LockHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1567419390130596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2148657, y: 0.50298524, z: -0.31553975}
+  m_LocalPosition: {x: 9.66, y: 0.50298524, z: -0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4753215703324418}
@@ -89,8 +88,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104732064097432}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -2.887, y: -3.063, z: 4.58}
-  m_LocalScale: {x: 0.6999995, y: 1, z: 0.6999995}
+  m_LocalPosition: {x: 51.514, y: 0, z: 0.07999992}
+  m_LocalScale: {x: 0.69999903, y: 1, z: 0.69999903}
   m_Children:
   - {fileID: 4534162750703850}
   - {fileID: 4900396135624304}
@@ -104,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1770633478568180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.166567, y: 0.50298524, z: -0.31553975}
+  m_LocalPosition: {x: -9.11, y: 0.50298524, z: -0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4753215703324418}
@@ -220,7 +219,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &65089165189845420
 BoxCollider:
@@ -232,8 +231,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.33, z: 1}
+  m_Center: {x: 0, y: 0.22, z: 0}
 --- !u!65 &65549403153682934
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -241,35 +240,41 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1770633478568180}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65918881266593006
-BoxCollider:
+  m_Size: {x: 1, y: 1.45, z: 1}
+  m_Center: {x: 0, y: 0.19, z: 0}
+--- !u!114 &114036593891898794
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1567419390130596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.5}
-  m_Center: {x: -0.00000047683716, y: 0.66, z: 0}
---- !u!65 &65980751298211176
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1770633478568180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.5}
-  m_Center: {x: -0.00000047683716, y: 0.66, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114430941078730622}
+          m_MethodName: GimicEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114210958080955342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba81d4b630b4d646b0f08a35095811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 0}
+  ObjPos: {x: 0, y: 0, z: 0}
+  _ray: {fileID: 0}
+  OffsetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114430941078730622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,3 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba81d4b630b4d646b0f08a35095811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 0}
+  ObjPos: {x: 0, y: 0, z: 0}
+  _ray: {fileID: 0}
+  OffsetPos: {x: 0, y: 0, z: 0}

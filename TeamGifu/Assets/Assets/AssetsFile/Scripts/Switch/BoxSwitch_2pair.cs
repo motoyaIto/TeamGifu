@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BoxSwitch_2pair : MonoBehaviour {
 
@@ -8,15 +9,19 @@ public class BoxSwitch_2pair : MonoBehaviour {
     private GameObject obj1;
     [SerializeField]
     private GameObject obj2;
-    private BoxSwitch obj1_script;
-    private BoxSwitch obj2_script;
+    private LeftGimic obj1_script;
+    private RightGimic obj2_script;
 
     private bool On_switch = false;
+    [SerializeField,Header("Boxswich_2pairの初期座標")]
+    private Vector3 objPos;
+    [SerializeField,Header("移動量")]
+    private Vector3 MovePos;
 
     // Use this for initialization
     void Start () {
-        obj1_script = obj1.GetComponent<BoxSwitch>();
-        obj2_script = obj2.GetComponent<BoxSwitch>();
+        obj1_script = obj1.GetComponent<LeftGimic>();
+        obj2_script = obj2.GetComponent<RightGimic>();
     }
 	
 	// Update is called once per frame
@@ -26,11 +31,7 @@ public class BoxSwitch_2pair : MonoBehaviour {
         {
             On_switch = true;
 
-            if (this.transform.localScale.y >= 0.5f)
-            {
-                Vector3 lostScale = new Vector3(0f, 0.01f, 0f);
-                this.transform.localScale -= lostScale;
-            }
+            transform.DOLocalMove(new Vector3(objPos.x, objPos.y, objPos.z)+MovePos, 5.0f);
         }
 	}
 
