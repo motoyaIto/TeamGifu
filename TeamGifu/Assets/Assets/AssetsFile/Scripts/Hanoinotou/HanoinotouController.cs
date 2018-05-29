@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class HanoinotouController : MonoBehaviour {
 
+    [SerializeField]
+    Camera PlayerCamera;//プレイヤーカメラ
+    [SerializeField]
+    Camera HanoiCamera;//ハノイの塔
+
     GameObject Ring1, Ring2, Ring3;
 
 	// Use this for initialization
@@ -17,4 +22,11 @@ public class HanoinotouController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void ReturnButton()
+    {
+        //プレイヤー用のカメラに切り替え
+        PlayerCamera.enabled = true;
+        HanoiCamera.enabled = false;
+    }
 }
