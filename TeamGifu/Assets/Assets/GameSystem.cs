@@ -13,6 +13,7 @@ public class GameSystem : MonoBehaviour {
     [SerializeField]
     private Image returnButton;
 
+    bool gameFlag = false;
     bool HanoinoTouFlag = false;
 
     // Use this for initialization
@@ -39,6 +40,8 @@ public class GameSystem : MonoBehaviour {
         cursor.enabled = false;
 
         HanoinoTouFlag = true;
+
+        gameFlag = true;
     }
 
     public void ReturnButton()
@@ -49,10 +52,16 @@ public class GameSystem : MonoBehaviour {
         cursor.enabled = true;
 
         HanoinoTouFlag = false;
+        gameFlag = false;
     }
 
     public bool GetHanoinoTouFlag()
     {
         return HanoinoTouFlag;
+    }
+
+    public bool GetGameFlag()
+    {
+        return gameFlag;
     }
 }
