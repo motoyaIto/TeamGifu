@@ -146,7 +146,7 @@ public class ray : MonoBehaviour {
         //マウス座標からrayを飛ばす
         _ray = camera.ScreenPointToRay(Input.mousePosition);
         //カーソルを出していてなおかつカバンが開いてないとき
-        if (ClickKey_Q && BagController.LockFlag)
+        if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
         {
             CursorImage.enabled = true;
         }
