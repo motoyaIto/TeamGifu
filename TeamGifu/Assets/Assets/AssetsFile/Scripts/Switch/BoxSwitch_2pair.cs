@@ -5,11 +5,10 @@ using DG.Tweening;
 
 public class BoxSwitch_2pair : MonoBehaviour {
 
+
     [SerializeField]
-    private GameObject obj1;
-    [SerializeField]
-    private GameObject obj2;
     private LeftGimic obj1_script;
+    [SerializeField]
     private RightGimic obj2_script;
 
     private bool On_switch = false;
@@ -20,8 +19,7 @@ public class BoxSwitch_2pair : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        obj1_script = obj1.GetComponent<LeftGimic>();
-        obj2_script = obj2.GetComponent<RightGimic>();
+
     }
 	
 	// Update is called once per frame

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 114995523545938788}
+  - component: {fileID: 114759081231024512}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -30,6 +31,8 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 2000000}
   - component: {fileID: 12474086}
+  - component: {fileID: 114143930005954014}
+  - component: {fileID: 114004543011527352}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -43,8 +46,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -0, y: -0.7101198, z: -0, w: 0.7040808}
-  m_LocalPosition: {x: -80.2, y: 2.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0.71011984, z: -0, w: 0.7040809}
+  m_LocalPosition: {x: -8.5, y: 35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -571,7 +574,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4304633314857656}
   - component: {fileID: 95179424143357248}
-  - component: {fileID: 65683149158883200}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -1367,18 +1369,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112120392184992}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65683149158883200
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1307997787647802}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.35, z: 0.17}
-  m_Center: {x: 0.03, y: 0, z: 0.08}
 --- !u!65 &65980285095763922
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1387,7 +1377,7 @@ BoxCollider:
   m_GameObject: {fileID: 1112120392184992}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1408,6 +1398,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114004543011527352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114019535274638042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1510,6 +1511,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114143930005954014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -768656878, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!114 &114161650013811316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1589,6 +1605,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5ef2fcbd3f5c9cd4bb527b90c0b00b47, type: 3}
   - {fileID: 21300000, guid: 942ba3563c0b7f148bd657a493a59426, type: 3}
   - {fileID: 21300000, guid: b6b0b2ef1e66bd14c867227c2d88ae3b, type: 3}
+  - {fileID: 21300000, guid: 0a2be4be8c0486f49b476d13235ed035, type: 3}
+  - {fileID: 21300000, guid: c3a67ef7e2a05334d86d5c73d868336f, type: 3}
+  - {fileID: 21300000, guid: a1f5dfda77cd5fd478ff050a3aa25f84, type: 3}
   m_imageList:
   - {fileID: 114104598539732786}
   - {fileID: 114019535274638042}
@@ -1882,6 +1901,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114759081231024512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1cce2845f31274d9bc7c6cc825278c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_updateInterval: 0.5
 --- !u!114 &114781316751567594
 MonoBehaviour:
   m_ObjectHideFlags: 1
