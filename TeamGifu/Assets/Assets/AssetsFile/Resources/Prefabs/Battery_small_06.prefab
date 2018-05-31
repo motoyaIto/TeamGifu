@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33192227535760856}
   - component: {fileID: 135215680566160480}
   - component: {fileID: 23610619084246758}
+  - component: {fileID: 54504902844132852}
   m_Layer: 0
   m_Name: Battery_small_06
   m_TagString: Item
@@ -83,6 +84,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185051362785156}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54504902844132852
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1185051362785156}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!135 &135215680566160480
 SphereCollider:
   m_ObjectHideFlags: 1

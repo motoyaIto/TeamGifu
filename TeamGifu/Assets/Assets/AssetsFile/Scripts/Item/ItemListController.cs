@@ -68,18 +68,18 @@ public class ItemListController : MonoBehaviour {
 
         // もし等しい名前のスプライトが存在しない場合は
         // エラーメッセージを表示して処理をスキップします
-        //if ( sprite == null )
-        //{
-        //    Debug.LogErrorFormat( "{0} という名前のスプライトは存在しません", name );
-        //    return;
-        //}
+        if (sprite == null)
+        {
+            Debug.LogErrorFormat("{0} という名前のスプライトは存在しません", name);
+            return;
+        }
 
         // HorizontalLayoutGroup
         // GridLayoutGroup
 
         // アイテムのスプライトを表示するオブジェクトをアクティブにして
         // スプライトを設定します
-        foreach(Image image in m_imageList)
+        foreach (Image image in m_imageList)
         {
             //imageがアクティブなら
             if (image.gameObject.activeSelf == true)
