@@ -67,7 +67,7 @@ public class LightGimick2 : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("HitCapsel");
+        Debug.Log("HitCapsel");
         if (collision.gameObject.tag == "Item")
         {
             flag = true;
