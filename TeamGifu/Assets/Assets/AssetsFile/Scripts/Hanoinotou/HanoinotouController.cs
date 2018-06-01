@@ -30,11 +30,12 @@ public class HanoinotouController : MonoBehaviour {
         Ring[1].transform.position = new Vector3(Ring[1].transform.position.x, Ring[1].transform.position.y + 0.07f, Ring[1].transform.position.z);
 
         //あたり判定
-        HanoinotouColliders = GetComponents<Collider>();
+        HanoinotouColliders = GetComponentsInChildren<Collider>();
 
         foreach (Collider col in HanoinotouColliders)
         {
-            if ("Pillar1" == col.name/* || "Pillar2" == col.name || "Pillar3" == col.name*/)
+           
+            if ("Pillar1" == col.name || "Pillar2" == col.name || "Pillar3" == col.name)
             {
                 col.enabled = false;
             }
@@ -47,7 +48,6 @@ public class HanoinotouController : MonoBehaviour {
         {
             foreach(Collider col in HanoinotouColliders)
             {
-                Debug.Log(col);
                 if ("Hanoinotou" == col.name)
                 {
                     col.enabled = false;
