@@ -16,6 +16,10 @@ public class ray : MonoBehaviour {
     private Image CursorImage;
     //固定objをクリックしたらアイテム生成するフラグ
     private bool LockObjFlag=false;
+
+    [SerializeField]
+   // GameSystem _GameSyste;//ゲームシステムスクリプト
+
     public bool LockObjFlagState
     {
         get
@@ -38,7 +42,6 @@ public class ray : MonoBehaviour {
     [SerializeField]
     private GameObject ItemList;//アイテムリスト
     private ItemListController ItemListScript;//アイテムリストのスクリプト
-    private Door_Open DoorOpen;// Room2のドアを開けるためのスクリプト
     private string RayName;
     public string RayHitNameState
     {
@@ -55,7 +58,7 @@ public class ray : MonoBehaviour {
 
     //ハノイの塔制
     [SerializeField]
-   // private Camera HanoicCamera;//ハノイカメラ
+  //  private Camera HanoicCamera;//ハノイカメラ
     // Use this for initialization
     void Start()
     {
@@ -103,13 +106,11 @@ public class ray : MonoBehaviour {
             //カメラ操作を奪う物をクリックしたら
             if(hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
             {
-                Debug.Log("hit");
-
                 //ハノイの塔用のカメラに切り替え
                 camera.enabled = false;
-                //HanoicCamera.enabled = true;
-                //PlayerCamera.SetActive(!PlayerCamera.activeInHierarchy);
-                //HanoicCamera.SetActive(!HanoicCamera.activeInHierarchy);
+             //   HanoicCamera.enabled = true;
+
+             //   _GameSyste.HanoinoTou();
             }
 
             //アイテムと当たったら
@@ -144,14 +145,14 @@ public class ray : MonoBehaviour {
         //マウス座標からrayを飛ばす
         _ray = camera.ScreenPointToRay(Input.mousePosition);
         //カーソルを出していてなおかつカバンが開いてないとき
-        if (ClickKey_Q && BagController.LockFlag)
-        {
-            CursorImage.enabled = true;
-        }
-        else
-        {
-            CursorImage.enabled = false;
-        }
+     //   if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
+        //{
+        //    CursorImage.enabled = true;
+        //}
+        //else
+        //{
+        //    CursorImage.enabled = false;
+        //}
     }
    
     /// <summary>

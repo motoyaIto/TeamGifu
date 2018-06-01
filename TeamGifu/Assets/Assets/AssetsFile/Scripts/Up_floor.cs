@@ -29,7 +29,7 @@ public class Up_floor : MonoBehaviour {
         {
             if(this.transform.position.y <= GoalPosY)
             {
-                Vector3 Move = new Vector3(0f, 0.01f, 0f);
+                Vector3 Move = new Vector3(0f, 0.1f, 0f);
                 this.transform.position += Move;
             }
         }

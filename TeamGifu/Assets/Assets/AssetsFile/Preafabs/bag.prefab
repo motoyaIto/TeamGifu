@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1649943506232826
 GameObject:
   m_ObjectHideFlags: 1
@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3251b9fb83ce93044b2071f1c4c08f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   m_spriteList:
   - {fileID: 21300000, guid: 40c64e9bd953bb54ca0bd07e79c7f177, type: 3}
   - {fileID: 21300000, guid: 96e5f07cb28f95d4fa5485641d6c55a2, type: 3}
@@ -431,6 +432,7 @@ MonoBehaviour:
   - {fileID: 114816595815495512}
   - {fileID: 114445763686354416}
   - {fileID: 114828160833842440}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114360458694103820
 MonoBehaviour:
   m_ObjectHideFlags: 1
