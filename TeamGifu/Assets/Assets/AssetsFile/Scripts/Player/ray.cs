@@ -19,7 +19,7 @@ public class ray : MonoBehaviour {
     private bool LockObjFlag=false;
 
     //[SerializeField]
-    //GameSystem _GameSyste;//ゲームシステムスクリプト
+   GameSystem _GameSyste;//ゲームシステムスクリプト
 
     public bool LockObjFlagState
     {
@@ -58,8 +58,8 @@ public class ray : MonoBehaviour {
     }
 
     //ハノイの塔制
-    //[SerializeField]
-    //private Camera HanoicCamera;//ハノイカメラ
+    [SerializeField]
+    private Camera HanoicCamera;//ハノイカメラ
     // Use this for initialization
     void Start()
     {
