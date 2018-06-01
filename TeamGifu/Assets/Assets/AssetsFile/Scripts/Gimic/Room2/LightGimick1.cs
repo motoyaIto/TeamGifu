@@ -34,7 +34,6 @@ public class LightGimick1 : MonoBehaviour
     {
         flag = false;
         clear_Flag = false;
-
     }
 
     // Update is called once per frame
@@ -42,6 +41,7 @@ public class LightGimick1 : MonoBehaviour
     {
         //生成するオブジェクトを取得
         PrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
+
         if (!flag)
         {
             //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
@@ -49,7 +49,6 @@ public class LightGimick1 : MonoBehaviour
             {
                 GameObject obj = Instantiate(PrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
-                
                 _ray.LockObjFlagState = false;
 
                 Clear();
@@ -61,9 +60,8 @@ public class LightGimick1 : MonoBehaviour
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
-
-
             }
+
 
         }
     }
@@ -74,7 +72,6 @@ public class LightGimick1 : MonoBehaviour
         {
             flag = true;
         }
-      //  delete_Obj = null;
         delete_Obj = collision.gameObject;
     }
 

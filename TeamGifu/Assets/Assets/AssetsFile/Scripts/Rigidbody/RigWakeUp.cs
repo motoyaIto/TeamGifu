@@ -15,7 +15,6 @@ public class RigWakeUp : MonoBehaviour {
         
         if (rig.IsSleeping())
         {
-            Debug.Log("起こすで");
             rig.WakeUp();
         }
 
