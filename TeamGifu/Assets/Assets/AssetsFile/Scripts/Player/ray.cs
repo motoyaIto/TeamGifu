@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ray : MonoBehaviour {
     #region variable
     public static bool flag;
+    public PrometheanDissolveEffect DissolveSource;
 
     [SerializeField]
     private new Camera camera;
@@ -102,15 +103,20 @@ public class ray : MonoBehaviour {
         {
             hitPosition = hit.point;
             RayName = hit.collider.name;
+            Transform target = null;
 
             //カメラ操作を奪う物をクリックしたら
             if(hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
             {
                 //ハノイの塔用のカメラに切り替え
-                camera.enabled = false;
-                //HanoicCamera.enabled = true;
 
-                //_GameSyste.HanoinoTou();
+                camera.enabled = false;
+
+                camera.enabled = false;
+
+                HanoicCamera.enabled = true;
+
+                _GameSyste.HanoinoTou();
             }
 
             //アイテムと当たったら
@@ -118,9 +124,16 @@ public class ray : MonoBehaviour {
             {
                 //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
+                target = hit.transform;
+                if (target.GetComponent<PrometheanDissolveEffect>() == null)
+                {
+                    var source = Instantiate(DissolveSource);
+                    source.DissolveTarget(target, hit.point);
+      
+                }
+
                 //Destroy(hit.collider.gameObject);
             }
-
             //アイテムが選択されていてなおかつアイテムが出せる場所に当たったら
             if (ItemListScript.GetSelectImage() != "" && hit.collider.tag == "Hit")
             {
