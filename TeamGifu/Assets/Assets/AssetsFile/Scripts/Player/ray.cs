@@ -18,7 +18,7 @@ public class ray : MonoBehaviour {
     private bool LockObjFlag=false;
 
     [SerializeField]
-   // GameSystem _GameSyste;//ゲームシステムスクリプト
+    GameSystem _GameSyste;//ゲームシステムスクリプト
 
     public bool LockObjFlagState
     {
@@ -58,7 +58,7 @@ public class ray : MonoBehaviour {
 
     //ハノイの塔制
     [SerializeField]
-  //  private Camera HanoicCamera;//ハノイカメラ
+    private Camera HanoicCamera;//ハノイカメラ
     // Use this for initialization
     void Start()
     {
@@ -108,9 +108,9 @@ public class ray : MonoBehaviour {
             {
                 //ハノイの塔用のカメラに切り替え
                 camera.enabled = false;
-             //   HanoicCamera.enabled = true;
+                HanoicCamera.enabled = true;
 
-             //   _GameSyste.HanoinoTou();
+                _GameSyste.HanoinoTou();
             }
 
             //アイテムと当たったら
@@ -145,14 +145,14 @@ public class ray : MonoBehaviour {
         //マウス座標からrayを飛ばす
         _ray = camera.ScreenPointToRay(Input.mousePosition);
         //カーソルを出していてなおかつカバンが開いてないとき
-     //   if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
-        //{
-        //    CursorImage.enabled = true;
-        //}
-        //else
-        //{
-        //    CursorImage.enabled = false;
-        //}
+        if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
+        {
+            CursorImage.enabled = true;
+        }
+        else
+        {
+            CursorImage.enabled = false;
+        }
     }
    
     /// <summary>
@@ -170,7 +170,7 @@ public class ray : MonoBehaviour {
             
             obj.name = PrefabItem.name;
             //エフェクトの発生
-           // obj.GetComponent<Appearance>().StartF = true;
+           //obj.GetComponent<Appearance>().StartF = true;
         }
     }
     #endregion

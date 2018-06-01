@@ -47,6 +47,7 @@ public class HanoinotouController : MonoBehaviour {
         {
             foreach(Collider col in HanoinotouColliders)
             {
+                Debug.Log(col);
                 if ("Hanoinotou" == col.name)
                 {
                     col.enabled = false;
@@ -54,7 +55,7 @@ public class HanoinotouController : MonoBehaviour {
    
                 if ("Pillar1" == col.name || "Pillar2" == col.name || "Pillar3" == col.name)
                 {
-                    col.enabled = false;
+                    col.enabled = true;
                 }
             
             }
