@@ -48,7 +48,7 @@ public class LightGimick1 : MonoBehaviour
             if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState && CreateName == _item.GetSelectImage())
             {
                 GameObject obj = Instantiate(PrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
-
+                obj.AddComponent<RigWakeUp>();
                 _ray.LockObjFlagState = false;
 
                 Clear();
@@ -59,7 +59,7 @@ public class LightGimick1 : MonoBehaviour
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
-
+                obj.AddComponent<RigWakeUp>();
             }
 
 
@@ -68,12 +68,10 @@ public class LightGimick1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("HitCapsel");
         if (collision.gameObject.tag == "Item")
         {
             flag = true;
         }
-      //  delete_Obj = null;
         delete_Obj = collision.gameObject;
     }
 

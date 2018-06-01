@@ -18,8 +18,8 @@ public class ray : MonoBehaviour {
     //固定objをクリックしたらアイテム生成するフラグ
     private bool LockObjFlag=false;
 
-    [SerializeField]
-    GameSystem _GameSyste;//ゲームシステムスクリプト
+    //[SerializeField]
+    //GameSystem _GameSyste;//ゲームシステムスクリプト
 
     public bool LockObjFlagState
     {
@@ -58,8 +58,8 @@ public class ray : MonoBehaviour {
     }
 
     //ハノイの塔制
-    [SerializeField]
-    private Camera HanoicCamera;//ハノイカメラ
+    //[SerializeField]
+    //private Camera HanoicCamera;//ハノイカメラ
     // Use this for initialization
     void Start()
     {
@@ -109,10 +109,14 @@ public class ray : MonoBehaviour {
             if(hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
             {
                 //ハノイの塔用のカメラに切り替え
-                //camera.enabled = false;
-                //HanoicCamera.enabled = true;
 
-                //_GameSyste.HanoinoTou();
+                camera.enabled = false;
+
+                camera.enabled = false;
+
+                HanoicCamera.enabled = true;
+
+                _GameSyste.HanoinoTou();
             }
 
             //アイテムと当たったら
@@ -154,14 +158,14 @@ public class ray : MonoBehaviour {
         //マウス座標からrayを飛ばす
         _ray = camera.ScreenPointToRay(Input.mousePosition);
         //カーソルを出していてなおかつカバンが開いてないとき
-        if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
-        {
-            CursorImage.enabled = true;
-        }
-        else
-        {
-            CursorImage.enabled = false;
-        }
+        //if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
+        //{
+        //    CursorImage.enabled = true;
+        //}
+        //else
+        //{
+        //    CursorImage.enabled = false;
+        //}
     }
    
     /// <summary>
