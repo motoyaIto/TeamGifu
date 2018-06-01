@@ -10188,6 +10188,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 893810688}
   m_Mesh: {fileID: 4300000, guid: 318fc5659f68549feb9d55d15a12de2a, type: 3}
+--- !u!20 &895972654 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20112820941367422, guid: eec22eb4138b47a45945e0807f802ffc,
+    type: 2}
+  m_PrefabInternal: {fileID: 483842998}
 --- !u!1 &905170526
 GameObject:
   m_ObjectHideFlags: 0
@@ -16540,9 +16545,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1132182040}
   CursorImage: {fileID: 668848187}
-  _GameSyste: {fileID: 0}
+  _GameSyste: {fileID: 1170068703}
   ItemList: {fileID: 1453739889}
-  HanoicCamera: {fileID: 0}
+  HanoicCamera: {fileID: 895972654}
 --- !u!1 &1579412197
 GameObject:
   m_ObjectHideFlags: 0

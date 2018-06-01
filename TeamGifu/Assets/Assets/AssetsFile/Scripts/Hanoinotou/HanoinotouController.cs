@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class HanoinotouController : MonoBehaviour {
 
+    private static int PILLAR_NAM = 3;//柱の合計
+    private static int RING_NAM = 3;//リングの合計
+
+    
     [SerializeField]
     private Camera PlayerCamera;//プレイヤーカメラ
     [SerializeField]
@@ -14,11 +18,12 @@ public class HanoinotouController : MonoBehaviour {
     private Collider[] HanoinotouColliders;//ハノイの塔内のコライダー
 
     [SerializeField]
-    private GameObject[] Pillar = new GameObject[3];//柱1~3
+    private GameObject[] Pillar = new GameObject[PILLAR_NAM];//柱1~3
 
     [SerializeField]
-    private GameObject[] Ring = new GameObject[3];//輪1~3
+    private GameObject[] Ring = new GameObject[RING_NAM];//輪1~3
 
+    private GameObject[][] stack = new GameObject[PILLAR_NAM][];//各柱の輪を管理する
 	// Use this for initialization
 	void Start () {
         //輪の位置を初期位置に移動
@@ -34,10 +39,20 @@ public class HanoinotouController : MonoBehaviour {
 
         foreach (Collider col in HanoinotouColliders)
         {
-           
             if ("Pillar1" == col.name || "Pillar2" == col.name || "Pillar3" == col.name)
             {
                 col.enabled = false;
+            }
+        }
+
+        for(int i = 0; i < PILLAR_NAM; i++)
+        {
+            for (int j = 0; j < RING_NAM; j++)
+            {
+                if (i == 0)
+                {
+                    stack[i][j] = Ring[j];
+                }
             }
         }
     }
@@ -46,21 +61,7 @@ public class HanoinotouController : MonoBehaviour {
 	void Update () {
 		if(_GameSyste.GetHanoinoTouFlag())
         {
-            foreach(Collider col in HanoinotouColliders)
-            {
-                if ("Hanoinotou" == col.name)
-                {
-                    col.enabled = false;
-                }
-   
-                if ("Pillar1" == col.name || "Pillar2" == col.name || "Pillar3" == col.name)
-                {
-                    col.enabled = true;
-                }
-            
-            }
-            
-            //Debug.Log("ハノイの塔");
+            SwitchHanoinotou(false, true);
             
             
         }
@@ -74,16 +75,27 @@ public class HanoinotouController : MonoBehaviour {
 
         _GameSyste.ReturnButton();
 
+        SwitchHanoinotou(true, false);
+           
+    }
+
+
+
+
+
+
+    private void SwitchHanoinotou(bool hanoinotou, bool pillar)
+    {
         foreach (Collider col in HanoinotouColliders)
         {
             if ("Hanoinotou" == col.name)
             {
-                col.enabled = true;
+                col.enabled = hanoinotou;
             }
 
             if ("Pillar1" == col.name || "Pillar2" == col.name || "Pillar3" == col.name)
             {
-                col.enabled = false;
+                col.enabled = pillar;
             }
         }
     }
