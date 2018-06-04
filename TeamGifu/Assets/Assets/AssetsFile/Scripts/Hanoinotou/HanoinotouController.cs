@@ -26,6 +26,10 @@ public class HanoinotouController : MonoBehaviour {
     private GameObject[][] stack = new GameObject[PILLAR_NAM][];//各柱の輪を管理する
 	// Use this for initialization
 	void Start () {
+        for(int i = 0; i < PILLAR_NAM; i++)
+        {
+            stack[i] = new GameObject[PILLAR_NAM];
+        }
         //輪の位置を初期位置に移動
         Ring[0].transform.position = Pillar[0].transform.position;
         Ring[1].transform.position = Pillar[0].transform.position;
