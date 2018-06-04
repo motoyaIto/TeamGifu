@@ -18,7 +18,7 @@ public class ray : MonoBehaviour {
     //固定objをクリックしたらアイテム生成するフラグ
     private bool LockObjFlag=false;
 
-    //[SerializeField]
+    [SerializeField]
    GameSystem _GameSyste;//ゲームシステムスクリプト
 
     public bool LockObjFlagState
@@ -158,14 +158,14 @@ public class ray : MonoBehaviour {
         //マウス座標からrayを飛ばす
         _ray = camera.ScreenPointToRay(Input.mousePosition);
         //カーソルを出していてなおかつカバンが開いてないとき
-        //if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
-        //{
-        //    CursorImage.enabled = true;
-        //}
-        //else
-        //{
-        //    CursorImage.enabled = false;
-        //}
+        if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
+        {
+            CursorImage.enabled = true;
+        }
+        else
+        {
+            CursorImage.enabled = false;
+        }
     }
    
     /// <summary>
