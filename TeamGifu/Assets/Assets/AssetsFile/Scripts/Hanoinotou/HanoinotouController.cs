@@ -25,11 +25,11 @@ public class HanoinotouController : MonoBehaviour {
 
     private GameObject[][] stack = new GameObject[PILLAR_NAM][];//各柱の輪を管理する
 
-    private struct Token
+    struct Token
     {
         public GameObject obj;
-        public int start_pillar;
-    };
+        public int startPillar; 
+    }
 
     Token token;
 
@@ -59,10 +59,18 @@ public class HanoinotouController : MonoBehaviour {
             }
         }
 
+        int RingCount = RING_NAM - 1;
         //初期位置にすべてスタックする
-        for(int i = RING_NAM - 1; i >= 0; i--)
+        for (int i = 0; i < RING_NAM; i++)
         {
-            stack[0][i] = Ring[i];
+            stack[0][i] = Ring[RingCount];
+
+            RingCount--;
+        }
+
+        for(int i = 0; i < RING_NAM; i++)
+        {
+            Debug.Log(stack[0][i]);
         }
     }
 	
@@ -121,46 +129,7 @@ public class HanoinotouController : MonoBehaviour {
            
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        //各柱のあたり判定
-        foreach (Collider col in HanoinotouColliders)
-        {
-            switch (col.name)
-            {
-                case "Pillar1":
-                    //token.obj = PushBuck(stack[0]);
-
-                    //Vector3 pos = new Vector3(token.obj.transform.position.x, token.obj.transform.position.y +1.0f, token.obj.transform.position.z);
-                    //token.obj.transform.position = pos;
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("Pillar1");
-                    }
-                    break;
-
-                case "Pillar2":
-                    PushBuck(stack[1]);
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("Pillar2");
-                    }
-                    break;
-
-                case "Pillar3":
-                    PushBuck(stack[2]);
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("Pillar3");
-                    }
-                    break;
-            }
-        }
-
-
-    }
-
+   
     /// <summary>
     /// あたり判定を変える
     /// </summary>
@@ -198,5 +167,12 @@ public class HanoinotouController : MonoBehaviour {
         }
 
         return null;
+    }
+
+    protected void ClickController(int Pillar)
+    {
+        token.startPillar = Pillar;
+
+
     }
 }
