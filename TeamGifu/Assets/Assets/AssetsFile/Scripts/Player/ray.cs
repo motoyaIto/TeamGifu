@@ -126,7 +126,7 @@ public class ray : MonoBehaviour {
             }
 
             //アイテムと当たったら
-            if (hit.collider.tag == "Item" && ClickKey_Q)
+            if (hit.collider.tag == "Item" && ClickKey_Q && !Input.GetMouseButton(0))
             {
                 //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
