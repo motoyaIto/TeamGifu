@@ -3,24 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ray : MonoBehaviour {
-    #region variable
+    #region Variable
     public static bool flag;
+    //エフェクト
     public PrometheanDissolveEffect DissolveSource;
 
+    //Ray
+    private　Ray _ray;
+    private RaycastHit hit;
+    private Vector3 hitPosition;
+    private string RayName;
     [SerializeField]
     private new Camera camera;
-    //Ray
-    Ray _ray;
-    RaycastHit hit;
-    Vector3 hitPosition;
     [SerializeField]
     private Image CursorImage;
-    //固定objをクリックしたらアイテム生成するフラグ
-    private bool LockObjFlag=false;
 
     [SerializeField]
-   GameSystem _GameSyste;//ゲームシステムスクリプト
+    private GameSystem _GameSyste;//ゲームシステムスクリプト
+    //固定objをクリックしたらアイテム生成するフラグ
+    private bool LockObjFlag=false;
+    //キー・ボタンフラグ
+    private bool ClickMouse_LeftButton = false;
+    private bool ClickKey_Q = false;
 
+    //ハノイの塔制
+    [SerializeField]
+    private Camera HanoicCamera;//ハノイカメラ
+
+    //アイテムリスト
+    [SerializeField]
+    private GameObject ItemList;//アイテムリスト
+    private ItemListController ItemListScript;//アイテムリストのスクリプト
+
+    #region PropertyVariable
     public bool LockObjFlagState
     {
         get
@@ -32,18 +47,7 @@ public class ray : MonoBehaviour {
             LockObjFlag = value;
         }
     }
-    #endregion
 
-    #region Event
-    //キー・ボタンフラグ
-    private bool ClickMouse_LeftButton = false;
-    private bool ClickKey_Q = false;
-
-    //アイテムリスト
-    [SerializeField]
-    private GameObject ItemList;//アイテムリスト
-    private ItemListController ItemListScript;//アイテムリストのスクリプト
-    private string RayName;
     public string RayHitNameState
     {
         get
@@ -56,10 +60,12 @@ public class ray : MonoBehaviour {
         }
 
     }
+#endregion
 
-    //ハノイの塔制
-    [SerializeField]
-    private Camera HanoicCamera;//ハノイカメラ
+    #endregion
+
+    #region Event
+
     // Use this for initialization
     void Start()
     {
@@ -120,7 +126,7 @@ public class ray : MonoBehaviour {
             }
 
             //アイテムと当たったら
-            if (hit.collider.tag == "Item" && ClickKey_Q)
+            if (hit.collider.tag == "Item" && ClickKey_Q && !Input.GetMouseButton(0))
             {
                 //アイテムリストに入れる
                 ItemListScript.SetItemList(hit.collider.name);
@@ -147,7 +153,8 @@ public class ray : MonoBehaviour {
             {
                 LockObjFlag = false;
             }
-        } 
+        }
+
     }
 
     /// <summary>
