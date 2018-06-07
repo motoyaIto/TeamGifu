@@ -29,6 +29,8 @@ public class ray : MonoBehaviour {
     //ハノイの塔制
     [SerializeField]
     private Camera HanoicCamera;//ハノイカメラ
+    [SerializeField]
+    private HanoinotouController hanoiScript;//ハノイスクリプト
 
     //アイテムリスト
     [SerializeField]
@@ -89,7 +91,7 @@ public class ray : MonoBehaviour {
             ClickKey_Q = false;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             ClickMouse_LeftButton = true;
         }
@@ -123,6 +125,12 @@ public class ray : MonoBehaviour {
                 HanoicCamera.enabled = true;
 
                 _GameSyste.HanoinoTou();
+            }
+
+            if(_GameSyste.GetHanoinoTouFlag() && hit.collider.tag == "Pillar" && Input.GetMouseButton(0))
+            {
+                hanoiScript.ClickController(0);
+                Debug.Log(int.Parse(hit.collider.name.Substring(hit.collider.name.Length-1)));
             }
 
             //アイテムと当たったら
