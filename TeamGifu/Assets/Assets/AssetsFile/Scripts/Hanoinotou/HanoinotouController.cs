@@ -169,10 +169,14 @@ public class HanoinotouController : MonoBehaviour {
         return null;
     }
 
-    protected void ClickController(int Pillar)
+    public void ClickController(int Pillar)
     {
+        token.obj = PushBuck(stack[Pillar]);
         token.startPillar = Pillar;
 
+        Vector3 pos = new Vector3(token.obj.transform.position.x, token.obj.transform.position.y + 1.0f, token.obj.transform.position.z);
+        token.obj.transform.position = pos;
 
+        Debug.Log("in");
     }
 }
