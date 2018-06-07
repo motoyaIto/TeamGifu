@@ -18,6 +18,6 @@ public class testscale : MonoBehaviour {
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position, 0.1f);
-        Gizmos.DrawWireSphere(transform.position, Radius);
+        //Gizmos.DrawWireSphere(transform.position, Radius);
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4508677, g: 0.5007723, b: 0.57459664, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -25857,8 +25857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5e58b70c15d1c44828d0695349ab97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  As: {fileID: 712661267}
-  se: {fileID: 8300000, guid: 5115e0a9f8fd87042a355c5759866905, type: 3}
+  As: {fileID: 0}
+  se: {fileID: 0}
 --- !u!82 &712661267
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27469,8 +27469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5e58b70c15d1c44828d0695349ab97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  As: {fileID: 750243397}
-  se: {fileID: 8300000, guid: 5115e0a9f8fd87042a355c5759866905, type: 3}
+  As: {fileID: 0}
+  se: {fileID: 0}
 --- !u!82 &750243397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37311,8 +37311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5e58b70c15d1c44828d0695349ab97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  As: {fileID: 1011631364}
-  se: {fileID: 8300000, guid: 5115e0a9f8fd87042a355c5759866905, type: 3}
+  As: {fileID: 0}
+  se: {fileID: 0}
 --- !u!1 &1011732314
 GameObject:
   m_ObjectHideFlags: 0
@@ -56147,6 +56147,10 @@ Prefab:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
     - {fileID: 114995523545938788, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -56177,6 +56181,7 @@ MonoBehaviour:
   DissolveSource: {fileID: 0}
   camera: {fileID: 1436155838}
   CursorImage: {fileID: 1999121932}
+  _GameSyste: {fileID: 0}
   ItemList: {fileID: 1927748264}
   HanoicCamera: {fileID: 0}
 --- !u!136 &1436155840
@@ -67662,7 +67667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061e8a4287e881947a7d187d98e68f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 664198047}
+  obj: {fileID: 0}
 --- !u!23 &1752364199
 MeshRenderer:
   m_ObjectHideFlags: 0
