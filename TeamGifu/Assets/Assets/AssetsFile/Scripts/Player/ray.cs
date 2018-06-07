@@ -6,11 +6,6 @@ public class ray : MonoBehaviour {
     #region Variable
     public static bool flag;
     //エフェクト
-    [SerializeField,Header("選択している際のエフェクト")]
-    private GameObject ChoiceEffect;//選択してい際のエフェクト
-    private GameObject InChoiceEffect;
-    [SerializeField]
-    private Vector3 EfectPos;
     public PrometheanDissolveEffect DissolveSource;
 
     //Ray
@@ -23,13 +18,10 @@ public class ray : MonoBehaviour {
     [SerializeField]
     private Image CursorImage;
 
-    //[SerializeField]
+    [SerializeField]
     private GameSystem _GameSyste;//ゲームシステムスクリプト
     //固定objをクリックしたらアイテム生成するフラグ
     private bool LockObjFlag=false;
-
-    [SerializeField]
-   GameSystem _GameSyste;//ゲームシステムスクリプト
     //キー・ボタンフラグ
     private bool ClickMouse_LeftButton = false;
     private bool ClickKey_Q = false;
@@ -131,20 +123,6 @@ public class ray : MonoBehaviour {
                 HanoicCamera.enabled = true;
 
                 _GameSyste.HanoinoTou();
-            }
-            if(hit.collider.tag == "Item")
-            {
-                 if(InChoiceEffect==null)
-                {
-                    EfectPos = hit.collider.gameObject.GetComponent<Renderer>().bounds.center;
-                    //エフェクトの生成
-                    InChoiceEffect = Instantiate(ChoiceEffect, new Vector3(hit.transform.position.x,transform.position.y,hit.transform.position.z),ChoiceEffect.transform.rotation);
-                    //Vector3 pos = (GameObject.Find("")).GetComponent<Renderer>().bounds.center;
-                }
-            }
-            else
-            {
-                Destroy(InChoiceEffect);
             }
 
             //アイテムと当たったら
