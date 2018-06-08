@@ -127,10 +127,10 @@ public class ray : MonoBehaviour {
                 _GameSyste.HanoinoTou();
             }
 
-            if(_GameSyste.GetHanoinoTouFlag() && hit.collider.tag == "Pillar" && Input.GetMouseButton(0))
+            //ハノイの塔をプレイ
+            if (_GameSyste.GetHanoinoTouFlag() && hit.collider.tag == "Pillar" && Input.GetMouseButtonDown(0))
             {
-                hanoiScript.ClickController(0);
-                Debug.Log(int.Parse(hit.collider.name.Substring(hit.collider.name.Length-1)));
+                hanoiScript.ClickController(int.Parse(hit.collider.name.Substring(hit.collider.name.Length - 1)));
             }
 
             //アイテムと当たったら
@@ -171,7 +171,16 @@ public class ray : MonoBehaviour {
     private void DrawCursor()
     {
         //マウス座標からrayを飛ばす
-        _ray = camera.ScreenPointToRay(Input.mousePosition);
+        if(_GameSyste.GetHanoinoTouFlag())
+        {
+            _ray = HanoicCamera.ScreenPointToRay(Input.mousePosition);
+
+        }
+        else
+        {
+            _ray = camera.ScreenPointToRay(Input.mousePosition);
+
+        }
         //カーソルを出していてなおかつカバンが開いてないとき
         if (ClickKey_Q && BagController.LockFlag && !_GameSyste.GetGameFlag())
         {

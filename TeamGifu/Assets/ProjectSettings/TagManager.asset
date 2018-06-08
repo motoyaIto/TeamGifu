@@ -10,6 +10,7 @@ TagManager:
   - Light
   - Camerarock
   - LockHit
+  - Pillar
   layers:
   - Default
   - TransparentFX
