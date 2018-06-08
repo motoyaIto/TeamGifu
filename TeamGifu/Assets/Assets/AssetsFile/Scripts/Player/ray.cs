@@ -25,6 +25,7 @@ public class ray : MonoBehaviour {
     //キー・ボタンフラグ
     private bool ClickMouse_LeftButton = false;
     private bool ClickKey_Q = false;
+    private bool OperationFlag = false;
 
     //ハノイの塔制
     [SerializeField]
@@ -99,6 +100,7 @@ public class ray : MonoBehaviour {
         {
             ClickMouse_LeftButton = false;
         }
+        LockGetItem();
 
         //カーソルのイメージを取得
         CursorImage.transform.position = Input.mousePosition;
@@ -134,20 +136,23 @@ public class ray : MonoBehaviour {
             }
 
             //アイテムと当たったら
-            if (hit.collider.tag == "Item" && ClickKey_Q && !Input.GetMouseButton(0))
+            if(!OperationFlag)
             {
-                //アイテムリストに入れる
-                ItemListScript.SetItemList(hit.collider.name);
-                target = hit.transform;
-                if (target.GetComponent<PrometheanDissolveEffect>() == null)
+                if (hit.collider.tag == "Item" && ClickKey_Q &&! Input.GetMouseButtonDown(0))
                 {
-                    var source = Instantiate(DissolveSource);
-                    source.DissolveTarget(target, hit.point);
-      
-                }
+                    //アイテムリストに入れる
+                    ItemListScript.SetItemList(hit.collider.name);
+                    target = hit.transform;
+                    //エフェクトの発生
+                    if (target.GetComponent<PrometheanDissolveEffect>() == null)
+                    {
+                        var source = Instantiate(DissolveSource);
+                        source.DissolveTarget(target, hit.point);
 
-                //Destroy(hit.collider.gameObject);
+                    }
+                }
             }
+
             //アイテムが選択されていてなおかつアイテムが出せる場所に当たったら
             if (ItemListScript.GetSelectImage() != "" && hit.collider.tag == "Hit")
             {
@@ -204,11 +209,25 @@ public class ray : MonoBehaviour {
         {
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
+            obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
             
             obj.name = PrefabItem.name;
             //エフェクトの発生
            //obj.GetComponent<Appearance>().StartF = true;
         }
+    }
+    void LockGetItem()
+    {
+        if(Input.GetMouseButton(0)&&Input.GetKey(KeyCode.Q))
+        {
+            OperationFlag = true;
+        }
+        else if(!Input.GetMouseButton(0)&&!Input.GetKey(KeyCode.Q))
+        {
+            OperationFlag = false;
+        }
+
+
     }
     #endregion
 }

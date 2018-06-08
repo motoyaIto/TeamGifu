@@ -36,6 +36,8 @@ public class RightGimic : MonoBehaviour {
         if (gameObject.name== _ray.RayHitNameState && _ray.LockObjFlagState && TagName == _item.GetSelectImage())
         {
              GameObject obj= Instantiate(PrefabItem, ObjPos, transform.rotation);
+            obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+
             obj.transform.parent = GameObject.Find("swich_2").transform;
             _ray.LockObjFlagState = false;
 
