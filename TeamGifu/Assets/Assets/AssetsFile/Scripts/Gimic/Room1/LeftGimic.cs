@@ -29,6 +29,7 @@ public class LeftGimic : MonoBehaviour {
         if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState && CreateName == _item.GetSelectImage())
         {
             GameObject obj =Instantiate(PrefabItem, new Vector3(ObjPos.x,ObjPos.y,ObjPos.z), transform.rotation);
+            obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
             obj.transform.parent = GameObject.Find("swich_1").transform;
 
             _ray.LockObjFlagState = false;
