@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpElevator : MonoBehaviour {
     [SerializeField, Header("目標の高さ")]
-    private float Y;
+    private float PosY;
 
     private bool ride;
 
@@ -20,9 +20,8 @@ public class UpElevator : MonoBehaviour {
     {
         if (ride)
         {
-            if (rg.transform.position.y <= Y)
+            if (rg.transform.position.y <= PosY)
             {
-                //Debug.Log("入ったよ");
                 rg.MovePosition(transform.position + transform.up * Time.deltaTime);
             }
 
