@@ -122,22 +122,66 @@ public class HanoinotouController : MonoBehaviour {
         {
             if(obj[i] != null)
             {
-                return obj[i];
+                GameObject returnObj = obj[i];
+                obj[i] = null;
+                return returnObj;
             }
         }
 
         return null;
     }
 
-    public void ClickController(int Pillar)
+    public void ClickController(int pillarNamber)
     {
+        //上がっている物がなかったら
         if (token.obj == null)
         {
-            token.obj = PushBuck(stack[Pillar]);
-            token.startPillar = Pillar;
+            
 
+            //上にあげるリングと元いた位置の柱の番号を登録
+            token.obj = PushBuck(stack[pillarNamber]);
+
+            //柱にリングがない時
+            if ( token.obj == null) return;
+
+            token.startPillar = pillarNamber;
+
+            //リングを上にあげる
             Vector3 pos = new Vector3(token.obj.transform.position.x, token.obj.transform.position.y + 1.0f, token.obj.transform.position.z);
             token.obj.transform.position = pos;
+        }
+        else//リングが上がっていたら
+        {
+            for(int i = 0; i < PILLAR_NAM; i++)
+            {
+                if(stack[pillarNamber][i] == null)
+                {
+                    if(i - 1 >= 0)
+                    {
+                        int BottomObjNamber = int.Parse(stack[pillarNamber][i - 1].name.Substring(stack[pillarNamber][i - 1].name.Length - 1));
+                        int ObjNamber = int.Parse(token.obj.name.Substring(token.obj.name.Length - 1));
+
+                        if(BottomObjNamber < ObjNamber)
+                        {
+                            return;
+                        }
+                    }
+
+                    //移動先の座標
+                    Vector3 pos = Pillar[pillarNamber].transform.position;
+                    pos.y += 0.07f * i;
+
+                    token.obj.transform.position = pos;
+                 
+                    //管理場所に代入してトークンを消去
+                    stack[pillarNamber][i] = token.obj;
+                    token.obj = null;
+
+                    token.startPillar = -99;
+
+                    return;
+                }
+            }
         }
 
 
