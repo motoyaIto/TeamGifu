@@ -48,12 +48,12 @@ public class WeightGimmick : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //for(int i=0;i<obj.Length;i++)
-        //{
-        //    objname[i] = obj[i].name;
-        //}
+ 
         objname = new string[4];
-        objname[0] = "name";
+        for (int i = 0; i < obj.Length; i++)
+        {
+            objname[i] = obj[i].name;
+        }
 
         //int count = 0;
         //foreach (Transform child in transform)bj
@@ -65,9 +65,9 @@ public class WeightGimmick : MonoBehaviour {
 
         //}
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if(LeftWeight<=Sum)
         {
             left.LockFlagState = true;
@@ -89,59 +89,66 @@ public class WeightGimmick : MonoBehaviour {
             right.LockFlagState = false;
             front.LockFlagState = false;
         }
-    }
+        Sum = 0;
+        for(int i=0;i< ListObj.Count;i++)
+        {
+            GameObject obj=ListObj[i];
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        ListObj.Add(collision.gameObject);
- 
-            if (collision.gameObject.name== obj[(int)WEIGHT.FIVE].name)
+            if(obj!=null)
             {
-                Sum += G_Obj1;
-                // Debug.Log("5");
+                Sum += ReturnSum(obj);
             }
-            if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
-            {
-                Sum += G_Obj2;
-                // Debug.Log("10");
-            }
-            if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name )
-            {
-                Sum += G_Obj3;
-                //Debug.Log("15");
-            }
-            if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name )
-            {
-                Sum += G_Obj3;
-                //Debug.Log("20");
-            }
+        }
     }
-    public void Destroy()
+    private void OnTriggerEnter(Collider other)
     {
+        ListObj.Add(other.gameObject);
+        Sum += ReturnSum(other.gameObject);
+
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject==null)
+        {
+            Debug.Log("null");
+        }
         
 
     }
-    private void OnCollisionExit(Collision collision)
+    int ReturnSum(GameObject other)
     {
-        if (collision.gameObject.name == obj[(int)WEIGHT.FIVE].name)
+        int returnnum=0;
+        
+        if (other.name == obj[(int)WEIGHT.FIVE].name)
         {
-            Sum -= G_Obj1;
-            Debug.Log("5");
+            returnnum += G_Obj1;
+            // Debug.Log("5");
         }
-        if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
+        if (other.name == obj[(int)WEIGHT.TEN].name)
         {
-            Sum -= G_Obj2;
-            Debug.Log("10");
+            returnnum += G_Obj2;
+            // Debug.Log("10");
         }
-        if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name)
+        if (other.name == obj[(int)WEIGHT.FIFTEEN].name)
         {
-            Sum -= G_Obj3;
-            Debug.Log("15");
+            returnnum += G_Obj3;
+            //Debug.Log("15");
         }
-        if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name)
+        if (other.name == obj[(int)WEIGHT.TWENTY].name)
         {
-            Sum -= G_Obj3;
-            Debug.Log("20");
+            returnnum += G_Obj4;
+            //Debug.Log("20");
         }
+        return returnnum;
     }
+
+    
+    bool desFalg = false;
+    public void Destroy()
+    {
+        desFalg = true;
+
+    }
+   
 }
