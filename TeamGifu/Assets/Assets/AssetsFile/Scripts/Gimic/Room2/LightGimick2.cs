@@ -22,7 +22,7 @@ public class LightGimick2 : MonoBehaviour {
 
     [Header("クリア判定を示すオブジェクト")]
     public GameObject obj;
-
+   
     private GameObject delete_Obj;
 
 

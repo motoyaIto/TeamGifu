@@ -23,7 +23,7 @@ public class LightGimick1 : MonoBehaviour
 
     [Header("クリア判定を示すオブジェクト")]
     public GameObject obj;
-
+    [SerializeField]
     private GameObject delete_Obj;
 
 
