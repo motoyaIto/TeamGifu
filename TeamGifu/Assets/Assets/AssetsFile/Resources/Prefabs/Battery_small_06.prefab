@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135215680566160480}
   - component: {fileID: 23610619084246758}
   - component: {fileID: 54504902844132852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Battery_small_06
   m_TagString: Item
   m_Icon: {fileID: 0}
