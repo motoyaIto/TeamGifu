@@ -27,6 +27,10 @@ public class WeightGimmick : MonoBehaviour {
     public room3_left left;
     public room3_right right;
     const string clone = "(Clone)";
+    [SerializeField]
+    string[] objname;
+    [SerializeField]
+    List<GameObject> ListObj = new List<GameObject>();
     enum WEIGHT
     {
         FIVE,
@@ -44,6 +48,12 @@ public class WeightGimmick : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //for(int i=0;i<obj.Length;i++)
+        //{
+        //    objname[i] = obj[i].name;
+        //}
+        objname = new string[4];
+        objname[0] = "name";
 
         //int count = 0;
         //foreach (Transform child in transform)bj
@@ -83,6 +93,7 @@ public class WeightGimmick : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        ListObj.Add(collision.gameObject);
  
             if (collision.gameObject.name== obj[(int)WEIGHT.FIVE].name)
             {
@@ -104,5 +115,33 @@ public class WeightGimmick : MonoBehaviour {
                 Sum += G_Obj3;
                 //Debug.Log("20");
             }
+    }
+    public void Destroy()
+    {
+        
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == obj[(int)WEIGHT.FIVE].name)
+        {
+            Sum -= G_Obj1;
+            Debug.Log("5");
+        }
+        if (collision.gameObject.name == obj[(int)WEIGHT.TEN].name)
+        {
+            Sum -= G_Obj2;
+            Debug.Log("10");
+        }
+        if (collision.gameObject.name == obj[(int)WEIGHT.FIFTEEN].name)
+        {
+            Sum -= G_Obj3;
+            Debug.Log("15");
+        }
+        if (collision.gameObject.name == obj[(int)WEIGHT.TWENTY].name)
+        {
+            Sum -= G_Obj3;
+            Debug.Log("20");
+        }
     }
 }

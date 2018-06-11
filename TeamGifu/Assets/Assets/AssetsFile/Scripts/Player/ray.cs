@@ -38,6 +38,7 @@ public class ray : MonoBehaviour {
     private GameObject ItemList;//アイテムリスト
     private ItemListController ItemListScript;//アイテムリストのスクリプト
 
+
     #region PropertyVariable
     public bool LockObjFlagState
     {
@@ -109,18 +110,16 @@ public class ray : MonoBehaviour {
         DrawCursor();
        
         //Rayが当たったオブジェクトの情報を入れる箱
-        if (Physics.Raycast(_ray, out hit))
+        if (Physics.Raycast(_ray, out hit,10.0f))
         {
             hitPosition = hit.point;
             RayName = hit.collider.name;
             Transform target = null;
 
             //カメラ操作を奪う物をクリックしたら
-            if(hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
+            if (hit.collider.tag == "Camerarock" && Input.GetMouseButtonDown(0))
             {
                 //ハノイの塔用のカメラに切り替え
-
-                camera.enabled = false;
 
                 camera.enabled = false;
 
