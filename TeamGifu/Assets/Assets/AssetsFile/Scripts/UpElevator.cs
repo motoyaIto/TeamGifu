@@ -17,7 +17,7 @@ public class UpElevator : MonoBehaviour {
     {
         if (ride)
         {
-            transform.DOLocalMove(new Vector3(-119.33f, PosY, -3.1101f), 5f);
+            transform.DOLocalMove(new Vector3(-119.33f, PosY, -3.1101f), 5f).SetEase(Ease.Linear);
 
         }
     }
