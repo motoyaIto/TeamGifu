@@ -30,4 +30,5 @@ public class UpElevator : MonoBehaviour {
             ride = true;
         }
     }
+
 }
