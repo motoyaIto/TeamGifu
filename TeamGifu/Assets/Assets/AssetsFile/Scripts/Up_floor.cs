@@ -22,7 +22,7 @@ public class Up_floor : MonoBehaviour {
 
         
     }
-	
+	         
 	// Update is called once per frame
 	void Update () {
 		if(BoxSwitch_2_Script.GetOn_switch() == true /*|| BoxSwitch_Script.GetOnSwitch() == true*/)
