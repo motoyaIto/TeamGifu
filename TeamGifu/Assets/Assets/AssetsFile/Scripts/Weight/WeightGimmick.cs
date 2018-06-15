@@ -23,6 +23,7 @@ public class WeightGimmick : MonoBehaviour {
     private int lowerWeght = 31;
     [SerializeField, Header("Frontの上限値")]
     private int upperWeight = 50;
+    //扉オブジェクト
     public room3_front front;
     public room3_left left;
     public room3_right right;
@@ -55,15 +56,6 @@ public class WeightGimmick : MonoBehaviour {
             objname[i] = obj[i].name;
         }
 
-        //int count = 0;
-        //foreach (Transform child in transform)bj
-        //{
-        //    //child is your child transform
-
-        //    Debug.Log("Child[" + count + "]:" + child.name);
-        //    count++;
-
-        //}
     }
 
     // Update is called once per frame

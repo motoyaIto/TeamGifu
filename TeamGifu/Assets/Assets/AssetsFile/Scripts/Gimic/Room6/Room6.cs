@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Room6 : MonoBehaviour {
     [SerializeField]
@@ -14,6 +15,19 @@ public class Room6 : MonoBehaviour {
     [SerializeField]
     private Room6_RightLight _rightLight;
     private const int MAX_LIGHT = 3;
+    [SerializeField]
+    private Room6_R_SwithR r_SwithR;
+    [SerializeField]
+    private Room6_R_Swith_L r_SwithL;
+    [SerializeField]
+    private GameObject RightFloor;
+    [SerializeField]
+    private Vector3 RightPos;
+
+    [SerializeField]
+    private GameObject LeftFloor;
+    [SerializeField]
+    private Vector3 LeftPos;
     [Header("正解ランプのマテリアル")]
     public Material mtl;   // 変更するマテリアル
 
@@ -27,9 +41,12 @@ public class Room6 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (r_SwithR.clearFlagState&& r_SwithL.clearFlagState)
         {
+            RightFloor.transform.DOMove(RightPos, 2.0f);
+            LeftFloor.transform.DOMove(LeftPos, 2.0f);
             _upFloor.GetRideFlag(true);
+
         }
         if(_flontLight.ClearFlagState&&_leftLight.ClearFlagState&&_rightLight.ClearFlagState)
         {
