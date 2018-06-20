@@ -20,7 +20,7 @@ public class Room2_GimicOn : MonoBehaviour {
     private void Awake()
     {
         GetComponent<Collider>().enabled = false;
-        As = GetComponent<AudioSource>();
+        As = gameObject.AddComponent<AudioSource>();
         one = false;
     }
     // Use this for initialization
