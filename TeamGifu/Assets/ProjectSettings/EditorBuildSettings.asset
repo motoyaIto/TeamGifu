@@ -14,6 +14,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Kazuma/Scene/test.unity
     guid: f724adc71c79de04cb2201d71f938f21
-  - enabled: 1
+  - enabled: 0
     path: Assets/AssetsFile/Scenes/SceneManeger.unity
     guid: 2846910807888344283e42d23d4b3274
