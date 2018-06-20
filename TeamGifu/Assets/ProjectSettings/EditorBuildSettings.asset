@@ -8,12 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AssetsFile/Scenes/Title.unity
     guid: f2e8af4880929f646813556686b747a6
-  - enabled: 0
+  - enabled: 1
     path: Assets/AssetsFile/Scenes/PlayScene.unity
     guid: b84b51dc290936445b96e2011963338c
   - enabled: 0
     path: Assets/Kazuma/Scene/test.unity
     guid: f724adc71c79de04cb2201d71f938f21
-  - enabled: 1
+  - enabled: 0
     path: Assets/AssetsFile/Scenes/SceneManeger.unity
     guid: 2846910807888344283e42d23d4b3274
