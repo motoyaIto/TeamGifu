@@ -25,7 +25,7 @@ public class hand : MonoBehaviour {
                 Destroy(child);//破棄
             }
             //生成するオブジェクトを取得
-            PrefabItem = (GameObject)Resources.Load("Prefabs/" + item.GetSelectImage());
+            PrefabItem = (GameObject)Resources.Load("ItemPrefab/" + item.GetSelectImage());
             //アイテムの生成
             child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, transform.rotation) as GameObject;
             //スケールの縮小
@@ -41,6 +41,7 @@ public class hand : MonoBehaviour {
             child.tag = "Untagged";
             //コンポーネントを破棄
             Destroy(child.GetComponent<Rigidbody>());
+            Destroy(child.GetComponent<Appearance>());
             //手のオブジェクトの子にする
             child.transform.parent = GameObject.Find("Hand").transform;
             item.CreateAitemState = false;

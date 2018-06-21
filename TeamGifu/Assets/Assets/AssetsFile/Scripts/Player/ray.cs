@@ -37,6 +37,9 @@ public class ray : MonoBehaviour {
     [SerializeField]
     private GameObject ItemList;//アイテムリスト
     private ItemListController ItemListScript;//アイテムリストのスクリプト
+    [SerializeField]
+    private Material Changematerial;
+
 
 
     #region PropertyVariable
@@ -156,6 +159,7 @@ public class ray : MonoBehaviour {
             if (ItemListScript.GetSelectImage() != "" && hit.collider.tag == "Hit")
             {
                 TraceOnObject();
+         
             }      
             if(hit.collider.tag=="LockHit"&&ClickKey_Q && ClickMouse_LeftButton)
             {
@@ -209,10 +213,11 @@ public class ray : MonoBehaviour {
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
             obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
-            
+
+
+
             obj.name = PrefabItem.name;
-            //エフェクトの発生
-           //obj.GetComponent<Appearance>().StartF = true;
+
         }
     }
     void LockGetItem()
