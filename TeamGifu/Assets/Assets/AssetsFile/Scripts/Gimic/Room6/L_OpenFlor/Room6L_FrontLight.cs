@@ -51,20 +51,13 @@ public class Room6L_FrontLight : MonoBehaviour {
         if (!flag)
         {
             //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
-            if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState && CreateName == _item.GetSelectImage())
+            if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState )
             {
                 GameObject obj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
                 _ray.LockObjFlagState = false;
             }
-            else if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
-            {
-
-                //生成するオブジェクトを取得
-                GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
-                GameObject obj = Instantiate(DummyPrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
-                obj.AddComponent<RigWakeUp>();
-            }
+     
 
 
         }

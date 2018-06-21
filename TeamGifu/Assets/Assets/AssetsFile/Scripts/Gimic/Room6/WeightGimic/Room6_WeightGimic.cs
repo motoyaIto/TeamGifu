@@ -27,7 +27,7 @@ public class Room6_WeightGimic : MonoBehaviour {
 
     const string clone = "(Clone)";
     [SerializeField]
-    string[] objname;
+    private string[] objname;
     [SerializeField]
     List<GameObject> ListObj = new List<GameObject>();
     enum WEIGHT
