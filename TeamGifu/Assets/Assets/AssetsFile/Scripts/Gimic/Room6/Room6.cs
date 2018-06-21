@@ -79,12 +79,12 @@ public class Room6 : MonoBehaviour {
             l_upFoor.GetRideFlag(true);
 
         }
-        //if(Input.GetKeyDown(KeyCode.A))
-        //{
-        //    L_RightFloor.transform.DOMove(L_RightPos, 2.0f);
-        //    L_LeftFloor.transform.DOMove(L_LeftPos, 2.0f);
-        //}
-        if(_flontLight.ClearFlagState&&_leftLight.ClearFlagState&&_rightLight.ClearFlagState)
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            L_RightFloor.transform.DOMove(L_RightPos, 2.0f);
+            L_LeftFloor.transform.DOMove(L_LeftPos, 2.0f);
+        }
+        if (_flontLight.ClearFlagState&&_leftLight.ClearFlagState&&_rightLight.ClearFlagState)
         {
 
             for(int i=0;i<MAX_LIGHT;i++)

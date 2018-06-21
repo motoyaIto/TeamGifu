@@ -29,7 +29,15 @@ public class hand : MonoBehaviour {
             //アイテムの生成
             child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, transform.rotation) as GameObject;
             //スケールの縮小
-           child.transform.localScale -= new Vector3(0.75f, 0.75f, 0.75f);
+            if(child.gameObject.name!= "Message(Clone)")
+            {
+                child.transform.localScale -= new Vector3(0.75f, 0.75f, 0.75f);
+            }
+            else
+            {
+                child.transform.Rotate( new Vector3(-169.694f, 117.82f, -100.308f));
+            }
+
             child.tag = "Untagged";
             //コンポーネントを破棄
             Destroy(child.GetComponent<Rigidbody>());
