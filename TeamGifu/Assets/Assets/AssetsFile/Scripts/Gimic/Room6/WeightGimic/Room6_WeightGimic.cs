@@ -24,10 +24,7 @@ public class Room6_WeightGimic : MonoBehaviour {
     private int lowerWeght = 31;
     [SerializeField, Header("Frontの上限値")]
     private int upperWeight = 50;
-    //扉オブジェクト
-    public room3_front front;
-    public room3_left left;
-    public room3_right right;
+
     const string clone = "(Clone)";
     [SerializeField]
     string[] objname;
@@ -65,24 +62,22 @@ public class Room6_WeightGimic : MonoBehaviour {
     {
         if (LeftWeight <= Sum)
         {
-            left.LockFlagState = true;
+          
 
         }
         else if (lowerWeght <= Sum && Sum <= upperWeight)
         {
-            front.LockFlagState = true;
+         
 
         }
         else if (RightWeight <= Sum)
         {
-            right.LockFlagState = true;
+
 
         }
         else
         {
-            left.LockFlagState = false;
-            right.LockFlagState = false;
-            front.LockFlagState = false;
+
         }
         Sum = 0;
         for (int i = 0; i < ListObj.Count; i++)
