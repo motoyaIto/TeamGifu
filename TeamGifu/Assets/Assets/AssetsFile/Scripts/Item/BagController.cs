@@ -9,6 +9,16 @@ public class BagController : MonoBehaviour {
     static Canvas bag;
     public static bool LockFlag=true;
 
+    private AudioSource As; // 音を鳴らす
+    [SerializeField,Header("効果音")]
+    private AudioClip Se;
+
+    private void Start()
+    {
+        As = gameObject.AddComponent<AudioSource>();
+        
+    }
+
 
     public void Event()
     {
@@ -18,6 +28,7 @@ public class BagController : MonoBehaviour {
 
             openBag = true;
             LockFlag = false;
+            As.PlayOneShot(Se);
         }
         else
         {
@@ -25,7 +36,7 @@ public class BagController : MonoBehaviour {
 
             openBag = false;
             LockFlag = true;
-            
+            As.PlayOneShot(Se);
         }
 
     }
