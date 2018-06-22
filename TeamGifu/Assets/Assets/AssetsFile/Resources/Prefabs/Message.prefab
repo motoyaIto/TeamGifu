@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4411783977930554}
   - component: {fileID: 33298504243663652}
   - component: {fileID: 23271652579866662}
-  - component: {fileID: 114825275301864958}
   - component: {fileID: 65413517415165914}
   m_Layer: 0
   m_Name: Message
@@ -278,18 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9066bc0868072704bbfa52bec47a50f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114825275301864958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1451228926885166}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af35ec73963e2cf4ba980d84a71ef67e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeText: {fileID: 114704117571669366}
 --- !u!114 &114985698240117540
 MonoBehaviour:
   m_ObjectHideFlags: 1
