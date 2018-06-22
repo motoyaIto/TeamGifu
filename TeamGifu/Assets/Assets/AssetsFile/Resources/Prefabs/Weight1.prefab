@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23743608429369226}
   - component: {fileID: 65928481159982644}
   - component: {fileID: 54185434972459786}
+  - component: {fileID: 114491928942270538}
   m_Layer: 8
   m_Name: Weight1
   m_TagString: Item
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1353047067428526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -20.56, y: 0.393, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,3 +112,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09203893, y: 0.10557196, z: 0.09384002}
   m_Center: {x: 0.00030497648, y: 0.052837986, z: 0.0000540521}
+--- !u!114 &114491928942270538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353047067428526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76f715f74563c4ab2864f428b4b8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartF: 0
+  Changematerial: {fileID: 2100000, guid: 9976b8c946417404bafe5e8375b8ceb9, type: 2}
+  maxHeight: 1
