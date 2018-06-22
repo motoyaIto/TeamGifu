@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Appearance : MonoBehaviour {
     Renderer matrial;
-    public  bool StartF = false;
-    float t;
+    public  bool StartF = false;//エフェクト再生用のフラグ
+    float t;//時間
+    public Material Changematerial;
+
+    public float maxHeight = 1;
 
 
     private void OnEnable()
@@ -14,46 +17,35 @@ public class Appearance : MonoBehaviour {
     private void Awake()
     {
         matrial = GetComponent<Renderer>();
-<<<<<<< HEAD
         StartF = true;
-        //GetComponent<Collider>().enabled = false;
-
-=======
-        GetComponent<Collider>().enabled = false;
-        StartF = true;
->>>>>>> master
-        t = 0;
+        t = 0;//
     }
     // Use this for initialization
     void Start () {
+        //見えない状態に初期化
         matrial.sharedMaterial.SetFloat("_Height", 0.0f);
-
-
     }
 
     // Update is called once per frame
     void Update () {
-
+        
         if (StartF==true)
         {
             t += 0.01f;
             matrial.sharedMaterial.SetFloat("_Height", t);
-                Debug.Log("OK");
             
         }
-        
-        if (matrial.sharedMaterial.GetFloat("_Height")>=5.0f)
+
+        if (matrial.sharedMaterial.GetFloat("_Height") >= maxHeight)
         {
             StartF = false;
-          
-            //t = 0;
+            this.matrial.material = Changematerial;
+            Debug.Log("SetMaterial");
 
-         //   Debug.Break();
+
         }
-        if(t>1.0f)
-        {
-            GetComponent<Collider>().enabled = true;
-        }
+
+
 
     }
 }
