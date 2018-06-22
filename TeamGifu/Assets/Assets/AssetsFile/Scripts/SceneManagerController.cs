@@ -12,7 +12,8 @@ public class SceneManagerController : MonoBehaviour
     public enum SceneName
     {
         TITLE,
-        SCENEMANAGER,
+        PLAY,
+        GOAL,
 
         MAX
 
