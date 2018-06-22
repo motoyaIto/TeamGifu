@@ -27,11 +27,11 @@ public class hand : MonoBehaviour {
             //生成するオブジェクトを取得
             PrefabItem = (GameObject)Resources.Load("ItemPrefab/" + item.GetSelectImage());
             //アイテムの生成
-            child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, transform.rotation) as GameObject;
+            child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, new Quaternion(0,0,0,0)) as GameObject;
             //スケールの縮小
             if(child.gameObject.name!= "Message(Clone)")
             {
-                child.transform.localScale -= new Vector3(0.75f, 0.75f, 0.75f);
+               child.transform.localScale -= new Vector3(0.75f, 0.75f, 0.75f);
             }
             else
             {

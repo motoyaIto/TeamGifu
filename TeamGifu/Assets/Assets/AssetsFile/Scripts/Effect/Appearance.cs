@@ -7,6 +7,7 @@ public class Appearance : MonoBehaviour {
     public  bool StartF = false;//エフェクト再生用のフラグ
     float t;//時間
     public Material Changematerial;
+    private Material oldMaterial;
 
     public float maxHeight = 1;
 
@@ -19,6 +20,7 @@ public class Appearance : MonoBehaviour {
         matrial = GetComponent<Renderer>();
         StartF = true;
         t = 0;//
+        oldMaterial = gameObject.GetComponent<Renderer>().material;
     }
     // Use this for initialization
     void Start () {
@@ -35,15 +37,16 @@ public class Appearance : MonoBehaviour {
             matrial.sharedMaterial.SetFloat("_Height", t);
             
         }
-
-        if (matrial.sharedMaterial.GetFloat("_Height") >= maxHeight)
+        if(matrial.sharedMaterial.name==oldMaterial.name)
         {
-            StartF = false;
-            this.matrial.material = Changematerial;
-            Debug.Log("SetMaterial");
-
-
+            if (matrial.sharedMaterial.GetFloat("_Height") >= maxHeight)
+            {
+                StartF = false;
+                this.matrial.material = Changematerial;
+                Debug.Log("SetMaterial");
+            }
         }
+
 
 
 
