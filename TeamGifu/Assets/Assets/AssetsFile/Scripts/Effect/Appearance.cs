@@ -14,8 +14,14 @@ public class Appearance : MonoBehaviour {
     private void Awake()
     {
         matrial = GetComponent<Renderer>();
+<<<<<<< HEAD
+        StartF = true;
+        //GetComponent<Collider>().enabled = false;
+
+=======
         GetComponent<Collider>().enabled = false;
         StartF = true;
+>>>>>>> master
         t = 0;
     }
     // Use this for initialization
