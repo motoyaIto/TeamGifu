@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185051362785156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.597736, y: 0.78490067, z: -2.1905768}
+  m_LocalPosition: {x: -22.2, y: 0.89, z: 7.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartF: 0
   Changematerial: {fileID: 2100000, guid: 698fd8bcba4ed684e81b5b4533134a57, type: 2}
-  StartHeight: -1.41
-  maxHeight: 1
+  StartHeight: 0.75
+  maxHeight: 1.98
 --- !u!135 &135215680566160480
 SphereCollider:
   m_ObjectHideFlags: 1
