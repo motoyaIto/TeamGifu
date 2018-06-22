@@ -25,6 +25,9 @@ public class HanoinotouController : MonoBehaviour {
 
     private GameObject[][] stack = new GameObject[PILLAR_NAM][];//各柱の輪を管理する
 
+    [SerializeField]
+    private GameObject ClearMessage;
+    private bool ClearFlag = false;
     struct Token
     {
         public GameObject obj;
@@ -71,9 +74,20 @@ public class HanoinotouController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(_GameSyste.GetHanoinoTouFlag())
+
+        if (!ClearFlag)
         {
-            SwitchHanoinotou(false, true);
+            if (_GameSyste.GetHanoinoTouFlag())
+            {
+                SwitchHanoinotou(false, true);
+            }
+        }
+        else
+        {
+            ClearMessage.SetActive(true);
+            ReturnButton();
+
+            GetComponent<BoxCollider>().enabled = false;
         }
 	}
 
@@ -104,7 +118,7 @@ public class HanoinotouController : MonoBehaviour {
                 col.enabled = hanoinotou;
             }
 
-            if ("Pillar1" == col.name || "Pillar2" == col.name || "Pillar3" == col.name)
+            if ("Pillar0" == col.name || "Pillar1" == col.name || "Pillar2" == col.name)
             {
                 col.enabled = pillar;
             }
@@ -136,8 +150,6 @@ public class HanoinotouController : MonoBehaviour {
         //上がっている物がなかったら
         if (token.obj == null)
         {
-            
-
             //上にあげるリングと元いた位置の柱の番号を登録
             token.obj = PushBuck(stack[pillarNamber]);
 
@@ -179,11 +191,16 @@ public class HanoinotouController : MonoBehaviour {
 
                     token.startPillar = -99;
 
+                    //クリア判定
+                    if(stack[2][0] != null && stack[2][1] != null && stack[2][2] != null)
+                    {
+                        Debug.Log("clear");
+
+                        ClearFlag = true;
+                    }
                     return;
                 }
             }
         }
-
-
     }
 }
