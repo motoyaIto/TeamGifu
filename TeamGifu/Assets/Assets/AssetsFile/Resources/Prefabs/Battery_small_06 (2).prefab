@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33065155177975486}
   - component: {fileID: 135525235241189872}
   - component: {fileID: 23462401664121604}
+  - component: {fileID: 114384643402759044}
   - component: {fileID: 54044749622113216}
   m_Layer: 8
   m_Name: Battery_small_06 (2)
@@ -99,6 +100,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &114384643402759044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403186207020098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76f715f74563c4ab2864f428b4b8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartF: 0
+  Changematerial: {fileID: 2100000, guid: 824508c360561274695892f20e3731e2, type: 2}
+  StartHeight: 0.75
+  maxHeight: 1.98
 --- !u!135 &135525235241189872
 SphereCollider:
   m_ObjectHideFlags: 1

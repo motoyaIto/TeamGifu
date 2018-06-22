@@ -13,6 +13,7 @@ public class Appearance : MonoBehaviour {
     public float maxHeight = 1;
 
 
+
     private void OnEnable()
     {
     }
@@ -20,13 +21,15 @@ public class Appearance : MonoBehaviour {
     {
         matrial = GetComponent<Renderer>();
         StartF = true;
-        t = 0;//
+  
         oldMaterial = gameObject.GetComponent<Renderer>().material;
+        gameObject.GetComponent<Collider>().enabled = false;
     }
     // Use this for initialization
     void Start () {
         //見えない状態に初期化
         matrial.sharedMaterial.SetFloat("_Height", StartHeight);
+        t = StartHeight;//
     }
 
     // Update is called once per frame
@@ -34,16 +37,17 @@ public class Appearance : MonoBehaviour {
         
         if (StartF==true)
         {
-            t += 0.01f;
+            t += 0.05f;
             matrial.sharedMaterial.SetFloat("_Height", t);
             
         }
         if(matrial.sharedMaterial.name==oldMaterial.name)
         {
-            if (matrial.sharedMaterial.GetFloat("_Height") >= maxHeight)
+            if (matrial.sharedMaterial.GetFloat("_Height") > maxHeight)
             {
                 StartF = false;
                 this.matrial.material = Changematerial;
+                gameObject.GetComponent<Collider>().enabled = true;
                 Debug.Log("SetMaterial");
             }
         }
