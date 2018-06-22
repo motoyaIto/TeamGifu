@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartF: 0
   Changematerial: {fileID: 2100000, guid: 698fd8bcba4ed684e81b5b4533134a57, type: 2}
+  StartHeight: -1.41
   maxHeight: 1
 --- !u!135 &135215680566160480
 SphereCollider:
