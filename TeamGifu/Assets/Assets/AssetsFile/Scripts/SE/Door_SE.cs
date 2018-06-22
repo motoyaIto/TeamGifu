@@ -12,7 +12,7 @@ public class Door_SE : MonoBehaviour {
     private void Start()
     {
         As = gameObject.AddComponent<AudioSource>();
-        As.volume = 0.35f;
+        As.volume = 0.15f;
     }
 
     private void OnTriggerEnter(Collider other)
