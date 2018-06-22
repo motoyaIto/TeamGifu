@@ -60,24 +60,33 @@ public class WeightGimmick : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if(LeftWeight<=Sum)
+        if (LeftWeight<=Sum )
         {
             left.LockFlagState = true;
 
         }
-        else if (lowerWeght <= Sum && Sum <= upperWeight)
+        else
+        {
+            left.LockFlagState = false;
+        }
+     if (lowerWeght <= Sum && Sum <= upperWeight)
         {
             front.LockFlagState = true ;
 
         }
-        else if (RightWeight <= Sum )
+        else
+        {
+            front.LockFlagState = false;
+        }
+     
+     if (RightWeight <= Sum )
         {
             right.LockFlagState = true;
 
         }
         else
         {
-            left.LockFlagState = false;
+
             right.LockFlagState = false;
             front.LockFlagState = false;
         }

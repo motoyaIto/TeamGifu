@@ -25,14 +25,23 @@ public class hand : MonoBehaviour {
                 Destroy(child);//破棄
             }
             //生成するオブジェクトを取得
-            PrefabItem = (GameObject)Resources.Load("Prefabs/" + item.GetSelectImage());
+            PrefabItem = (GameObject)Resources.Load("ItemPrefab/" + item.GetSelectImage());
             //アイテムの生成
             child = Instantiate(PrefabItem, transform.position+ItemoffsetPos, transform.rotation) as GameObject;
             //スケールの縮小
-           child.transform.localScale -= new Vector3(0.75f, 0.75f, 0.75f);
+            if(child.gameObject.name!= "Message(Clone)")
+            {
+                child.transform.localScale -= new Vector3(0.75f, 0.75f, 0.75f);
+            }
+            else
+            {
+                child.transform.Rotate( new Vector3(-169.694f, 117.82f, -100.308f));
+            }
+
             child.tag = "Untagged";
             //コンポーネントを破棄
             Destroy(child.GetComponent<Rigidbody>());
+            Destroy(child.GetComponent<Appearance>());
             //手のオブジェクトの子にする
             child.transform.parent = GameObject.Find("Hand").transform;
             item.CreateAitemState = false;
