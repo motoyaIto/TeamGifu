@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Appearance : MonoBehaviour {
     Renderer matrial;
-    public   bool StartF = false;
+    public  bool StartF = false;
     float t;
-    [SerializeField]
-    private Material ChangeMaterial;
+
 
     private void OnEnable()
     {
@@ -15,14 +14,20 @@ public class Appearance : MonoBehaviour {
     private void Awake()
     {
         matrial = GetComponent<Renderer>();
+<<<<<<< HEAD
         StartF = true;
         //GetComponent<Collider>().enabled = false;
 
+=======
+        GetComponent<Collider>().enabled = false;
+        StartF = true;
+>>>>>>> master
         t = 0;
     }
     // Use this for initialization
     void Start () {
         matrial.sharedMaterial.SetFloat("_Height", 0.0f);
+
 
     }
 
@@ -37,13 +42,17 @@ public class Appearance : MonoBehaviour {
             
         }
         
-        if (matrial.sharedMaterial.GetFloat("_Height")>1.7f)
+        if (matrial.sharedMaterial.GetFloat("_Height")>=5.0f)
         {
             StartF = false;
-            GetComponent<Collider>().enabled = true;
+          
             //t = 0;
-            this.matrial.material = ChangeMaterial;
+
          //   Debug.Break();
+        }
+        if(t>1.0f)
+        {
+            GetComponent<Collider>().enabled = true;
         }
 
     }
