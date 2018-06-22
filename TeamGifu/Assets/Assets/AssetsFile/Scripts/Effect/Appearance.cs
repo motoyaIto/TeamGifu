@@ -8,6 +8,7 @@ public class Appearance : MonoBehaviour {
     float t;//時間
     public Material Changematerial;
     private Material oldMaterial;
+    public float StartHeight = 0;
 
     public float maxHeight = 1;
 
@@ -25,7 +26,7 @@ public class Appearance : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //見えない状態に初期化
-        matrial.sharedMaterial.SetFloat("_Height", 0.0f);
+        matrial.sharedMaterial.SetFloat("_Height", StartHeight);
     }
 
     // Update is called once per frame
