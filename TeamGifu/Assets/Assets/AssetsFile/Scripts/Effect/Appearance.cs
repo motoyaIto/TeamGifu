@@ -15,7 +15,8 @@ public class Appearance : MonoBehaviour {
     private void Awake()
     {
         matrial = GetComponent<Renderer>();
-        GetComponent<Collider>().enabled = false;
+        StartF = true;
+        //GetComponent<Collider>().enabled = false;
 
         t = 0;
     }
