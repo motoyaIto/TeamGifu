@@ -99,6 +99,10 @@ public class WeightGimmick : MonoBehaviour {
             {
                 Sum += ReturnSum(obj);
             }
+            else
+            {
+                ListObj.RemoveAt(i);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)

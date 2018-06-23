@@ -34,7 +34,7 @@ public class Room6 : MonoBehaviour {
     [SerializeField]
     private Room6_L_SwithR l_swithR;
     [SerializeField]
-    private Room6_L_SwithR l_swithL;
+    private Room6_L_SwithL l_swithL;
     [SerializeField]
     private L_UpFloor l_upFoor;
     [SerializeField]
@@ -83,11 +83,6 @@ public class Room6 : MonoBehaviour {
             L_LeftFloor.transform.DOMove(L_LeftPos, 2.0f);
             l_upFoor.GetRideFlag(true);
 
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            L_RightFloor.transform.DOMove(L_RightPos, 2.0f);
-            L_LeftFloor.transform.DOMove(L_LeftPos, 2.0f);
         }
         if (_flontLight.ClearFlagState&&_leftLight.ClearFlagState&&_rightLight.ClearFlagState)
         {

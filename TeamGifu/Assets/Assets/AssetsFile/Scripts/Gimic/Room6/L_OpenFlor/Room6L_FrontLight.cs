@@ -54,6 +54,8 @@ public class Room6L_FrontLight : MonoBehaviour {
             if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState )
             {
                 GameObject obj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
+                obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
                 obj.AddComponent<RigWakeUp>();
                 _ray.LockObjFlagState = false;
             }
