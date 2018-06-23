@@ -71,7 +71,6 @@ public class Room6L_FrontLight : MonoBehaviour {
         }
         if (collision.gameObject.name == CreateName)
         {
-            Debug.Log("クリアー");
             ClearFlag = true;
 
         }

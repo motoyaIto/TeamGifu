@@ -54,7 +54,6 @@ namespace ProBuilder2.Actions
 						(((float)i+1) / selected.Length)))
 					{
 						EditorUtility.ClearProgressBar();
-						Debug.LogWarning("User canceled UV2 generation.  " + (selected.Length-i) + " pb_Objects left without lightmap UVs.");
 						return false;
 					}
 				}

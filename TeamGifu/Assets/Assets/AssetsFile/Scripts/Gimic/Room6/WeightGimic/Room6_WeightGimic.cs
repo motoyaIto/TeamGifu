@@ -97,15 +97,6 @@ public class Room6_WeightGimic : MonoBehaviour {
 
 
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject == null)
-        {
-            Debug.Log("null");
-        }
-
-
-    }
     int ReturnSum(GameObject other)
     {
         int returnnum = 0;
@@ -113,22 +104,18 @@ public class Room6_WeightGimic : MonoBehaviour {
         if (other.name == obj[(int)WEIGHT.FIVE].name)
         {
             returnnum += G_Obj1;
-            // Debug.Log("5");
         }
         if (other.name == obj[(int)WEIGHT.TEN].name)
         {
             returnnum += G_Obj2;
-            // Debug.Log("10");
         }
         if (other.name == obj[(int)WEIGHT.FIFTEEN].name)
         {
             returnnum += G_Obj3;
-            //Debug.Log("15");
         }
         if (other.name == obj[(int)WEIGHT.TWENTY].name)
         {
             returnnum += G_Obj4;
-            //Debug.Log("20");
         }
         return returnnum;
     }

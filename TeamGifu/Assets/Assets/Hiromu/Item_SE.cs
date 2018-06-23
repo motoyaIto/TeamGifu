@@ -74,7 +74,6 @@ public class Item_SE : MonoBehaviour {
         // エラーメッセージを表示して処理をスキップします
         if (sprite == null)
         {
-            //  Debug.LogErrorFormat("{0} という名前のスプライトは存在しません", name);
             return;
         }
 

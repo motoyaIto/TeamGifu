@@ -78,7 +78,6 @@ public class Room6_FrontRight : MonoBehaviour {
         }
         if (collision.gameObject.name == CreateName)
         {
-            Debug.Log("クリアー");
             ClearFlag = true;
 
         }

@@ -84,7 +84,11 @@ public class HanoinotouController : MonoBehaviour {
         }
         else
         {
-            ClearMessage.SetActive(true);
+            if (ClearMessage != null)
+            {
+                ClearMessage.SetActive(true);
+            }
+
             ReturnButton();
 
             GetComponent<BoxCollider>().enabled = false;
@@ -194,8 +198,6 @@ public class HanoinotouController : MonoBehaviour {
                     //クリア判定
                     if(stack[2][0] != null && stack[2][1] != null && stack[2][2] != null)
                     {
-                        Debug.Log("clear");
-
                         ClearFlag = true;
                     }
                     return;

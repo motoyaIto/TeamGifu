@@ -17,10 +17,8 @@ public class MessgeKard : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
         if (other.gameObject.tag=="Hit")
         {
-            Debug.Log("hit");
             fadeText.fadeFunction();
         }
         
