@@ -124,7 +124,6 @@ namespace ProBuilder2.EditorCommon
 
 			if(!pb_VersionUtil.GetAboutEntry(out about))
 			{
-				Debug.LogWarning("Couldn't find pb_AboutEntry_ProBuilder.txt");
 				return false;
 			}
 
@@ -245,7 +244,6 @@ namespace ProBuilder2.EditorCommon
 
 			if(banner == null)
 			{
-				Debug.LogWarning("Could not load About window resources");
 				this.Close();
 			}
 			else

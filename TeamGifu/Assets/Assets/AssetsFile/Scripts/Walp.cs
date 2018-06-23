@@ -21,7 +21,6 @@ public class Walp : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
 
         smc.ChangeCene();
     }

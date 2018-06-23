@@ -78,7 +78,6 @@ public class Room6_LeftLight : MonoBehaviour {
         }
         if (collision.gameObject.name == CreateName)
         {
-            Debug.Log("クリアー");
             ClearFlag = true;
 
         }

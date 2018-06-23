@@ -19,7 +19,7 @@ public class SceneManagerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+       
         //次のシーンを読み込む
         if (SceneManager.GetActiveScene().buildIndex < (int)SceneName.GOAL)
         {

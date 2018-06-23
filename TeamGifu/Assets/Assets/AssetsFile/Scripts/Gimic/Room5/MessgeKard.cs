@@ -14,12 +14,21 @@ public class MessgeKard : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (item.GetSelectImage() == "Message")
         {
             gameObject.GetComponent<Renderer>().enabled = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag=="Hit")
+        {
+            fadeText.fadeFunction();
         }
         else
         {

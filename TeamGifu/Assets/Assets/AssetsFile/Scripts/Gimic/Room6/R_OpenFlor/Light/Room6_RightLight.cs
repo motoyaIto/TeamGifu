@@ -82,7 +82,6 @@ public class Room6_RightLight : MonoBehaviour {
         }
         if(collision.gameObject.name== CreateName)
         {
-            Debug.Log("クリアー");
             ClearFlag = true;
 
         }

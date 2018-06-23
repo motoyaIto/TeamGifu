@@ -24,7 +24,6 @@ public class FadaText : MonoBehaviour {
     {
         if (other.gameObject.tag == "Hit")
         {
-            Debug.Log("hit");
             fadeFunction();
 
         }

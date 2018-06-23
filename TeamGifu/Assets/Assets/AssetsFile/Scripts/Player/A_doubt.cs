@@ -16,14 +16,6 @@ public class A_doubt : MonoBehaviour {
         //Rayの飛ばせる距離
 
 
-        //Rayの可視化    ↓Rayの原点　　　　↓Rayの方向　　　　　　　　　↓Rayの     
-        if (Physics.Raycast(ray, out hit))
-        {
-            //Rayが当たったオブジェクトのtagがPlayerだったら
-            if (hit.collider.tag == "cube")
-                Debug.Log("Rayがcubeに当たった");
-        }
-        //
     }
 }
 
