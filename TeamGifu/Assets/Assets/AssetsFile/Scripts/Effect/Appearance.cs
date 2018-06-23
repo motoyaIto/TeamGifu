@@ -48,7 +48,6 @@ public class Appearance : MonoBehaviour {
                 StartF = false;
                 this.matrial.material = Changematerial;
 
-                Debug.Log("SetMaterial");
             }
         }
 
