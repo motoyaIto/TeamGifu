@@ -50,20 +50,15 @@ public class Room6_LeftLight : MonoBehaviour {
         if (!flag)
         {
             //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
-            if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState && CreateName == _item.GetSelectImage())
-            {
-                GameObject obj = Instantiate(PrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
-                obj.AddComponent<RigWakeUp>();
-                _ray.LockObjFlagState = false;
-
-            }
-            else if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
+            if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
             {
 
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
+                obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 obj.AddComponent<RigWakeUp>();
+
             }
 
 

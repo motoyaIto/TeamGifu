@@ -23,6 +23,11 @@ public class Appearance : MonoBehaviour {
         StartF = true;
   
         oldMaterial = gameObject.GetComponent<Renderer>().material;
+        if(gameObject.name== "Sphere(Clone)")
+        {
+            GetComponent<Collider>().enabled = false;
+
+        }
 
     }
     // Use this for initialization
@@ -43,10 +48,13 @@ public class Appearance : MonoBehaviour {
         }
         if(matrial.sharedMaterial.name==oldMaterial.name)
         {
-            if (matrial.sharedMaterial.GetFloat("_Height") > maxHeight)
+            if (matrial.sharedMaterial.GetFloat("_Height") >= maxHeight)
             {
                 StartF = false;
+                GetComponent<Collider>().enabled = true;
+
                 this.matrial.material = Changematerial;
+                t = 0;
 
             }
         }
