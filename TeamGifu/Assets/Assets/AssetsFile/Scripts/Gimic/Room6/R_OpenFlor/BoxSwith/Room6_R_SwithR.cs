@@ -47,7 +47,6 @@ public class Room6_R_SwithR : MonoBehaviour {
                 CreateObj.transform.parent = GameObject.Find("RightSwith").transform;
 
                 _ray.LockObjFlagState = false;
-                Debug.Log("生成");
             }
         }
 

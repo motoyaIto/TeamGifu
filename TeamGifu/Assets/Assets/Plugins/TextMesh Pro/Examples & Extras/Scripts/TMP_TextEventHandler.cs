@@ -7,7 +7,7 @@ using System;
 namespace TMPro
 {
 
-    public class TMP_TextEventHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class TMP_TextEventHandler : MonoBehaviour
     {
         [Serializable]
         public class CharacterSelectionEvent : UnityEvent<char, int> { }
@@ -198,19 +198,6 @@ namespace TMPro
                 #endregion
             }
         }
-
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            //Debug.Log("OnPointerEnter()");
-        }
-
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            //Debug.Log("OnPointerExit()");
-        }
-
 
         private void SendOnCharacterSelection(char character, int characterIndex)
         {

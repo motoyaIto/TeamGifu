@@ -42,11 +42,6 @@ public class BoxSwitch : MonoBehaviour {
 
 
     }
-    public void GimicEvent()
-    {
-        Debug.Log("ok");
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
