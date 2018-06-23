@@ -48,6 +48,7 @@ public class LightGimick3 : MonoBehaviour {
             {
                 GameObject obj = Instantiate(PrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
+                obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 _ray.LockObjFlagState = false;
 
                 Clear();
@@ -58,6 +59,8 @@ public class LightGimick3 : MonoBehaviour {
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
+                obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
                 obj.AddComponent<RigWakeUp>();
             }
 

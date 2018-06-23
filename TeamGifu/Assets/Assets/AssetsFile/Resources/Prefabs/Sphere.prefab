@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33264390827068568}
   - component: {fileID: 135602605507987898}
   - component: {fileID: 23734762064815342}
+  - component: {fileID: 114794045605052680}
   - component: {fileID: 54505218140320832}
   m_Layer: 8
   m_Name: Sphere
@@ -57,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e5fd3d66e3de5cf42adfa93fc3e39f00, type: 2}
+  - {fileID: 2100000, guid: 85877e058a3182149825571e703c9e7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,6 +100,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &114794045605052680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498666893967758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76f715f74563c4ab2864f428b4b8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartF: 0
+  Changematerial: {fileID: 2100000, guid: 8a5d03904c4aaf74d9e9e4b9ba141b5d, type: 2}
+  StartHeight: -0.61
+  maxHeight: 1.57
 --- !u!135 &135602605507987898
 SphereCollider:
   m_ObjectHideFlags: 1

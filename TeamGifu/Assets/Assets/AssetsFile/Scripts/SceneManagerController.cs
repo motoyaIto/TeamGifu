@@ -12,17 +12,16 @@ public class SceneManagerController : MonoBehaviour
     public enum SceneName
     {
         TITLE,
-        SCENEMANAGER,
-
-        MAX
-
+        PLAY,
+        GOAL,
     };
 
 	// Use this for initialization
 	void Start ()
     {
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         //次のシーンを読み込む
-        if (SceneManager.GetActiveScene().buildIndex < (int)SceneName.MAX)
+        if (SceneManager.GetActiveScene().buildIndex < (int)SceneName.GOAL)
         {
             ope = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         }
