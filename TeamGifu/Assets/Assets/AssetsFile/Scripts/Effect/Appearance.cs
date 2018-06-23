@@ -23,7 +23,7 @@ public class Appearance : MonoBehaviour {
         StartF = true;
   
         oldMaterial = gameObject.GetComponent<Renderer>().material;
-        gameObject.GetComponent<Collider>().enabled = false;
+
     }
     // Use this for initialization
     void Start () {
@@ -47,7 +47,7 @@ public class Appearance : MonoBehaviour {
             {
                 StartF = false;
                 this.matrial.material = Changematerial;
-                gameObject.GetComponent<Collider>().enabled = true;
+
                 Debug.Log("SetMaterial");
             }
         }
