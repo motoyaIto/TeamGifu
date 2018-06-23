@@ -55,6 +55,11 @@ public class Room6 : MonoBehaviour {
     [SerializeField]
     private GameObject[] L_Lightobj;
 
+    [SerializeField]
+    GameObject Warp;
+    private bool WarpFlag1 = false;
+    private bool WarpFlag2 = false;
+
 
     // Use this for initialization
     void Start()
@@ -91,6 +96,8 @@ public class Room6 : MonoBehaviour {
             {
                 Lightobj[i].GetComponent<Renderer>().material = mtl;
             }
+
+            WarpFlag1 = true;
      
         }
         if(L_frontLight.ClearFlagState&&L_rightLight.ClearFlagState&&L_leftLight.ClearFlagState)
@@ -99,9 +106,14 @@ public class Room6 : MonoBehaviour {
             {
                 L_Lightobj[i].GetComponent<Renderer>().material = mtl;
             }
+
+            WarpFlag2 = true;
         }
 
-
+        if(WarpFlag1 && WarpFlag2)
+        {
+            Warp.SetActive(true);
+        }
 
     }
 }
