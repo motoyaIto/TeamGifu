@@ -5,6 +5,9 @@ using UnityEngine;
 public class MessgeKard : MonoBehaviour {
     [SerializeField]
     ItemListController item;
+    [SerializeField]
+    FadaText fadeText;
+    bool isLock;
 
     private void Awake()
     {
@@ -21,13 +24,23 @@ public class MessgeKard : MonoBehaviour {
         if (item.GetSelectImage() == "Message")
         {
             gameObject.GetComponent<Renderer>().enabled = true;
+            isLock = true;
         }
+        else
+        {
+            gameObject.GetComponent<Renderer>().enabled = false;
+            isLock = false;
+
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag=="Hit")
         {
+            if (!isLock) return;
             fadeText.fadeFunction();
         }
         else
