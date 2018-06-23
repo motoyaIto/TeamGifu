@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class MessgeKard : MonoBehaviour {
     [SerializeField]
-   private FadaText fadeText;
+    ItemListController item;
+
+    private void Awake()
+    {
+    }
 
     // Use this for initialization
     void Start () {
@@ -13,16 +17,17 @@ public class MessgeKard : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("hit");
-        if (other.gameObject.tag=="Hit")
+        if (item.GetSelectImage() == "Message")
         {
-            Debug.Log("hit");
-            fadeText.fadeFunction();
+            gameObject.GetComponent<Renderer>().enabled = true;
         }
-        
+        else
+        {
+            gameObject.GetComponent<Renderer>().enabled = false;
+
+
+        }
+
     }
+
 }
