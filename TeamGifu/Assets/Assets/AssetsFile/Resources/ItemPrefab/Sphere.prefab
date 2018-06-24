@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 135488842296591370}
   - component: {fileID: 23127196748840130}
   - component: {fileID: 54532232725774554}
-  - component: {fileID: 114387993488325564}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Item
@@ -58,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f4ffa591e5ca52d4dbf8d2e73d62e349, type: 2}
+  - {fileID: 2100000, guid: 8a5d03904c4aaf74d9e9e4b9ba141b5d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,20 +97,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &114387993488325564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1685305226137644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e76f715f74563c4ab2864f428b4b8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartF: 0
 --- !u!135 &135488842296591370
 SphereCollider:
   m_ObjectHideFlags: 1
