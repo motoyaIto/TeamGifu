@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room6_LeftLight : MonoBehaviour {
-
+    [SerializeField]
+    private Appearance _appearance;
     //プレファブ生成するアイテム
     private GameObject PrefabItem;
     [SerializeField, Header("ItemListControllerのオブジェ")]
@@ -52,7 +53,8 @@ public class Room6_LeftLight : MonoBehaviour {
             //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
             if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
             {
-
+                _appearance.StartHeightState = 30.73f;
+                _appearance.MaxHeightState = 31.83f;
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room6L_FrontLight : MonoBehaviour {
-
+    [SerializeField]
+    private Appearance _appearance;
     //プレファブ生成するアイテム
     private GameObject PrefabItem;
     [SerializeField, Header("ItemListControllerのオブジェ")]
@@ -53,6 +54,8 @@ public class Room6L_FrontLight : MonoBehaviour {
             //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
             if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState )
             {
+                _appearance.StartHeightState = 30.73f;
+                _appearance.MaxHeightState = 31.83f;
                 GameObject obj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 

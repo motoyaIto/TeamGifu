@@ -8,7 +8,21 @@ public class Appearance : MonoBehaviour {
     float t;//時間
     public Material Changematerial;
     private Material oldMaterial;
-    public float StartHeight = 0;
+    public  float StartHeight = 0;
+    public float StartHeightState
+    {
+        set
+        {
+            StartHeight = value;
+        }
+    }
+    public float MaxHeightState
+    {
+        set
+        {
+            maxHeight = value;
+        }
+    }
 
     public float maxHeight = 1;
 
