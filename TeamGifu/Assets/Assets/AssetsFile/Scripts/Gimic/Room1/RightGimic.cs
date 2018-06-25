@@ -40,6 +40,7 @@ public class RightGimic : MonoBehaviour {
 
             obj.transform.parent = GameObject.Find("swich_2").transform;
             _ray.LockObjFlagState = false;
+            SoundManager.PlaySe("pushItem");
 
         }
 

@@ -58,6 +58,7 @@ public class Room6_FrontRight : MonoBehaviour {
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 obj.AddComponent<RigWakeUp>();
                 _ray.LockObjFlagState = false;
+                SoundManager.PlaySe("pushItem");
             }
 
 

@@ -41,7 +41,6 @@ public class ray : MonoBehaviour {
     private Material Changematerial;
 
 
-
     #region PropertyVariable
     public bool LockObjFlagState
     {
@@ -82,6 +81,7 @@ public class ray : MonoBehaviour {
 
        ItemListScript = ItemList.GetComponent<ItemListController>();
         CursorImage.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -150,6 +150,7 @@ public class ray : MonoBehaviour {
                     {
                         var source = Instantiate(DissolveSource);
                         source.DissolveTarget(target, hit.point);
+                        SoundManager.PlaySe("getItem");
 
                     }
                 }
@@ -214,9 +215,9 @@ public class ray : MonoBehaviour {
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
             obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
 
-
-
             obj.name = PrefabItem.name;
+
+            SoundManager.PlaySe("pushItem");
 
         }
     }

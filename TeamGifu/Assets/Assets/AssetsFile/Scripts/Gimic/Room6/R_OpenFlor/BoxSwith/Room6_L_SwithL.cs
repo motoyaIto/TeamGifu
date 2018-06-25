@@ -24,6 +24,10 @@ public class Room6_L_SwithL : MonoBehaviour {
         {
             return clearFlag;
         }
+        set
+        {
+            clearFlag = value;
+        }
     }
     private bool OnSwitch = false;
     // Use this for initialization
@@ -49,6 +53,7 @@ public class Room6_L_SwithL : MonoBehaviour {
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
                 CreateObj.transform.parent = GameObject.Find("LeftSwith").transform;
+                SoundManager.PlaySe("pushItem");
 
                 _ray.LockObjFlagState = false;
             }

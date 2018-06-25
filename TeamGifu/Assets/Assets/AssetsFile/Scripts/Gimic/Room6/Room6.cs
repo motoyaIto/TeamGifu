@@ -75,6 +75,8 @@ public class Room6 : MonoBehaviour {
             RightFloor.transform.DOMove(RightPos, 2.0f);
             LeftFloor.transform.DOMove(LeftPos, 2.0f);
             _upFloor.GetRideFlag(true);
+            SoundManager.PlaySe("gate");
+            r_SwithR.clearFlagState = false;
 
         }
         if(l_swithL.clearFlagState&&l_swithR.clearFlagState)
@@ -82,6 +84,9 @@ public class Room6 : MonoBehaviour {
             L_RightFloor.transform.DOMove( L_RightPos, 2.0f);
             L_LeftFloor.transform.DOMove(L_LeftPos, 2.0f);
             l_upFoor.GetRideFlag(true);
+            SoundManager.PlaySe("gate");
+            l_swithL.clearFlagState = false;
+
 
         }
         if (_flontLight.ClearFlagState&&_leftLight.ClearFlagState&&_rightLight.ClearFlagState)

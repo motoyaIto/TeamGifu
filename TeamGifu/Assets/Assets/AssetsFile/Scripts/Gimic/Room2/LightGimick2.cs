@@ -51,6 +51,7 @@ public class LightGimick2 : MonoBehaviour {
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
                 _ray.LockObjFlagState = false;
+                SoundManager.PlaySe("pushItem");
 
                 Clear();
             }
@@ -62,6 +63,7 @@ public class LightGimick2 : MonoBehaviour {
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                SoundManager.PlaySe("pushItem");
 
             }
 

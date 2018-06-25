@@ -58,6 +58,7 @@ public class Room6L_FrontLight : MonoBehaviour {
 
                 obj.AddComponent<RigWakeUp>();
                 _ray.LockObjFlagState = false;
+                SoundManager.PlaySe("pushItem");
             }
      
 

@@ -49,7 +49,7 @@ public class Room6_R_Swith_L : MonoBehaviour {
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
                 CreateObj.transform.parent = GameObject.Find("LeftSwith").transform;
-
+                SoundManager.PlaySe("pushItem");
                 _ray.LockObjFlagState = false;
             }
         }

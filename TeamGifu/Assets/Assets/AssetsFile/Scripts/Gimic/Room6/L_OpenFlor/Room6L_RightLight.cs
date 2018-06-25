@@ -56,7 +56,7 @@ public class Room6L_RightLight : MonoBehaviour {
                 GameObject obj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
+                SoundManager.PlaySe("pushItem");
                 _ray.LockObjFlagState = false;
             }
 

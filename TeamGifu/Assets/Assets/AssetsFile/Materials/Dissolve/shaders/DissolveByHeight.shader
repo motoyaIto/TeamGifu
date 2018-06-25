@@ -9,6 +9,7 @@ Shader "Custom/Dissolve/Height/Opaque" {
 		[NoScaleOffset] _MetallicGlossMap("Metallic", 2D) = "white" {}
 		[Gamma]  _Metallic ("Metallic", Range(0.000000,1.000000)) = 0.000000
 		_Height("Dissolve Height", Float) = 1
+		_WorldHeight("Dissolve World Height", Float) = 0
 		_Interpolation("Dissolve Interpolation", Range(0,5)) = 1
 		_DissTexture("Dissolve Texture", 2D) = "black" {}
 		[HDR]_DissolveColor("Dissolve Color", Color) = (0,1,0,1)
@@ -89,7 +90,7 @@ Shader "Custom/Dissolve/Height/Opaque" {
 
 		void surf(Input IN, inout SurfaceOutputStandard o) {
 
-			float l = _Height - IN.worldPos.y;
+			float l = _Height - _WorldHeight;// IN.worldPos.y;
 			clip( sign(IN.worldPos.y) * sign(IN.worldPos.y) * (l + (tex2D(_DissTexture, IN.uv_DissTexture) * _Interpolation)) );
 
 			fixed4 c = tex2D(_MetallicGlossMap, IN.uv_MainTex);

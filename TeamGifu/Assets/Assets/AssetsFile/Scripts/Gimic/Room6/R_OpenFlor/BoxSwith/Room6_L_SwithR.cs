@@ -12,6 +12,8 @@ public class Room6_L_SwithR : MonoBehaviour {
     private Vector3 ObjPos;
     [SerializeField, Header("Rayのオブジェクト")]
     private ray _ray;
+    [SerializeField]
+    private GameObject parentObj;
     //prefab生成するオブジェクト
     private GameObject CreateObj;
     //クリアー判定の名前
@@ -45,9 +47,12 @@ public class Room6_L_SwithR : MonoBehaviour {
             if (CreateObj == null)
             {
                 //生成
+                Appearance.StartHeight = parentObj.transform.position.y - 2.0f;
+                Appearance.StartWorldHeight = parentObj.transform.position.y;
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
                 CreateObj.transform.parent = GameObject.Find("LeftSwith").transform;
+                SoundManager.PlaySe("pushItem");
 
                 _ray.LockObjFlagState = false;
             }

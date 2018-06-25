@@ -11,6 +11,8 @@ public class LeftGimic : MonoBehaviour {
     private Vector3 ObjPos;
     [SerializeField, Header("Rayのオブジェクト")]
     private ray _ray;
+    [SerializeField]
+    private GameObject parentObj;
 
     private const string CreateName = "Sphere";//固定オブジェクトに出す名前
     private bool OnSwitch = false;
@@ -28,10 +30,13 @@ public class LeftGimic : MonoBehaviour {
         //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
         if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState && CreateName == _item.GetSelectImage())
         {
+            Appearance.StartHeight = parentObj.transform.position.y - 0.74f;
+            Appearance.StartWorldHeight = parentObj.transform.position.y;
             GameObject obj =Instantiate(PrefabItem, new Vector3(ObjPos.x,ObjPos.y,ObjPos.z), transform.rotation);
             obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
             obj.transform.parent = GameObject.Find("swich_1").transform;
 
+            SoundManager.PlaySe("pushItem");
             _ray.LockObjFlagState = false;
             
             

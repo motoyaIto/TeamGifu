@@ -8,7 +8,8 @@ public class Appearance : MonoBehaviour {
     float t;//時間
     public Material Changematerial;
     private Material oldMaterial;
-    public float StartHeight = 0;
+    static public float StartHeight = 0;
+    static public float StartWorldHeight = 0;
 
     public float maxHeight = 1;
 
@@ -21,7 +22,9 @@ public class Appearance : MonoBehaviour {
     {
         matrial = GetComponent<Renderer>();
         StartF = true;
-  
+        matrial.sharedMaterial.SetFloat("_Height", StartHeight);
+        matrial.sharedMaterial.SetFloat("_WorldHeight", StartWorldHeight);
+        t = StartHeight;//
         oldMaterial = gameObject.GetComponent<Renderer>().material;
         if(gameObject.name== "Sphere(Clone)")
         {
@@ -33,8 +36,7 @@ public class Appearance : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //見えない状態に初期化
-        matrial.sharedMaterial.SetFloat("_Height", StartHeight);
-        t = StartHeight;//
+
     }
 
     // Update is called once per frame
@@ -50,11 +52,11 @@ public class Appearance : MonoBehaviour {
         {
             if (matrial.sharedMaterial.GetFloat("_Height") >= maxHeight)
             {
-                StartF = false;
+
                 GetComponent<Collider>().enabled = true;
 
                 this.matrial.material = Changematerial;
-                t = 0;
+                StartF = false;
 
             }
         }

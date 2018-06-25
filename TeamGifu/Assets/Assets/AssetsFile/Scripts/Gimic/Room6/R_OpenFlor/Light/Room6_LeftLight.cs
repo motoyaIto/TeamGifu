@@ -58,6 +58,7 @@ public class Room6_LeftLight : MonoBehaviour {
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 obj.AddComponent<RigWakeUp>();
+                SoundManager.PlaySe("pushItem");
 
             }
 
