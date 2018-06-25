@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room6_R_SwithR : MonoBehaviour {
-
+    [SerializeField]
+    private Appearance _appearance;
     //プレファブ生成するアイテム
     private GameObject PrefabItem;
     [SerializeField, Header("ItemListControllerのオブジェ")]
@@ -46,6 +47,8 @@ public class Room6_R_SwithR : MonoBehaviour {
         {
             if(CreateObj==null)
             {
+                _appearance.StartHeightState = 30.42f;
+                _appearance.MaxHeightState = 31.94f;
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
                 CreateObj.transform.parent = GameObject.Find("RightSwith").transform;

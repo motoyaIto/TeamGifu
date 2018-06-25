@@ -16,6 +16,8 @@ public class Room6_L_SwithL : MonoBehaviour {
     private GameObject CreateObj;
     //クリアー判定の名前
     private const string CleaerName = "Sphere(Clone)";
+    [SerializeField]
+  private Appearance _appearance;
     //クリアーフラグ
     bool clearFlag;
     public  bool clearFlagState
@@ -50,6 +52,9 @@ public class Room6_L_SwithL : MonoBehaviour {
             if(CreateObj==null)
             {
                 //生成
+                _appearance.StartHeightState = 30.42f;
+                _appearance.MaxHeightState = 31.94f;
+
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
                 CreateObj.transform.parent = GameObject.Find("LeftSwith").transform;

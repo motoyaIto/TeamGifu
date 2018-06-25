@@ -25,7 +25,8 @@ public class LightGimick3 : MonoBehaviour {
 
     private GameObject delete_Obj;
 
-
+    [SerializeField]
+    private Appearance _appearance;
     private const string CreateName = "Battery_small_06 (2)";//固定オブジェクトに出す名前
     private bool OnSwitch = false;
     // Use this for initialization
@@ -46,6 +47,8 @@ public class LightGimick3 : MonoBehaviour {
             //ゲームオブジェクトの名前とRayに当たっているオブジェクト名が一緒か＆＆固定オブジェクトに当たっているか＆＆出すオブジェクトと選択しているアイテムの名前が一緒か
             if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState && CreateName == _item.GetSelectImage())
             {
+                _appearance.StartHeightState = 0.57f;
+                _appearance.MaxHeightState = 1.93f;
                 GameObject obj = Instantiate(PrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
                 obj.AddComponent<RigWakeUp>();
                 obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -56,7 +59,8 @@ public class LightGimick3 : MonoBehaviour {
             }
             else if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
             {
-
+                _appearance.StartHeightState = 0.57f;
+                _appearance.MaxHeightState = 1.93f;
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);

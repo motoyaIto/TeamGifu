@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room6_R_Swith_L : MonoBehaviour {
-
+    [SerializeField]
+    private Appearance _appearance;
     //プレファブ生成するアイテム
     private GameObject PrefabItem;
     [SerializeField, Header("ItemListControllerのオブジェ")]
@@ -45,6 +46,8 @@ public class Room6_R_Swith_L : MonoBehaviour {
             //生成するオブジェクトがNullなら
             if (CreateObj == null)
             {
+                _appearance.StartHeightState = 30.42f;
+                _appearance.MaxHeightState = 31.94f;
                 //生成
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);

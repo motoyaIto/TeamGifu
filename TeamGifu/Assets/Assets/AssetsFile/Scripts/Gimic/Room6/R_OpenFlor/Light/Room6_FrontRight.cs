@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room6_FrontRight : MonoBehaviour {
-
+    [SerializeField]
+    private Appearance _appearance;
     //プレファブ生成するアイテム
     private GameObject PrefabItem;
     [SerializeField, Header("ItemListControllerのオブジェ")]
@@ -52,6 +53,8 @@ public class Room6_FrontRight : MonoBehaviour {
         {
              if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
             {
+                _appearance.StartHeightState = 30.73f;
+                _appearance.MaxHeightState = 31.83f;
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);
