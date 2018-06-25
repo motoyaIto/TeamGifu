@@ -16,7 +16,9 @@ public class GameMgr : MonoBehaviour {
         SoundManager.LoadSe("selectItem", "cursor1");
         SoundManager.LoadSe("bag", "SystemSelect");
         SoundManager.LoadSe("start", "SystemSelect1");
-        SoundManager.LoadSe("miss", "Error");        
+
+
+        SoundManager.PlayBgm("bgm");
 
     }
 
