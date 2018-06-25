@@ -50,8 +50,6 @@ public class Room6_L_SwithR : MonoBehaviour {
                 _appearance.StartHeightState = 30.42f;
                 _appearance.MaxHeightState = 31.94f;
                 //生成
-                Appearance.StartHeight = parentObj.transform.position.y - 2.0f;
-                Appearance.StartWorldHeight = parentObj.transform.position.y;
                 CreateObj = Instantiate(PrefabItem, transform.TransformPoint(ObjPos), transform.rotation);
                 CreateObj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
                 CreateObj.transform.parent = GameObject.Find("LeftSwith").transform;
