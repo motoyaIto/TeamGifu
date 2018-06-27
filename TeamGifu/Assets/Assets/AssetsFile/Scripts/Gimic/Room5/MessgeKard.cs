@@ -7,7 +7,9 @@ public class MessgeKard : MonoBehaviour {
     ItemListController item;
     [SerializeField]
     FadaText fadeText;
-    bool isLock;
+    [SerializeField]
+    private GameObject TextObj;//FadaTextのオブジェクト
+    bool isLock;//メッセージカードを取得したらtrueにするフラグ
 
     private void Awake()
     {
@@ -21,18 +23,27 @@ public class MessgeKard : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        //開くアイテムがメッセージカードなら
         if (item.GetSelectImage() == "Message")
         {
+            //メッセージカードのRenderを表示
             gameObject.GetComponent<Renderer>().enabled = true;
             isLock = true;
+            //フェードアニメーションがまだ行われていなかったら？
+            if(fadeText.isAnimetionState)
+            {
+                TextObj.SetActive(true);
+            }
+   
         }
         else
         {
             gameObject.GetComponent<Renderer>().enabled = false;
+            TextObj.SetActive(false);
             isLock = false;
 
         }
-
+        
 
     }
 
@@ -41,7 +52,7 @@ public class MessgeKard : MonoBehaviour {
         if (other.gameObject.tag=="Hit")
         {
             if (!isLock) return;
-            fadeText.fadeFunction();
+            fadeText.fadeFunction();//アニメーションの開始
         }
         else
         {

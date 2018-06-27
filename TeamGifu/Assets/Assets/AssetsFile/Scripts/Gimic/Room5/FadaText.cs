@@ -6,6 +6,14 @@ using DG.Tweening;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class FadaText : MonoBehaviour {
+    private bool isAnimetion;
+    public bool isAnimetionState
+    {
+        get
+        {
+            return isAnimetion;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -30,10 +38,12 @@ public class FadaText : MonoBehaviour {
     }
     public void fadeFunction()
     {
+
         this.GetComponent<TextMeshProUGUI>().enabled = true;
 
         this.GetComponent<TextMeshProUGUI>()
     .DOFade(1.0f,3.0f)
     .Play();
+        isAnimetion = true;
     }
 }
