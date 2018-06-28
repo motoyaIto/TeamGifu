@@ -150,7 +150,7 @@ public class ray : MonoBehaviour {
                     {
                         var source = Instantiate(DissolveSource);
                         source.DissolveTarget(target, hit.point);
-                        SoundManager.PlaySe("getItem");
+                        SoundManager.PlaySe("getItem", 1);
 
                     }
                 }
@@ -217,7 +217,7 @@ public class ray : MonoBehaviour {
 
             obj.name = PrefabItem.name;
 
-            SoundManager.PlaySe("pushItem");
+            SoundManager.PlaySe("pushItem", 1);
 
         }
     }
