@@ -47,6 +47,7 @@ public class SoundManager : MonoBehaviour
         /// コンストラクタ
         public _Data(string key, string res)
         {
+           
             Key = key;
             ResName = "Sounds/" + res;
             // AudioClipの取得
@@ -104,10 +105,13 @@ public class SoundManager : MonoBehaviour
     // ※Resources/Soundsフォルダに配置すること
     public static void LoadBgm(string key, string resName)
     {
+
+
         GetInstance()._LoadBgm(key, resName);
     }
     public static void LoadSe(string key, string resName)
     {
+
         GetInstance()._LoadSe(key, resName);
     }
     void _LoadBgm(string key, string resName)
@@ -131,8 +135,9 @@ public class SoundManager : MonoBehaviour
 
     /// BGMの再生
     /// ※事前にLoadBgmでロードしておくこと
-    public static bool PlayBgm(string key)
+    public static bool PlayBgm(string key,float volume)
     {
+        GetInstance()._GetAudioSource(eType.Bgm).volume = volume;
         return GetInstance()._PlayBgm(key);
     }
     bool _PlayBgm(string key)
@@ -171,8 +176,9 @@ public class SoundManager : MonoBehaviour
 
     /// SEの再生
     /// ※事前にLoadSeでロードしておくこと
-    public static bool PlaySe(string key, int channel = -1)
+    public static bool PlaySe(string key, int channel = -1,float volume=1.0f)
     {
+        GetInstance()._GetAudioSource(eType.Se).volume = volume;
         return GetInstance()._PlaySe(key, channel);
     }
     bool _PlaySe(string key, int channel = -1)

@@ -53,8 +53,8 @@ public class Room6_FrontRight : MonoBehaviour {
         {
              if (gameObject.name == _ray.RayHitNameState && _ray.LockObjFlagState)
             {
-                _appearance.StartHeightState = 30.73f;
-                _appearance.MaxHeightState = 31.83f;
+                _appearance.StartHeightState = 29.8f;
+                _appearance.MaxHeightState = 31.72f;
                 //生成するオブジェクトを取得
                 GameObject DummyPrefabItem = (GameObject)Resources.Load("Prefabs/" + _item.GetSelectImage());
                 GameObject obj = Instantiate(DummyPrefabItem, new Vector3(ObjPos.x, ObjPos.y, ObjPos.z), transform.rotation);

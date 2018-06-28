@@ -15,10 +15,10 @@ public class GameMgr : MonoBehaviour {
         SoundManager.LoadSe("pushItem", "warp1");
         SoundManager.LoadSe("selectItem", "cursor1");
         SoundManager.LoadSe("bag", "SystemSelect");
-        SoundManager.LoadSe("start", "SystemSelect1");
+        SoundManager.LoadSe("start", "SystemSelect1"); 
+        SoundManager.LoadSe("ElevetorSe", "elevetor-up");
 
-
-        SoundManager.PlayBgm("bgm");
+        SoundManager.PlayBgm("bgm",0.0f);
 
     }
 
