@@ -25,8 +25,6 @@ public class WeightGimmick : MonoBehaviour {
     private int upperWeight = 50;
     //扉オブジェクト
     public room3_front front;
-    public room3_left left;
-    public room3_right right;
     const string clone = "(Clone)";
     [SerializeField]
     string[] objname;
@@ -60,15 +58,6 @@ public class WeightGimmick : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (LeftWeight<=Sum )
-        {
-            left.LockFlagState = true;
-
-        }
-        else
-        {
-            left.LockFlagState = false;
-        }
      if (lowerWeght <= Sum && Sum <= upperWeight)
         {
             front.LockFlagState = true ;
@@ -81,13 +70,10 @@ public class WeightGimmick : MonoBehaviour {
      
      if (RightWeight <= Sum )
         {
-            right.LockFlagState = true;
-
+            return;
         }
         else
         {
-
-            right.LockFlagState = false;
             front.LockFlagState = false;
         }
         Sum = 0;
