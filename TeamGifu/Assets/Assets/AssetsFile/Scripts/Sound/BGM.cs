@@ -6,7 +6,7 @@ public class BGM : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SoundManager.PlayBgm("bgm");
+        SoundManager.PlayBgm("bgm",0.5f);
 	}
 	
 }

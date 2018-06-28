@@ -20,7 +20,7 @@ public class GameMgr : MonoBehaviour {
         SoundManager.LoadSe("start", "SystemSelect1");
         SoundManager.LoadSe("warp", "Accent43-1");
         SoundManager.LoadSe("ElevetorSe", "elevetor-up");
-        SoundManager.PlayBgm("title");
+        SoundManager.PlayBgm("title",0.5f);
 
 
 
