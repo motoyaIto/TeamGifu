@@ -19,6 +19,7 @@ public class SceneManagerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        Cursor.lockState = CursorLockMode.Confined;
        
         //次のシーンを読み込む
         if (SceneManager.GetActiveScene().buildIndex < (int)SceneName.GOAL)

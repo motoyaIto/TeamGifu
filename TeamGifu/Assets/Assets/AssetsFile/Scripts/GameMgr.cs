@@ -22,10 +22,6 @@ public class GameMgr : MonoBehaviour {
         SoundManager.LoadSe("ElevetorSe", "elevetor-up");
         SoundManager.PlayBgm("title",0.5f);
 
-
-
-        SoundManager.PlayBgm("bgm",0.0f);
-
     }
 
     // Update is called once per frame
