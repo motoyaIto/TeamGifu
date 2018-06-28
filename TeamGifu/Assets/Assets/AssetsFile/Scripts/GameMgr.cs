@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameMgr : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        // 
+
+    // Use this for initialization
+    void Start () {
+        // サウンドの登録
+        SoundManager.LoadBgm("title", "Title_BGM");
         SoundManager.LoadBgm("bgm", "BGM");
         SoundManager.LoadSe("gate", "GateOpen");
         SoundManager.LoadSe("unlock", "unlocking-1");
@@ -16,10 +18,9 @@ public class GameMgr : MonoBehaviour {
         SoundManager.LoadSe("selectItem", "cursor1");
         SoundManager.LoadSe("bag", "SystemSelect");
         SoundManager.LoadSe("start", "SystemSelect1");
+        SoundManager.LoadSe("warp", "Accent43-1");
 
-
-        SoundManager.PlayBgm("bgm");
-
+        SoundManager.PlayBgm("title");
     }
 
     // Update is called once per frame

@@ -110,7 +110,7 @@ public class ItemListController : MonoBehaviour {
     {
         m_selectImage = image.sprite.name;
         CreateAitemFlag = true;
-
+        SoundManager.PlaySe("selectItem");
     }
     
 

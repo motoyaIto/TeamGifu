@@ -8,5 +8,6 @@ public class ResetZone : MonoBehaviour {
     {
         Vector3 ResetPos = new Vector3(-8.5f, 35f, 0);
         other.transform.position = ResetPos;
+        SoundManager.PlaySe("warp", 1);
     }
 }

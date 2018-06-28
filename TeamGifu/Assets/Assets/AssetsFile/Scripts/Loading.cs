@@ -26,7 +26,7 @@ public class Loading : MonoBehaviour {
         StartCoroutine("LoadData");
 
         //サウンドを鳴らす
-        SoundManager.PlaySe("start");
+        SoundManager.PlaySe("start", 1);
     }
 
 	IEnumerator LoadData()
@@ -34,6 +34,8 @@ public class Loading : MonoBehaviour {
         //シーンの読み込みをする
         async = SceneManager.LoadSceneAsync("PlayScene");
 
+        // タイトルのBGMを止める
+        SoundManager.StopBgm();
 
         //読み込みが終わるまで進捗状況をスライダーの値に反映する
         while(!async.isDone)
