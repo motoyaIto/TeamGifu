@@ -26,7 +26,8 @@ public class Loading : MonoBehaviour {
         StartCoroutine("LoadData");
 
         //サウンドを鳴らす
-        SoundManager.PlaySe("start", 1);
+
+        SoundManager.PlaySe("start",-1,0.5f);
     }
 
 	IEnumerator LoadData()

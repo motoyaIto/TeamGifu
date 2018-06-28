@@ -19,12 +19,17 @@ public class GameMgr : MonoBehaviour {
         SoundManager.LoadSe("bag", "SystemSelect");
         SoundManager.LoadSe("start", "SystemSelect1");
         SoundManager.LoadSe("warp", "Accent43-1");
-
+        SoundManager.LoadSe("ElevetorSe", "elevetor-up");
         SoundManager.PlayBgm("title");
+
+
+
+        SoundManager.PlayBgm("bgm",0.0f);
+
     }
 
     // Update is called once per frame
     void Update () {
-		
+
 	}
 }
