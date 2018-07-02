@@ -16,14 +16,10 @@ public class Room6_WeightGimic : MonoBehaviour {
     [SerializeField, Header("Weight4の重さ")]
     private int G_Obj4 = 20;
 
-    [SerializeField, Header("leftの重さ条件")]
-    private int LeftWeight = 30;
-    [SerializeField, Header("Rightの重さ条件")]
-    private int RightWeight = 51;
-    [SerializeField, Header("Frontの下限値")]
-    private int lowerWeght = 31;
-    [SerializeField, Header("Frontの上限値")]
-    private int upperWeight = 50;
+    private int LeftWeight = 60;//レフトのクリア条件
+    private int RightWeight = 70;//ライトのクリア条件
+    [SerializeField]
+    private Light[] lightobj;
 
     const string clone = "(Clone)";
     [SerializeField]
@@ -60,25 +56,31 @@ public class Room6_WeightGimic : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (LeftWeight <= Sum)
+        //レフトの重さが完全一致なら
+        if (LeftWeight == Sum)
         {
-          
-
+            lightobj[0].color = Color.green;
+            lightobj[1].color = Color.green;
+            lightobj[2].color = Color.green;
         }
-        else if (lowerWeght <= Sum && Sum <= upperWeight)
+        //ライトの重さが完全一致なら
+       else  if (RightWeight == Sum)
         {
-         
-
-        }
-        else if (RightWeight <= Sum)
-        {
-
+            lightobj[3].color = Color.blue;
+            lightobj[4].color = Color.green;
+            lightobj[5].color = Color.red;
 
         }
         else
         {
+            for(int i=0;i<5;i++)
+            {
+                lightobj[i].color = Color.white;
+            }
 
         }
+
+
         Sum = 0;
         for (int i = 0; i < ListObj.Count; i++)
         {
@@ -88,14 +90,16 @@ public class Room6_WeightGimic : MonoBehaviour {
             {
                 Sum += ReturnSum(obj);
             }
+            else
+            {
+                ListObj.RemoveAt(i);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         ListObj.Add(other.gameObject);
         Sum += ReturnSum(other.gameObject);
-
-
     }
     int ReturnSum(GameObject other)
     {

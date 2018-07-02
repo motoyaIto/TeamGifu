@@ -60,10 +60,28 @@ public class Room6 : MonoBehaviour {
     private bool WarpFlag1 = false;
     private bool WarpFlag2 = false;
 
+    private bool inRoom6;
+    public bool ProinRoom6
+    {
+        get
+        {
+            return inRoom6;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="Player")
+        {
+            inRoom6 = true;
+            Debug.Log("Playerがはいった");
+        }
+    }
+
 
     // Use this for initialization
     void Start()
     {
+        inRoom6 = false;
 
     }
 

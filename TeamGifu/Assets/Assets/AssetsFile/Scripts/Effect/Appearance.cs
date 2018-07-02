@@ -10,6 +10,8 @@ public class Appearance : MonoBehaviour {
     private Material oldMaterial;
 
     public  float StartHeight = 0;
+    public float maxHeight = 1;
+
     public float StartHeightState
     {
         set
@@ -25,7 +27,6 @@ public class Appearance : MonoBehaviour {
         }
     }
 
-    public float maxHeight = 1;
 
 
 
@@ -35,9 +36,7 @@ public class Appearance : MonoBehaviour {
     private void Awake()
     {
         matrial = GetComponent<Renderer>();
-        StartF = true;
-        matrial.sharedMaterial.SetFloat("_Height", StartHeight);
-        t = StartHeight;//
+
         oldMaterial = gameObject.GetComponent<Renderer>().material;
         if(gameObject.name== "Sphere(Clone)")
         {
@@ -48,7 +47,9 @@ public class Appearance : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        //見えない状態に初期化
+        StartF = true;
+        matrial.sharedMaterial.SetFloat("_Height", StartHeight);
+        t = StartHeight;//
 
     }
 
@@ -57,7 +58,7 @@ public class Appearance : MonoBehaviour {
         
         if (StartF==true)
         {
-            t += 0.05f;
+            t += 0.1f;
             matrial.sharedMaterial.SetFloat("_Height", t);
             
         }

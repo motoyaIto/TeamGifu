@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class ray : MonoBehaviour {
     #region Variable
     public static bool flag;
+    [SerializeField,Header("Room6のオブジェクト")]
+    private Room6 _room6;
+    Appearance _appearance;
     //エフェクト
     public PrometheanDissolveEffect DissolveSource;
 
@@ -81,13 +84,14 @@ public class ray : MonoBehaviour {
 
        ItemListScript = ItemList.GetComponent<ItemListController>();
         CursorImage.enabled = false;
-
+        _appearance = new Appearance();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Q))
+
+        if (Input.GetKey(KeyCode.Q))
         {
             ClickKey_Q = true;
         }
@@ -211,14 +215,22 @@ public class ray : MonoBehaviour {
         
         if (ClickKey_Q && ClickMouse_LeftButton && PrefabItem)
         {
+
             //アイテムの生成
             GameObject obj = Instantiate(PrefabItem, new Vector3(hitPosition.x, hitPosition.y , hitPosition.z), hit.transform.rotation);
+            if (_room6.ProinRoom6)
+            {
+                obj.GetComponent<Appearance>().StartHeightState = 29.0f;
+                obj.GetComponent<Appearance>().MaxHeightState = 32.0f;
+            }
+
             obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
 
             obj.name = PrefabItem.name;
 
             SoundManager.PlaySe("pushItem", 1);
 
+                
         }
     }
     void LockGetItem()

@@ -46,6 +46,7 @@ public class PrometheanDissolveEffect : MonoBehaviour
         if (radius > maxRadius)
         {
             Destroy(target);
+            target = null;
         }
     }
 

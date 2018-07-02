@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
+
 public class WeightGimmick : MonoBehaviour {
-    private int Sum = 0;
+    private int Sum = 0;//合計値
     private int offset = 10;
     public GameObject[] obj = new GameObject[4];
     [SerializeField,Header("Weight1の重さ")]
@@ -29,7 +31,7 @@ public class WeightGimmick : MonoBehaviour {
     [SerializeField]
     string[] objname;
     [SerializeField]
-    List<GameObject> ListObj = new List<GameObject>();
+    List<GameObject> ListObj = new List<GameObject>();//重さオブジェクトを保存するリスト
     enum WEIGHT
     {
         FIVE,
@@ -57,8 +59,31 @@ public class WeightGimmick : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-     if (lowerWeght <= Sum && Sum <= upperWeight)
+    void Update ()
+    {
+        //重さの再計算
+        Sum = 0;
+        for (int i = 0; i < ListObj.Count; i++)
+        {
+            GameObject obj = ListObj[i];
+
+            if (obj != null)
+            {
+                Sum += ReturnSum(obj);
+            }
+            else
+            {
+                ListObj.RemoveAt(i);
+            }
+
+        }
+
+        //ListObj.Remove(obj);
+        //ListObj.RemoveAll( c => c ==null ); // ラムダ式・デリゲート
+        //ListObj = ListObj.Where(c => c == null).ToList(); // Where  - 指定された条件を満たすかどうか
+
+        //真ん中の扉の条件
+        if (lowerWeght <= Sum && Sum <= upperWeight)
         {
             front.LockFlagState = true ;
 
@@ -67,30 +92,8 @@ public class WeightGimmick : MonoBehaviour {
         {
             front.LockFlagState = false;
         }
-     
-     if (RightWeight <= Sum )
-        {
-            return;
-        }
-        else
-        {
-            front.LockFlagState = false;
-        }
-        Sum = 0;
-        for(int i=0;i< ListObj.Count;i++)
-        {
-            GameObject obj=ListObj[i];
-
-            if(obj!=null)
-            {
-                Sum += ReturnSum(obj);
-            }
-            else
-            {
-                ListObj.RemoveAt(i);
-            }
-        }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         ListObj.Add(other.gameObject);
@@ -120,14 +123,6 @@ public class WeightGimmick : MonoBehaviour {
             returnnum += G_Obj4;
         }
         return returnnum;
-    }
-
-    
-    bool desFalg = false;
-    public void Destroy()
-    {
-        desFalg = true;
-
     }
    
 }
